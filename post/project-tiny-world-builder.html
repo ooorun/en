@@ -1,0 +1,804 @@
+<!doctype html>
+
+<html lang="en" data-fancybox-enabled="1">
+<head>
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FM1N1NHQ90"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FM1N1NHQ90');
+</script>
+
+
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7f3e9">
+
+<title>Open Source Treasure: Tiny World Builder - Create Mini Worlds in Your Browser | O&#39;s World</title>
+<meta name="description" content="Project IntroductionIn this era where everything can run on the Web, we have seen countless stunning browser-based applications. But if you are a developer who is passionate about...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Open Source Treasure: Tiny World Builder - Create Mini Worlds in Your Browser | O&#39;s World">
+<meta property="og:url" content="https://ooo.run/en/post/project-tiny-world-builder.html">
+<meta property="og:site_name" content="O&#39;s World">
+<meta property="og:description" content="Project IntroductionIn this era where everything can run on the Web, we have seen countless stunning browser-based applications. But if you are a developer who is passionate about...">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img.nep.me/ooo/cover-tinyworldbuilder.webp">
+<meta property="article:published_time" content="2026-06-16T06:36:23.000Z">
+<meta property="article:modified_time" content="2026-06-24T12:48:41.704Z">
+<meta property="article:author" content="Mr. O">
+<meta property="article:tag" content="GitHub">
+<meta property="article:tag" content="Open Source">
+<meta property="article:tag" content="Three.js">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.nep.me/ooo/cover-tinyworldbuilder.webp">
+<link rel="canonical" href="https://ooo.run/en/post/project-tiny-world-builder.html">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Open Source Treasure: Tiny World Builder - Create Mini Worlds in Your Browser","name":"Open Source Treasure: Tiny World Builder - Create Mini Worlds in Your Browser | O's World","description":"Project IntroductionIn this era where everything can run on the Web, we have seen countless stunning browser-based applications. But if you are a developer who is passionate about...","url":"https://ooo.run/en/post/project-tiny-world-builder.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"O's World","url":"https://ooo.run/en/"},"image":["https://img.nep.me/ooo/cover-tinyworldbuilder.webp"],"mainEntityOfPage":"https://ooo.run/en/post/project-tiny-world-builder.html","datePublished":"2026-06-16T06:36:23.000Z","dateModified":"2026-06-24T12:48:41.704Z","author":{"@type":"Person","name":"Mr. O"},"publisher":{"@type":"Organization","name":"O's World"},"keywords":"GitHub, Three.js, Open Source"}</script>
+
+<script>
+  (function () {
+    var accents = { orange: 1, purple: 1, sakura: 1, blue: 1, pink: 1, green: 1, black: 1 };
+    var match = document.cookie.match(/(?:^|;\s*)flatpaper-accent=([^;]+)/);
+    var accent = 'blue';
+    if (match) {
+      try { accent = decodeURIComponent(match[1]); } catch (e) {}
+    }
+    if (!accents[accent]) accent = 'blue';
+    document.documentElement.setAttribute('data-accent', accent);
+    try {
+      if (localStorage.getItem('flatpaper-mode') === 'dark') {
+        document.documentElement.classList.add('dark-mode');
+      }
+    } catch (e) {}
+  })();
+</script>
+
+<link rel="stylesheet" href="/en/css/style.css">
+
+
+
+
+
+
+  
+<script defer src="https://u.nep.me/script.js" data-website-id="768b68c3-d4ed-429e-aa11-f5099ea5adbf" data-domains="ooo.run"></script>
+
+
+  
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8052638941019443" crossorigin="anonymous"></script>
+
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/artalk@2.9.1/dist/Artalk.css">
+
+<script defer src="https://cdn.jsdelivr.net/npm/artalk@2.9.1/dist/Artalk.js"></script>
+
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
+<script defer src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+
+
+  
+<meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/en/atom.xml" title="O's World" type="application/atom+xml">
+</head>
+
+<body
+  class="is-post tag-style-tape"
+  data-default-accent="blue"
+  data-code-theme="simple"
+  data-note-style="sticky"
+  data-note-icons="on"
+  data-button-style="tape"
+  data-strong-accent="on"
+>
+  <div class="page-grain"></div>
+  <svg width="0" height="0" style="position:absolute;z-index:-1;" aria-hidden="true">
+    <defs>
+      <filter id="paper-edge" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.04" result="noise" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </defs>
+  </svg>
+  
+  <header class="site-header">
+  
+  <button class="icon-button js-sidebar-toggle sidebar-toggle" type="button" aria-label="Open sidebar" aria-controls="paper-sidebar-drawer" aria-expanded="false">
+    
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu" aria-hidden="true"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg>
+
+  </button>
+
+  <div class="brand">
+    <div class="brand-mark-wrapper">
+      
+        <button class="brand-mark" type="button" aria-label="Open site navigation" aria-haspopup="true" aria-expanded="false" aria-controls="brand-nav-menu">
+          
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-grid" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1" /><rect width="7" height="7" x="14" y="3" rx="1" /><rect width="7" height="7" x="14" y="14" rx="1" /><rect width="7" height="7" x="3" y="14" rx="1" /></svg>
+
+        </button>
+        <div class="brand-nav-menu" id="brand-nav-menu" role="menu">
+          
+            <div class="brand-nav-group">
+              <div class="brand-nav-title">Blog</div>
+              
+                <a role="menuitem" href="https://ooo.run/" target="_blank" rel="noopener noreferrer">
+                  
+                    <img src="https://ooo.run/favicon.ico" alt="" class="nav-img-icon" aria-hidden="true" />
+                  
+                  <span>O‘s World</span>
+                </a>
+              
+            </div>
+          
+            <div class="brand-nav-group">
+              <div class="brand-nav-title">Project</div>
+              
+                <a role="menuitem" href="https://tools.ooo.run" target="_blank" rel="noopener noreferrer">
+                  
+                    <img src="https://tools.ooo.run/favicon.png" alt="" class="nav-img-icon" aria-hidden="true" />
+                  
+                  <span>Simple Tools</span>
+                </a>
+              
+                <a role="menuitem" href="https://ooo.run/games" target="_blank" rel="noopener noreferrer">
+                  
+                    <img src="https://img.nep.me/ooo/game.webp" alt="" class="nav-img-icon" aria-hidden="true" />
+                  
+                  <span>Simple Games</span>
+                </a>
+              
+            </div>
+          
+        </div>
+      
+    </div>
+    <a class="brand-text" href="/en/">O&#39;s World</a>
+  </div>
+
+  <nav class="site-nav" aria-label="Primary navigation">
+    
+      
+        <a class="site-nav-link " href="/en/">
+          
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home" aria-hidden="true"><path d="m3 10 9-7 9 7"/><path d="M5 10v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V10"/><path d="M9 21v-6h6v6"/></svg>
+
+          <span>Home</span>
+        </a>
+      
+    
+      
+        <a class="site-nav-link " href="/en/links/">
+          
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+
+          <span>Links</span>
+        </a>
+      
+    
+      
+        <div class="site-nav-item has-children">
+          <button class="site-nav-link site-nav-parent" type="button" aria-haspopup="true" aria-expanded="false">
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+
+            <span>Posts</span>
+          </button>
+          <div class="site-nav-menu" role="menu">
+            
+              <a role="menuitem" class="" href="/en/archives/">
+                
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-archive" aria-hidden="true"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg>
+
+                <span>Archives</span>
+              </a>
+            
+              <a role="menuitem" class="" href="/en/categories/">
+                
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+
+                <span>Categories</span>
+              </a>
+            
+              <a role="menuitem" class="" href="/en/tags/">
+                
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tag" aria-hidden="true"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+
+                <span>Tags</span>
+              </a>
+            
+          </div>
+        </div>
+      
+    
+  </nav>
+
+  <div class="header-tools">
+    <button class="icon-button js-search-open" type="button" aria-label="Search posts">
+      
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+
+    </button>
+    <div class="accent-picker">
+      <button class="icon-button accent-toggle" type="button" aria-label="Choose theme color" title="Choose theme color" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu">
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-palette" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 5.9 2 10.8c0 3.3 2.7 6 6 6h1.2c.8 0 1.4.6 1.4 1.4 0 .4-.2.8-.2 1.2 0 .8.6 1.6 1.6 1.6 5.5 0 10-4.2 10-9.4C22 6.3 17.5 2 12 2Z"/></svg>
+
+      </button>
+      <div class="accent-menu" id="accent-menu" role="menu" aria-label="Theme color">
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="Orange" aria-checked="false" data-accent-option="orange">
+          <span class="accent-swatch accent-swatch--orange" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="Purple" aria-checked="false" data-accent-option="purple">
+          <span class="accent-swatch accent-swatch--purple" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="Sakura pink" aria-checked="false" data-accent-option="sakura">
+          <span class="accent-swatch accent-swatch--sakura" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="Blue" aria-checked="false" data-accent-option="blue">
+          <span class="accent-swatch accent-swatch--blue" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="Pink" aria-checked="false" data-accent-option="pink">
+          <span class="accent-swatch accent-swatch--pink" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="Green" aria-checked="false" data-accent-option="green">
+          <span class="accent-swatch accent-swatch--green" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="Black" aria-checked="false" data-accent-option="black">
+          <span class="accent-swatch accent-swatch--black" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+    <button class="theme-toggle" type="button" aria-label="Toggle color mode">
+      <span class="theme-icon theme-icon--sun">
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+</span>
+      <span class="theme-icon theme-icon--moon">
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+</span>
+    </button>
+  </div>
+</header>
+
+
+  
+  <main class="paper-shell paper-shell--article">
+    
+
+<aside id="paper-sidebar-drawer" class="paper-sidebar paper-sidebar--right" aria-label="Sidebar">
+  <div class="drawer-toolbar" aria-label="Sidebar tools">
+    <div class="drawer-accent-options" role="group" aria-label="Theme color">
+      <button type="button" class="accent-option" aria-label="Orange" aria-pressed="false" data-accent-option="orange">
+        <span class="accent-swatch accent-swatch--orange" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="accent-option" aria-label="Purple" aria-pressed="false" data-accent-option="purple">
+        <span class="accent-swatch accent-swatch--purple" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="accent-option" aria-label="Sakura pink" aria-pressed="false" data-accent-option="sakura">
+        <span class="accent-swatch accent-swatch--sakura" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="accent-option" aria-label="Blue" aria-pressed="false" data-accent-option="blue">
+        <span class="accent-swatch accent-swatch--blue" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="accent-option" aria-label="Pink" aria-pressed="false" data-accent-option="pink">
+        <span class="accent-swatch accent-swatch--pink" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="accent-option" aria-label="Green" aria-pressed="false" data-accent-option="green">
+        <span class="accent-swatch accent-swatch--green" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="accent-option" aria-label="Black" aria-pressed="false" data-accent-option="black">
+        <span class="accent-swatch accent-swatch--black" aria-hidden="true"></span>
+      </button>
+    </div>
+    <button class="icon-button drawer-close js-sidebar-close" type="button" aria-label="Close sidebar">
+      
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+
+    </button>
+  </div>
+
+  <section class="side-card nav-card">
+    <nav class="site-nav-drawer" aria-label="Mobile navigation">
+      
+        
+          <a class="" href="/en/">
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home" aria-hidden="true"><path d="m3 10 9-7 9 7"/><path d="M5 10v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V10"/><path d="M9 21v-6h6v6"/></svg>
+
+            <span>Home</span>
+          </a>
+        
+      
+        
+          <a class="" href="/en/links/">
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+
+            <span>Links</span>
+          </a>
+        
+      
+        
+          <div class="drawer-nav-group">
+            <button class="drawer-nav-parent" type="button" aria-expanded="false">
+              
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+
+              <span>Posts</span>
+            </button>
+            <div class="drawer-nav-children">
+              
+                <a class="" href="/en/archives/">
+                  
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-archive" aria-hidden="true"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg>
+
+                  <span>Archives</span>
+                </a>
+              
+                <a class="" href="/en/categories/">
+                  
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+
+                  <span>Categories</span>
+                </a>
+              
+                <a class="" href="/en/tags/">
+                  
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tag" aria-hidden="true"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+
+                  <span>Tags</span>
+                </a>
+              
+            </div>
+          </div>
+        
+      
+    </nav>
+  </section>
+
+  <section class="side-card profile-card">
+    
+      <div class="avatar" aria-hidden="true">
+        <span></span><i></i><em></em><b></b>
+      </div>
+    
+    <h3>Mr. O</h3>
+    <p class="profile-role">Independent Developer</p>
+    <p>Explore the internet world, share practical tutorials and exciting content, discover more interesting things.</p>
+    
+      <div class="site-info" aria-label="Site information">
+        
+          
+            <a class="site-info__item" href="/en/archives/">
+              <strong>64</strong>
+              <span>Posts</span>
+            </a>
+          
+        
+          
+            <a class="site-info__item" href="/en/categories/">
+              <strong>8</strong>
+              <span>Categories</span>
+            </a>
+          
+        
+          
+            <a class="site-info__item" href="/en/tags/">
+              <strong>98</strong>
+              <span>Tags</span>
+            </a>
+          
+        
+      </div>
+    
+    <div class="socials">
+      
+        <a href="https://t.me/fortewave" target="_blank" rel="noopener" aria-label="Telegram">
+          
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" class="lucide lucide-telegram" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+
+          
+        </a>
+      
+      
+        <a href="/en/atom.xml" aria-label="RSS feed" title="RSS">
+          
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rss" aria-hidden="true"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+
+        </a>
+      
+    </div>
+  </section>
+
+  
+    <section class="side-card brand-link-card" aria-label="Site links">
+      
+        <div class="brand-link-group">
+          <div class="brand-link-title">Blog</div>
+          <div class="brand-link-list">
+            
+              <a href="https://ooo.run/" target="_blank" rel="noopener noreferrer">
+                
+                  <img src="https://ooo.run/favicon.ico" alt="" class="nav-img-icon" aria-hidden="true" />
+                
+                <span>O‘s World</span>
+              </a>
+            
+          </div>
+        </div>
+      
+        <div class="brand-link-group">
+          <div class="brand-link-title">Project</div>
+          <div class="brand-link-list">
+            
+              <a href="https://tools.ooo.run" target="_blank" rel="noopener noreferrer">
+                
+                  <img src="https://tools.ooo.run/favicon.png" alt="" class="nav-img-icon" aria-hidden="true" />
+                
+                <span>Simple Tools</span>
+              </a>
+            
+              <a href="https://ooo.run/games" target="_blank" rel="noopener noreferrer">
+                
+                  <img src="https://img.nep.me/ooo/game.webp" alt="" class="nav-img-icon" aria-hidden="true" />
+                
+                <span>Simple Games</span>
+              </a>
+            
+          </div>
+        </div>
+      
+    </section>
+  
+
+  
+    <div class="post-sticky-stack">
+      <section class="side-card toc-card">
+        <header class="toc-card__head">
+          <h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-table-of-contents" aria-hidden="true"><path d="M16 12H3"/><path d="M16 18H3"/><path d="M16 6H3"/><path d="M21 12h.01"/><path d="M21 18h.01"/><path d="M21 6h.01"/></svg>
+Table of contents</h2>
+          <button type="button" class="toc-toggle-all" data-action="toggle-toc" aria-pressed="false" aria-label="Expand all headings" title="Expand all headings">
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+
+          </button>
+        </header>
+        <div class="toc-content">
+          
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Project-Introduction"><span class="toc-text">Project Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-this-project"><span class="toc-text">What is this project?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Core-Highlights-More-Than-Just-%E2%80%9CStacking-Blocks%E2%80%9D"><span class="toc-text">Core Highlights: More Than Just “Stacking Blocks”</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Smart-Adjacent-Logic"><span class="toc-text">1. Smart Adjacent Logic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Lively-Vehicle-AI-Dynamic-Ecosystem"><span class="toc-text">2. Lively Vehicle AI &amp; Dynamic Ecosystem</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Powerful-Terrain-Sculpting"><span class="toc-text">3. Powerful Terrain Sculpting</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Day-Night-Cycle-Dynamic-Weather-System"><span class="toc-text">4. Day-Night Cycle &amp; Dynamic Weather System</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Geek-Time-Hardcore-Underlying-Tech"><span class="toc-text">Geek Time: Hardcore Underlying Tech</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Who-is-this-tool-for"><span class="toc-text">Who is this tool for?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-text">Conclusion</span></a></li></ol>
+          
+        </div>
+      </section>
+      
+
+  <section class="side-card recent-card latest-posts-card">
+    <h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-history" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>
+Latest posts</h2>
+    <ul class="recent-list">
+      
+        <li>
+          <a class="recent-item" href="/en/post/hello-world.html">
+            <strong>Hello World</strong>
+            <em>2026-06-24</em>
+          </a>
+        </li>
+      
+        <li>
+          <a class="recent-item" href="/en/post/docker-run-fizzy-kanban.html">
+            <strong>Deploying Fizzy with Docker: A Lightweight, Beautiful, Self-Hostable Kanban Tool</strong>
+            <em>2026-06-23</em>
+          </a>
+        </li>
+      
+        <li>
+          <a class="recent-item" href="/en/post/codex-is-buring-your-ssd.html">
+            <strong>Does Codex Logging Shorten SSD Lifespan? OpenAI Has Fixed It</strong>
+            <em>2026-06-23</em>
+          </a>
+        </li>
+      
+        <li>
+          <a class="recent-item" href="/en/post/how-much-can-you-save-with-subscription-vs-api.html">
+            <strong>Maximizing AI Subscriptions: How Much Do Claude Pro and ChatGPT Plus Really Save?</strong>
+            <em>2026-06-21</em>
+          </a>
+        </li>
+      
+        <li>
+          <a class="recent-item" href="/en/post/darkbloom-nodes-macbook-ai-mining-earnings.html">
+            <strong>A New Era of Mining: See How Much Your Mac Can Earn per Month</strong>
+            <em>2026-06-19</em>
+          </a>
+        </li>
+      
+    </ul>
+  </section>
+
+
+    </div>
+  
+
+  
+
+</aside>
+
+    <section class="paper-main">
+      
+
+<div class="article-tape-wrap">
+<span class="tape tape--top-right" aria-hidden="true"></span>
+<article class="article-paper">
+  <header class="article-header">
+    
+      <a class="label-pill" href="/en/categories/Open-Source/">
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+
+        Open Source
+      </a>
+    
+    <h1>Open Source Treasure: Tiny World Builder - Create Mini Worlds in Your Browser</h1>
+    <div class="meta-line meta-line--article">
+      <span class="meta-date">
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+2026-06-16</span>
+      
+        <span class="meta-tags">
+          
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tag" aria-hidden="true"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+
+          <a class="meta-tag-link" href="/en/tags/GitHub/">#GitHub</a><a class="meta-tag-link" href="/en/tags/Three-js/">#Three.js</a><a class="meta-tag-link" href="/en/tags/Open-Source/">#Open Source</a>
+        </span>
+      
+    </div>
+  </header>
+
+  
+
+
+  <div class="article-content">
+    <h2 id="Project-Introduction"><a href="#Project-Introduction" class="headerlink" title="Project Introduction"></a>Project Introduction</h2><p>In this era where everything can run on the Web, we have seen countless stunning browser-based applications. But if you are a developer who is passionate about <strong>world building</strong>, loves <strong>sandbox games</strong>, or is excited by modern frontend and 3D rendering technologies, today’s open-source project will definitely catch your eye: <strong>Tiny World Builder</strong>.</p>
+<ul>
+<li>Live Demo: <a target="_blank" rel="noopener" href="https://tinyworld.build/tiny-world-builder">https://tinyworld.build/tiny-world-builder</a></li>
+<li>Repository: <a target="_blank" rel="noopener" href="https://github.com/jasonkneen/tiny-world-builder">https://github.com/jasonkneen/tiny-world-builder</a></li>
+</ul>
+<p>Preview:</p>
+<p><img src="https://img.nep.me/ooo/project-tinyworldbuilder.webp" alt="project-tinyworldbuilder.webp"></p>
+<h2 id="What-is-this-project"><a href="#What-is-this-project" class="headerlink" title="What is this project?"></a>What is this project?</h2><p><strong>Tiny World Builder</strong> is a browser-based 3D mini-world builder created by developer Jason Kneen. Open the webpage, and you will get an 8x8 grid plot floating in the void. With simple clicks and drag shortcuts, you can place grasslands, rivers, snowfields, or build staggered houses, farmlands, and bridges to your heart’s content.</p>
+<p>It features a voxel style and fresh isometric view similar to <em>Minecraft</em>, but focuses more on building miniature landscapes from a macro “god-eye view.” No need to download any clients—just open your browser and start creating immediately.</p>
+<h2 id="Core-Highlights-More-Than-Just-“Stacking-Blocks”"><a href="#Core-Highlights-More-Than-Just-“Stacking-Blocks”" class="headerlink" title="Core Highlights: More Than Just “Stacking Blocks”"></a>Core Highlights: More Than Just “Stacking Blocks”</h2><h3 id="1-Smart-Adjacent-Logic"><a href="#1-Smart-Adjacent-Logic" class="headerlink" title="1. Smart Adjacent Logic"></a>1. Smart Adjacent Logic</h3><p>This is definitely one of the coolest features of the project. When building, you don’t need to manually select models for “house corners” or “T-intersections.” The underlying rendering logic automatically calculates layout based on the adjacent blocks you place:</p>
+<ul>
+<li><strong>Roads and Rivers</strong>: Water surfaces automatically generate riverbanks, and roads automatically connect to form complex road networks.</li>
+<li><strong>Building Clusters</strong>: When you place houses in adjacent grids, they automatically merge into L-shaped, T-shaped, or large square connected structures.</li>
+<li><strong>Ecological Integration</strong>: Bridges automatically align to the direction of the water, and crops automatically convert the underlying ground blocks into soil. This “what you see is what you get” smooth feeling greatly enhances the building experience.</li>
+</ul>
+<h3 id="2-Lively-Vehicle-AI-Dynamic-Ecosystem"><a href="#2-Lively-Vehicle-AI-Dynamic-Ecosystem" class="headerlink" title="2. Lively Vehicle AI &amp; Dynamic Ecosystem"></a>2. Lively Vehicle AI &amp; Dynamic Ecosystem</h3><p>This world is not static! The system has a complete built-in runtime vehicle AI.</p>
+<p>When you place pathfinding robots or vehicles on the roads, they automatically navigate through the road network to search for targets. What’s even more interesting is its dynamic obstacle avoidance and re-routing mechanism: if you suddenly place a large rock or plant a tree in the middle of the road, the vehicle will determine that the path ahead is blocked, attempt to plan a new route, or patiently line up and wait if it is impassable. Combined with swaying trees and dynamic cloud shadows, the entire miniature world is full of life.</p>
+<h3 id="3-Powerful-Terrain-Sculpting"><a href="#3-Powerful-Terrain-Sculpting" class="headerlink" title="3. Powerful Terrain Sculpting"></a>3. Powerful Terrain Sculpting</h3><p>In addition to simply laying down blocks, the project also offers an advanced “grid terrain sculpting” mode. Once enabled, you can use your mouse like stretching modeling clay to raise or lower specific areas of the terrain. Combined with smooth tension decay, this lets you easily shape cliffs, basins, or rolling mountains.</p>
+<h3 id="4-Day-Night-Cycle-Dynamic-Weather-System"><a href="#4-Day-Night-Cycle-Dynamic-Weather-System" class="headerlink" title="4. Day-Night Cycle &amp; Dynamic Weather System"></a>4. Day-Night Cycle &amp; Dynamic Weather System</h3><p>How can a living world be complete without changing weather and shifting seasons? Tiny World Builder doesn’t stop at just displaying “static models”; it provides you with an extremely detailed environmental control panel.</p>
+<img src="https://img.nep.me/ooo/project-twb-01.webp?version=1" style="width:50%;" alt="project-twb-01.jpg" />
+
+<p>As shown in the screenshot, clicking the “sun” icon on the left calls up the powerful Time &amp; Weather settings menu, turning you into a creator who controls nature:</p>
+<ul>
+<li><strong>Precise Day-Night Cycle</strong>: Through the “Time of day” slider, you can freely change the world’s clock (e.g., 10:55 in the image). As you drag the slider, you can visually watch the shifting of light and shadow, the changing angle of the sun, and the lighting up of night lamps, instantly elevating the atmosphere.</li>
+<li><strong>One-Click Seasonal Change</strong>: Provides tabs for four seasons: Spring, Summer, Autumn, and Winter. With a single click, your world seamlessly transitions between vibrant spring, lush summer, golden autumn leaves, and white winter snow.</li>
+<li><strong>Diverse Weather Presets</strong>: Whether you want a sunny day, cloudy skies perfect for a stroll, drizzling rain, lightning-filled thunderstorms, or beautiful snowy scenes, they are all at your disposal.</li>
+<li><strong>Fine-Tuning of Effects</strong>: The system does not just apply a filter; it gives you the power to control particle physics properties:<ul>
+<li>Weather Intensity: Sliding this (e.g., 25% in the image) directly controls the density of falling particles in the sky and the intensity of the storm.</li>
+<li>Splashes &#x2F; Accumulation: Sliding this (e.g., 150% in the image) controls the splashback of raindrops hitting the ground, the accumulation rate of surface water, and even the snow thickness on roofs and trees in winter!</li>
+</ul>
+</li>
+</ul>
+<p>In short, whether you want to build a cozy, quiet afternoon town or a cyber outpost in a heavy downpour, this dynamic weather system perfectly meets your visual needs.</p>
+<h2 id="Geek-Time-Hardcore-Underlying-Tech"><a href="#Geek-Time-Hardcore-Underlying-Tech" class="headerlink" title="Geek Time: Hardcore Underlying Tech"></a>Geek Time: Hardcore Underlying Tech</h2><p>For full-stack developers, the source code of this project is a goldmine:</p>
+<ul>
+<li><strong>Ultimate Purity &amp; Performance</strong>: The core logic is built with nearly 30,000 lines of Vanilla JS (native JavaScript), and the rendering layer is powered by <strong>Three.js</strong>. It adopts object animation queues and render-on-demand mechanisms, ensuring a highly fluid frame rate even in large, complex urban road networks.</li>
+<li><strong>Rich Feature Stack</strong>: Supports local browser storage, and import&#x2F;export of standard JSON Schema data. What’s even more exciting is its integration of PartyKit for real-time multi-user collaborative building, along with Netlify Identity for authentication.</li>
+</ul>
+<h2 id="Who-is-this-tool-for"><a href="#Who-is-this-tool-for" class="headerlink" title="Who is this tool for?"></a>Who is this tool for?</h2><ul>
+<li><strong>Game Designers &amp; World-Builders</strong>: Whether you are brainstorming a fantasy cultivation world or a cyberpunk mech outpost, it helps you rapidly build terrain prototypes and level blockouts, instantly visualizing abstract text requirements.</li>
+<li><strong>WebGL &#x2F; Frontend Learners</strong>: Curious about how to write a 3D rendering engine and dynamic pathfinding system from scratch in a browser? Cloning its GitHub repository and reading the pure code architecture is the best way to advance.</li>
+<li><strong>Stress-Relief &amp; Idle-Gaming Enthusiasts</strong>: Simply want to relax your brain during work breaks? Listening to ambient sounds, molding a small island, and watching little cars drive around is the ultimate digital Zen garden.</li>
+</ul>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>Tiny World Builder perfectly exemplifies the concept of “small but beautiful” on the Web. It is not only an excellent open-source project showing off frontend 3D capabilities, but also a miniature sandbox for creativity.</p>
+<p>Go ahead and click the <a target="_blank" rel="noopener" href="https://tinyworld.build/tiny-world-builder">Official Website Link</a> to sculpt your own mini-archipelago! If you are a developer, don’t forget to head over to <a target="_blank" rel="noopener" href="https://github.com/jasonkneen/tiny-world-builder">GitHub</a> and give the author a 🌟 Star to support this amazing personal open-source project.</p>
+
+  </div>
+
+  <footer class="article-reactions">
+    <div class="reaction-group">
+      <button type="button" class="reaction reaction--comment" aria-label="Jump to comments" data-action="scroll-to-comments">
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+
+      </button>
+      <span class="reaction-label">Comments</span>
+      
+    </div>
+    <div class="reaction-group reaction-group--right">
+      
+      <button type="button" class="reaction reaction--share" aria-label="Share" data-action="share">
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-share-2" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
+
+      </button>
+      <span class="reaction-label">Share</span>
+    </div>
+  </footer>
+
+  
+
+
+  <nav class="article-actions">
+    
+      <a class="article-action article-action--prev" href="/en/post/darkbloom-nodes-macbook-ai-mining-earnings.html">
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+
+        <span class="action-label">Previous</span>
+        <span class="action-title">A New Era of Mining: See How Much Your Mac Can Earn per Month</span>
+      </a>
+    
+    
+      <a class="article-action article-action--next" href="/en/post/us-government-ban-claude-fable-5.html">
+        <span class="action-label">Next</span>
+        <span class="action-title">Breaking: US Government Issues Ban on Claude Fable 5</span>
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+
+      </a>
+    
+  </nav>
+</article>
+</div>
+
+<button type="button" class="back-to-top" data-action="scroll-to-top" aria-label="Back to top" hidden>
+  
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
+
+</button>
+
+
+  <section class="related-paper">
+    <header class="related-paper__head">
+      <h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+Related posts</h2>
+      <a class="related-paper__more" href="/en/archives/">
+        <span>View more</span>
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+
+      </a>
+    </header>
+    <div class="related-paper__grid">
+      
+        <a class="related-card" href="/en/post/news-openai-releae-gpt-oss-model.html">
+          <span class="related-card__thumb">
+            
+<div class="paper-thumb paper-thumb-0 paper-thumb--cover">
+  
+    <img class="paper-thumb__img" src="https://img.nep.me/i/2025/08/06/cover-openai-release-gpt-oss.webp" alt="OpenAI Releases Two High-Performance Open Source AI Models: GPT-OSS-20B and GPT-OSS-120B" loading="lazy" referrerpolicy="no-referrer">
+  
+</div>
+
+          </span>
+          <span class="related-card__body">
+            <strong class="related-card__title">OpenAI Releases Two High-Performance Open Source AI Models: GPT-OSS-20B and GPT-OSS-120B</strong>
+            <em class="related-card__date">2025-08-06</em>
+          </span>
+        </a>
+      
+        <a class="related-card" href="/en/post/how-to-add-ssh-key-to-github.html">
+          <span class="related-card__thumb">
+            
+<div class="paper-thumb paper-thumb-1 paper-thumb--cover">
+  
+    <img class="paper-thumb__img" src="https://img.nep.me/i/2025/08/04/cover-connect-github-with-sshkey.webp" alt="How to Connect to GitHub Using SSH Key" loading="lazy" referrerpolicy="no-referrer">
+  
+</div>
+
+          </span>
+          <span class="related-card__body">
+            <strong class="related-card__title">How to Connect to GitHub Using SSH Key</strong>
+            <em class="related-card__date">2024-12-13</em>
+          </span>
+        </a>
+      
+        <a class="related-card" href="/en/post/start-blog-with-hexo-and-github.html">
+          <span class="related-card__thumb">
+            
+<div class="paper-thumb paper-thumb-2 paper-thumb--cover">
+  
+    <img class="paper-thumb__img" src="https://img.nep.me/i/2025/08/04/cover-build-hexo-blog.webp" alt="Building a Personal Blog with Hexo and GitHub" loading="lazy" referrerpolicy="no-referrer">
+  
+</div>
+
+          </span>
+          <span class="related-card__body">
+            <strong class="related-card__title">Building a Personal Blog with Hexo and GitHub</strong>
+            <em class="related-card__date">2024-12-11</em>
+          </span>
+        </a>
+      
+    </div>
+  </section>
+
+
+      
+
+<section class="comments-section" aria-label="Comments">
+  <header class="comments-section__head">
+    <h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+Comments</h2>
+  </header>
+  <div id="artalk-comments"></div>
+</section>
+<script>
+window.addEventListener('load', function () {
+  if (typeof Artalk === 'undefined' || typeof Artalk.init !== 'function') return;
+  Artalk.init({
+    el: '#artalk-comments',
+    pageKey: "https://ooo.run/en/post/project-tiny-world-builder.html",
+    pageTitle: "Open Source Treasure: Tiny World Builder - Create Mini Worlds in Your Browser",
+    server: "https://artalk.ooo.run",
+    site: "Mr. O's Blog"
+  });
+});
+</script>
+
+
+    </section>
+    
+  </main>
+
+  <div class="sidebar-backdrop js-sidebar-close" aria-hidden="true"></div>
+
+  
+<footer class="site-footer">
+  <span class="site-footer__left">© 2026 By Mr. O · Theme FramedInfra Based on <a href="https://github.com/Homulilly/hexo-theme-flatpaper" target="_blank">FlatPaper</a></span>
+  <span class="site-footer__right"><a href="/terms">Terms of Service</a> · <a href="/privacy">Privacy Policy</a> <br /> <a href="https://tools.ooo.run" target="_blank">Simple Tools</a></span>
+</footer>
+
+  
+<div class="search-panel" aria-hidden="true" data-index-url="/en/flatpaper-search.json">
+  <div class="search-backdrop js-search-close"></div>
+  <section class="search-dialog" role="dialog" aria-modal="true" aria-label="Search posts">
+    <span class="tape tape--top-left" aria-hidden="true"></span>
+    <header class="search-head">
+      <h2><span class="green-dot"></span>Search posts</h2>
+      <button class="icon-button js-search-close" type="button" aria-label="Close search">
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+
+      </button>
+    </header>
+    <label class="search-field">
+      
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+
+      <input id="flatpaper-search" class="search-input" type="search" placeholder="Type keywords, press Esc to close" autocomplete="off">
+    </label>
+    <div class="search-results" data-empty="Type keywords to search matching posts">
+      <p class="search-empty">Type keywords to search matching posts</p>
+    </div>
+  </section>
+</div>
+
+  <script>
+  window.FLATPAPER_I18N = {"language":"en","common.posts":"Posts","common.categories":"Categories","common.tags":"Tags","common.comments":"Comments","common.share":"Share","common.page":"Page","common.archive":"Archive","common.post_list":"Posts","common.search_posts":"Search posts","common.random_posts":"Random posts","common.reward":"Reward","common.view_all":"View all","pagination.prev":"Previous","pagination.next":"Next","pagination.post_pager":"Post pagination","pagination.archive_pager":"Archive pagination","index.featured":"Featured posts","index.pinned":"Pinned","index.read_more":"Read more","index.previous_slide":"Previous slide","index.next_slide":"Next slide","index.carousel_pagination":"Carousel pagination","index.carousel_slide":"Slide %d","index.latest_posts":"Latest posts","index.empty_posts":"No posts yet. Create your first post and the latest content will appear here.","archive.title":"Archive","archive.post_list":"Posts","taxonomy.category_count":"%d posts","taxonomy.empty_categories":"No categories yet.","taxonomy.empty_tags":"No tags yet.","links.label":"Friends","links.title":"Friend links","links.empty_data":"Could not load friend link data. Make sure source/_data/links.yml exists and run hexo clean.","links.rss_label":"%s's RSS","friends_feed.label":"Circle","friends_feed.title":"Friend circle","friends_feed.loading":"Loading friend updates...","friends_feed.missing_url":"No all.json URL configured.","friends_feed.load_failed":"Failed to load friend updates. Try again later.","friends_feed.empty":"No friend articles have been fetched yet.","friends_feed.load_more":"Load more","friends_feed.updated_at":"Updated at %s","friends_feed.friend_count":"%d friends","friends_feed.active_count":"%d active","friends_feed.article_count":"%d articles","friends_feed.unknown_author":"Unknown site","friends_feed.date_unknown":"Unknown time","post.scroll_to_comments":"Jump to comments","post.previous":"Previous","post.next":"Next","post.no_previous":"No earlier posts","post.no_next":"This is the latest post","post.back_to_top":"Back to top","post.related_posts":"Related posts","post.view_more":"View more","not_found.label":"Page missing","not_found.title":"Page not found","not_found.text":"This address may have moved, been deleted, or never existed.","not_found.home":"Back home","not_found.search":"Search posts","search.placeholder":"Type keywords, press Esc to close","search.empty":"Type keywords to search matching posts","search.loading":"Loading search index...","search.load_failed":"Failed to load the search index. Reopen search and try again.","search.no_result":"No posts found for \"%s\"","search.close":"Close search","code.copy":"Copy code","code.collapse":"Collapse code","code.expand":"Expand code","heading.anchor":"Link to this section: %s","head.tag":"Tag: %s","head.category":"Category: %s","head.archive":"Archive","head.archive_with_date":"Archive: %s","head.page_number":"Page %d","navigation.primary":"Primary navigation","navigation.mobile":"Mobile navigation","navigation.brand_home":"FlatPaper home","navigation.brand_menu":"Open site navigation","navigation.open_sidebar":"Open sidebar","navigation.close_sidebar":"Close sidebar","navigation.sidebar":"Sidebar","navigation.sidebar_tools":"Sidebar tools","navigation.site_links":"Site links","navigation.site_info":"Site information","colors.choose_theme_color":"Choose theme color","colors.theme_color":"Theme color","colors.toggle_color_mode":"Toggle color mode","colors.green":"Green","colors.purple":"Purple","colors.pink":"Pink","colors.sakura":"Sakura pink","colors.blue":"Blue","colors.orange":"Orange","colors.black":"Black","profile.default_bio":"Loves life, code, and sharing notes from both.","welcome.cta":"Start reading","welcome.title":"Welcome to FlatPaper","welcome.text":"A blog theme focused on content and a calm reading experience.","home_hero.label":"Home opening","home_hero.enter":"Go to content","home_hero.note":"Today","home_hero.default_subtitle":"Daily notes","home_hero.nav_links":"Hero navigation","home_hero.profile_links":"Profile links","home_hero.tools":"Hero tools","home_hero.shuffle_stickers":"Shuffle stickers","home_hero.link":"Link","home_hero.sticker_image":"Sticker image","home_hero.visit_confirm":"Visit %s?","home_hero.visit":"Visit","home_hero.cancel":"Cancel","toc.title":"Table of contents","toc.empty":"The table of contents is generated from post headings.","toc.expand_all":"Expand all headings","toc.collapse_all":"Collapse headings","sidebar.hot_tags":"Popular tags","sidebar.latest_posts":"Latest posts"};
+  </script>
+  
+<script src="/en/js/main.js"></script>
+
+  
+</body>
+</html>

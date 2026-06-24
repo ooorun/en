@@ -1,0 +1,855 @@
+<!doctype html>
+
+<html lang="en" data-fancybox-enabled="1">
+<head>
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FM1N1NHQ90"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FM1N1NHQ90');
+</script>
+
+
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7f3e9">
+
+<title>Easily Self-Host Your Private Git Server with Gitea and Docker Compose | O&#39;s World</title>
+<meta name="description" content="IntroductionWant a private code repository completely under your control? Gitea is a lightweight, high-performance self-hosted Git service that is feature-rich yet consumes minimal...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Easily Self-Host Your Private Git Server with Gitea and Docker Compose | O&#39;s World">
+<meta property="og:url" content="https://ooo.run/en/post/use-docker-run-gitea.html">
+<meta property="og:site_name" content="O&#39;s World">
+<meta property="og:description" content="IntroductionWant a private code repository completely under your control? Gitea is a lightweight, high-performance self-hosted Git service that is feature-rich yet consumes minimal...">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img.nep.me/i/2025/08/10/cover-docker-gitea.webp">
+<meta property="article:published_time" content="2025-08-10T02:57:40.000Z">
+<meta property="article:modified_time" content="2026-06-24T12:47:53.628Z">
+<meta property="article:author" content="Mr. O">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="Docker Compose">
+<meta property="article:tag" content="Self-hosted">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.nep.me/i/2025/08/10/cover-docker-gitea.webp">
+<link rel="canonical" href="https://ooo.run/en/post/use-docker-run-gitea.html">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Easily Self-Host Your Private Git Server with Gitea and Docker Compose","name":"Easily Self-Host Your Private Git Server with Gitea and Docker Compose | O's World","description":"IntroductionWant a private code repository completely under your control? Gitea is a lightweight, high-performance self-hosted Git service that is feature-rich yet consumes minimal...","url":"https://ooo.run/en/post/use-docker-run-gitea.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"O's World","url":"https://ooo.run/en/"},"image":["https://img.nep.me/i/2025/08/10/cover-docker-gitea.webp"],"mainEntityOfPage":"https://ooo.run/en/post/use-docker-run-gitea.html","datePublished":"2025-08-10T02:57:40.000Z","dateModified":"2026-06-24T12:47:53.628Z","author":{"@type":"Person","name":"Mr. O"},"publisher":{"@type":"Organization","name":"O's World"},"keywords":"Docker, Docker Compose, Self-hosted"}</script>
+
+<script>
+  (function () {
+    var accents = { orange: 1, purple: 1, sakura: 1, blue: 1, pink: 1, green: 1, black: 1 };
+    var match = document.cookie.match(/(?:^|;\s*)flatpaper-accent=([^;]+)/);
+    var accent = 'blue';
+    if (match) {
+      try { accent = decodeURIComponent(match[1]); } catch (e) {}
+    }
+    if (!accents[accent]) accent = 'blue';
+    document.documentElement.setAttribute('data-accent', accent);
+    try {
+      if (localStorage.getItem('flatpaper-mode') === 'dark') {
+        document.documentElement.classList.add('dark-mode');
+      }
+    } catch (e) {}
+  })();
+</script>
+
+<link rel="stylesheet" href="/en/css/style.css">
+
+
+
+
+
+
+  
+<script defer src="https://u.nep.me/script.js" data-website-id="768b68c3-d4ed-429e-aa11-f5099ea5adbf" data-domains="ooo.run"></script>
+
+
+  
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8052638941019443" crossorigin="anonymous"></script>
+
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/artalk@2.9.1/dist/Artalk.css">
+
+<script defer src="https://cdn.jsdelivr.net/npm/artalk@2.9.1/dist/Artalk.js"></script>
+
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
+<script defer src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+
+
+  
+<meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/en/atom.xml" title="O's World" type="application/atom+xml">
+</head>
+
+<body
+  class="is-post tag-style-tape"
+  data-default-accent="blue"
+  data-code-theme="simple"
+  data-note-style="sticky"
+  data-note-icons="on"
+  data-button-style="tape"
+  data-strong-accent="on"
+>
+  <div class="page-grain"></div>
+  <svg width="0" height="0" style="position:absolute;z-index:-1;" aria-hidden="true">
+    <defs>
+      <filter id="paper-edge" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.04" result="noise" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </defs>
+  </svg>
+  
+  <header class="site-header">
+  
+  <button class="icon-button js-sidebar-toggle sidebar-toggle" type="button" aria-label="Open sidebar" aria-controls="paper-sidebar-drawer" aria-expanded="false">
+    
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu" aria-hidden="true"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg>
+
+  </button>
+
+  <div class="brand">
+    <div class="brand-mark-wrapper">
+      
+        <button class="brand-mark" type="button" aria-label="Open site navigation" aria-haspopup="true" aria-expanded="false" aria-controls="brand-nav-menu">
+          
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-grid" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1" /><rect width="7" height="7" x="14" y="3" rx="1" /><rect width="7" height="7" x="14" y="14" rx="1" /><rect width="7" height="7" x="3" y="14" rx="1" /></svg>
+
+        </button>
+        <div class="brand-nav-menu" id="brand-nav-menu" role="menu">
+          
+            <div class="brand-nav-group">
+              <div class="brand-nav-title">Blog</div>
+              
+                <a role="menuitem" href="https://ooo.run/" target="_blank" rel="noopener noreferrer">
+                  
+                    <img src="https://ooo.run/favicon.ico" alt="" class="nav-img-icon" aria-hidden="true" />
+                  
+                  <span>O‘s World</span>
+                </a>
+              
+            </div>
+          
+            <div class="brand-nav-group">
+              <div class="brand-nav-title">Project</div>
+              
+                <a role="menuitem" href="https://tools.ooo.run" target="_blank" rel="noopener noreferrer">
+                  
+                    <img src="https://tools.ooo.run/favicon.png" alt="" class="nav-img-icon" aria-hidden="true" />
+                  
+                  <span>Simple Tools</span>
+                </a>
+              
+                <a role="menuitem" href="https://ooo.run/games" target="_blank" rel="noopener noreferrer">
+                  
+                    <img src="https://img.nep.me/ooo/game.webp" alt="" class="nav-img-icon" aria-hidden="true" />
+                  
+                  <span>Simple Games</span>
+                </a>
+              
+            </div>
+          
+        </div>
+      
+    </div>
+    <a class="brand-text" href="/en/">O&#39;s World</a>
+  </div>
+
+  <nav class="site-nav" aria-label="Primary navigation">
+    
+      
+        <a class="site-nav-link " href="/en/">
+          
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home" aria-hidden="true"><path d="m3 10 9-7 9 7"/><path d="M5 10v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V10"/><path d="M9 21v-6h6v6"/></svg>
+
+          <span>Home</span>
+        </a>
+      
+    
+      
+        <a class="site-nav-link " href="/en/links/">
+          
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+
+          <span>Links</span>
+        </a>
+      
+    
+      
+        <div class="site-nav-item has-children">
+          <button class="site-nav-link site-nav-parent" type="button" aria-haspopup="true" aria-expanded="false">
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+
+            <span>Posts</span>
+          </button>
+          <div class="site-nav-menu" role="menu">
+            
+              <a role="menuitem" class="" href="/en/archives/">
+                
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-archive" aria-hidden="true"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg>
+
+                <span>Archives</span>
+              </a>
+            
+              <a role="menuitem" class="" href="/en/categories/">
+                
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+
+                <span>Categories</span>
+              </a>
+            
+              <a role="menuitem" class="" href="/en/tags/">
+                
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tag" aria-hidden="true"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+
+                <span>Tags</span>
+              </a>
+            
+          </div>
+        </div>
+      
+    
+  </nav>
+
+  <div class="header-tools">
+    <button class="icon-button js-search-open" type="button" aria-label="Search posts">
+      
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+
+    </button>
+    <div class="accent-picker">
+      <button class="icon-button accent-toggle" type="button" aria-label="Choose theme color" title="Choose theme color" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu">
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-palette" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 5.9 2 10.8c0 3.3 2.7 6 6 6h1.2c.8 0 1.4.6 1.4 1.4 0 .4-.2.8-.2 1.2 0 .8.6 1.6 1.6 1.6 5.5 0 10-4.2 10-9.4C22 6.3 17.5 2 12 2Z"/></svg>
+
+      </button>
+      <div class="accent-menu" id="accent-menu" role="menu" aria-label="Theme color">
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="Orange" aria-checked="false" data-accent-option="orange">
+          <span class="accent-swatch accent-swatch--orange" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="Purple" aria-checked="false" data-accent-option="purple">
+          <span class="accent-swatch accent-swatch--purple" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="Sakura pink" aria-checked="false" data-accent-option="sakura">
+          <span class="accent-swatch accent-swatch--sakura" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="Blue" aria-checked="false" data-accent-option="blue">
+          <span class="accent-swatch accent-swatch--blue" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="Pink" aria-checked="false" data-accent-option="pink">
+          <span class="accent-swatch accent-swatch--pink" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="Green" aria-checked="false" data-accent-option="green">
+          <span class="accent-swatch accent-swatch--green" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="Black" aria-checked="false" data-accent-option="black">
+          <span class="accent-swatch accent-swatch--black" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+    <button class="theme-toggle" type="button" aria-label="Toggle color mode">
+      <span class="theme-icon theme-icon--sun">
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+</span>
+      <span class="theme-icon theme-icon--moon">
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+</span>
+    </button>
+  </div>
+</header>
+
+
+  
+  <main class="paper-shell paper-shell--article">
+    
+
+<aside id="paper-sidebar-drawer" class="paper-sidebar paper-sidebar--right" aria-label="Sidebar">
+  <div class="drawer-toolbar" aria-label="Sidebar tools">
+    <div class="drawer-accent-options" role="group" aria-label="Theme color">
+      <button type="button" class="accent-option" aria-label="Orange" aria-pressed="false" data-accent-option="orange">
+        <span class="accent-swatch accent-swatch--orange" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="accent-option" aria-label="Purple" aria-pressed="false" data-accent-option="purple">
+        <span class="accent-swatch accent-swatch--purple" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="accent-option" aria-label="Sakura pink" aria-pressed="false" data-accent-option="sakura">
+        <span class="accent-swatch accent-swatch--sakura" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="accent-option" aria-label="Blue" aria-pressed="false" data-accent-option="blue">
+        <span class="accent-swatch accent-swatch--blue" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="accent-option" aria-label="Pink" aria-pressed="false" data-accent-option="pink">
+        <span class="accent-swatch accent-swatch--pink" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="accent-option" aria-label="Green" aria-pressed="false" data-accent-option="green">
+        <span class="accent-swatch accent-swatch--green" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="accent-option" aria-label="Black" aria-pressed="false" data-accent-option="black">
+        <span class="accent-swatch accent-swatch--black" aria-hidden="true"></span>
+      </button>
+    </div>
+    <button class="icon-button drawer-close js-sidebar-close" type="button" aria-label="Close sidebar">
+      
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+
+    </button>
+  </div>
+
+  <section class="side-card nav-card">
+    <nav class="site-nav-drawer" aria-label="Mobile navigation">
+      
+        
+          <a class="" href="/en/">
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home" aria-hidden="true"><path d="m3 10 9-7 9 7"/><path d="M5 10v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V10"/><path d="M9 21v-6h6v6"/></svg>
+
+            <span>Home</span>
+          </a>
+        
+      
+        
+          <a class="" href="/en/links/">
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+
+            <span>Links</span>
+          </a>
+        
+      
+        
+          <div class="drawer-nav-group">
+            <button class="drawer-nav-parent" type="button" aria-expanded="false">
+              
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+
+              <span>Posts</span>
+            </button>
+            <div class="drawer-nav-children">
+              
+                <a class="" href="/en/archives/">
+                  
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-archive" aria-hidden="true"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg>
+
+                  <span>Archives</span>
+                </a>
+              
+                <a class="" href="/en/categories/">
+                  
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+
+                  <span>Categories</span>
+                </a>
+              
+                <a class="" href="/en/tags/">
+                  
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tag" aria-hidden="true"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+
+                  <span>Tags</span>
+                </a>
+              
+            </div>
+          </div>
+        
+      
+    </nav>
+  </section>
+
+  <section class="side-card profile-card">
+    
+      <div class="avatar" aria-hidden="true">
+        <span></span><i></i><em></em><b></b>
+      </div>
+    
+    <h3>Mr. O</h3>
+    <p class="profile-role">Independent Developer</p>
+    <p>Explore the internet world, share practical tutorials and exciting content, discover more interesting things.</p>
+    
+      <div class="site-info" aria-label="Site information">
+        
+          
+            <a class="site-info__item" href="/en/archives/">
+              <strong>64</strong>
+              <span>Posts</span>
+            </a>
+          
+        
+          
+            <a class="site-info__item" href="/en/categories/">
+              <strong>8</strong>
+              <span>Categories</span>
+            </a>
+          
+        
+          
+            <a class="site-info__item" href="/en/tags/">
+              <strong>98</strong>
+              <span>Tags</span>
+            </a>
+          
+        
+      </div>
+    
+    <div class="socials">
+      
+        <a href="https://t.me/fortewave" target="_blank" rel="noopener" aria-label="Telegram">
+          
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" class="lucide lucide-telegram" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+
+          
+        </a>
+      
+      
+        <a href="/en/atom.xml" aria-label="RSS feed" title="RSS">
+          
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rss" aria-hidden="true"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+
+        </a>
+      
+    </div>
+  </section>
+
+  
+    <section class="side-card brand-link-card" aria-label="Site links">
+      
+        <div class="brand-link-group">
+          <div class="brand-link-title">Blog</div>
+          <div class="brand-link-list">
+            
+              <a href="https://ooo.run/" target="_blank" rel="noopener noreferrer">
+                
+                  <img src="https://ooo.run/favicon.ico" alt="" class="nav-img-icon" aria-hidden="true" />
+                
+                <span>O‘s World</span>
+              </a>
+            
+          </div>
+        </div>
+      
+        <div class="brand-link-group">
+          <div class="brand-link-title">Project</div>
+          <div class="brand-link-list">
+            
+              <a href="https://tools.ooo.run" target="_blank" rel="noopener noreferrer">
+                
+                  <img src="https://tools.ooo.run/favicon.png" alt="" class="nav-img-icon" aria-hidden="true" />
+                
+                <span>Simple Tools</span>
+              </a>
+            
+              <a href="https://ooo.run/games" target="_blank" rel="noopener noreferrer">
+                
+                  <img src="https://img.nep.me/ooo/game.webp" alt="" class="nav-img-icon" aria-hidden="true" />
+                
+                <span>Simple Games</span>
+              </a>
+            
+          </div>
+        </div>
+      
+    </section>
+  
+
+  
+    <div class="post-sticky-stack">
+      <section class="side-card toc-card">
+        <header class="toc-card__head">
+          <h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-table-of-contents" aria-hidden="true"><path d="M16 12H3"/><path d="M16 18H3"/><path d="M16 6H3"/><path d="M21 12h.01"/><path d="M21 18h.01"/><path d="M21 6h.01"/></svg>
+Table of contents</h2>
+          <button type="button" class="toc-toggle-all" data-action="toggle-toc" aria-pressed="false" aria-label="Expand all headings" title="Expand all headings">
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+
+          </button>
+        </header>
+        <div class="toc-content">
+          
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Environment-Preparation"><span class="toc-text">1. Environment Preparation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Installing-Docker-and-Docker-Compose"><span class="toc-text">1. Installing Docker and Docker Compose</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Optional-Adjusting-the-Server%E2%80%99s-SSH-Port"><span class="toc-text">2. (Optional) Adjusting the Server’s SSH Port</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Creating-the-Project-Directory"><span class="toc-text">3. Creating the Project Directory</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Deploying-Gitea-using-Docker-Compose"><span class="toc-text">2. Deploying Gitea using Docker Compose</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Creating-the-docker-compose-yml-File"><span class="toc-text">Creating the docker-compose.yml File</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Starting-Gitea-Services"><span class="toc-text">Starting Gitea Services</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Initializing-Gitea-Settings"><span class="toc-text">3. Initializing Gitea Settings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Security-Hardening"><span class="toc-text">4. Security Hardening</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Disabling-User-Registration"><span class="toc-text">Disabling User Registration</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Highly-Recommended-Using-a-Reverse-Proxy"><span class="toc-text">2. (Highly Recommended) Using a Reverse Proxy</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Conclusion"><span class="toc-text">Conclusion</span></a></li></ol>
+          
+        </div>
+      </section>
+      
+
+  <section class="side-card recent-card latest-posts-card">
+    <h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-history" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>
+Latest posts</h2>
+    <ul class="recent-list">
+      
+        <li>
+          <a class="recent-item" href="/en/post/hello-world.html">
+            <strong>Hello World</strong>
+            <em>2026-06-24</em>
+          </a>
+        </li>
+      
+        <li>
+          <a class="recent-item" href="/en/post/docker-run-fizzy-kanban.html">
+            <strong>Deploying Fizzy with Docker: A Lightweight, Beautiful, Self-Hostable Kanban Tool</strong>
+            <em>2026-06-23</em>
+          </a>
+        </li>
+      
+        <li>
+          <a class="recent-item" href="/en/post/codex-is-buring-your-ssd.html">
+            <strong>Does Codex Logging Shorten SSD Lifespan? OpenAI Has Fixed It</strong>
+            <em>2026-06-23</em>
+          </a>
+        </li>
+      
+        <li>
+          <a class="recent-item" href="/en/post/how-much-can-you-save-with-subscription-vs-api.html">
+            <strong>Maximizing AI Subscriptions: How Much Do Claude Pro and ChatGPT Plus Really Save?</strong>
+            <em>2026-06-21</em>
+          </a>
+        </li>
+      
+        <li>
+          <a class="recent-item" href="/en/post/darkbloom-nodes-macbook-ai-mining-earnings.html">
+            <strong>A New Era of Mining: See How Much Your Mac Can Earn per Month</strong>
+            <em>2026-06-19</em>
+          </a>
+        </li>
+      
+    </ul>
+  </section>
+
+
+    </div>
+  
+
+  
+
+</aside>
+
+    <section class="paper-main">
+      
+
+<div class="article-tape-wrap">
+<span class="tape tape--top-right" aria-hidden="true"></span>
+<article class="article-paper">
+  <header class="article-header">
+    
+      <a class="label-pill" href="/en/categories/Tutorial/">
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+
+        Tutorial
+      </a>
+    
+    <h1>Easily Self-Host Your Private Git Server with Gitea and Docker Compose</h1>
+    <div class="meta-line meta-line--article">
+      <span class="meta-date">
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+2025-08-10</span>
+      
+        <span class="meta-tags">
+          
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tag" aria-hidden="true"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+
+          <a class="meta-tag-link" href="/en/tags/Docker/">#Docker</a><a class="meta-tag-link" href="/en/tags/Docker-Compose/">#Docker Compose</a><a class="meta-tag-link" href="/en/tags/Self-hosted/">#Self-hosted</a>
+        </span>
+      
+    </div>
+  </header>
+
+  
+
+
+  <div class="article-content">
+    <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Want a private code repository completely under your control? Gitea is a lightweight, high-performance self-hosted Git service that is feature-rich yet consumes minimal resources, running smoothly even on a Raspberry Pi.</p>
+<p>This tutorial will guide you through deploying a secure, private Gitea instance quickly using Docker Compose, giving you a code management experience comparable to GitHub in just a few minutes.</p>
+<h2 id="1-Environment-Preparation"><a href="#1-Environment-Preparation" class="headerlink" title="1. Environment Preparation"></a>1. Environment Preparation</h2><p>Before starting, you need your own VPS or a NAS system that supports Docker containers.</p>
+<h3 id="1-Installing-Docker-and-Docker-Compose"><a href="#1-Installing-Docker-and-Docker-Compose" class="headerlink" title="1. Installing Docker and Docker Compose"></a>1. Installing Docker and Docker Compose</h3><p>This is the foundation of our containerized deployment. If your server does not have it installed yet, you can refer to the following tutorial.</p>
+<details class="flatpaper-note flatpaper-note--info"><summary class="flatpaper-note__title"><span class="flatpaper-note__icon" aria-hidden="true"></span><span class="flatpaper-note__label">modern</span><span class="flatpaper-note__chevron" aria-hidden="true"></span></summary><div class="flatpaper-note__body"><p><strong>Extended Reading:</strong> <a href="https://ooo.run/post/debian-install-docker.html">Installing Docker and Docker Compose in Debian 12</a></p></div></details>
+
+<h3 id="2-Optional-Adjusting-the-Server’s-SSH-Port"><a href="#2-Optional-Adjusting-the-Server’s-SSH-Port" class="headerlink" title="2. (Optional) Adjusting the Server’s SSH Port"></a>2. (Optional) Adjusting the Server’s SSH Port</h3><p>Gitea needs port 22 to handle Git SSH operations (such as <code>git clone git@...</code>). To avoid conflicts with the server’s own SSH service port, it is recommended to change the server’s SSH port to a non-standard port (e.g., <code>2222</code>).</p>
+<ul>
+<li><p>Edit the SSH configuration file:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Find the line <code>#Port 22</code>, uncomment it (remove <code>#</code>), and change <code>22</code> to the new port number.</p>
+</li>
+<li><p>Restart the SSH service to apply changes:</p>
+ <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart sshd</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>Important Note</strong>: Before disconnecting your current session, make sure to open a new terminal window and try logging in using the new port number to ensure you can log in successfully.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="3-Creating-the-Project-Directory"><a href="#3-Creating-the-Project-Directory" class="headerlink" title="3. Creating the Project Directory"></a>3. Creating the Project Directory</h3><p>Create a dedicated directory for Gitea to store configuration files and data.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /opt/gitea &amp;&amp; <span class="built_in">cd</span> /opt/gitea</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-Deploying-Gitea-using-Docker-Compose"><a href="#2-Deploying-Gitea-using-Docker-Compose" class="headerlink" title="2. Deploying Gitea using Docker Compose"></a>2. Deploying Gitea using Docker Compose</h2><h3 id="Creating-the-docker-compose-yml-File"><a href="#Creating-the-docker-compose-yml-File" class="headerlink" title="Creating the docker-compose.yml File"></a>Creating the <code>docker-compose.yml</code> File</h3><p>In the project directory (<code>/opt/gitea</code>), create a file named <code>docker-compose.yml</code>.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim docker-compose.yml</span><br></pre></td></tr></table></figure>
+
+<p>Paste the following content into the file:</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># docker-compose.yml</span></span><br><span class="line"><span class="attr">networks:</span></span><br><span class="line">  <span class="attr">gitea:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">gitea:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">gitea/gitea:1.24.2</span> <span class="comment"># 建议锁定版本以确保稳定性</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">gitea</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">USER_UID=1000</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">USER_GID=1000</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">GITEA__database__DB_TYPE=postgres</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">GITEA__database__HOST=db:5432</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">GITEA__database__NAME=gitea</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">GITEA__database__USER=gitea</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">GITEA__database__PASSWD=gitea</span> <span class="comment"># 请在生产环境中替换为更强的密码</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">gitea</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./data:/data</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/etc/timezone:/etc/timezone:ro</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">/etc/localtime:/etc/localtime:ro</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;3000:3000&quot;</span> <span class="comment"># Web 界面端口</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;22:22&quot;</span>    <span class="comment"># SSH Git 操作端口 (主机端口:容器端口)</span></span><br><span class="line">    <span class="attr">depends_on:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">db</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">db:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">postgres:15</span> <span class="comment"># 建议锁定版本</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">gitea-db</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_USER=gitea</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_PASSWORD=gitea</span> <span class="comment"># 请在生产环境中替换为更强的密码</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">POSTGRES_DB=gitea</span></span><br><span class="line">    <span class="attr">networks:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">gitea</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./postgres:/var/lib/postgresql/data</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>Configuration Explanation:</strong></p>
+<ul>
+<li><code>image</code>: We specified explicit versions for both Gitea and the Postgres database, which helps avoid compatibility issues caused by automatic updates in the future.</li>
+<li><code>environment</code>: Used to configure the connection details between Gitea and the database. <strong>Make sure to replace <code>GITEA__database__PASSWD</code> and <code>POSTGRES_PASSWORD</code> with strong passwords.</strong></li>
+<li><code>volumes</code>: Persists Gitea data (repositories, configuration, etc.) and database files in the <code>data</code> and <code>postgres</code> directories under the current host directory, ensuring data is not lost when containers are reconstructed.</li>
+<li><code>ports</code>:<ul>
+<li><code>3000:3000</code>: Maps Gitea’s Web interface to port 3000 of the host.</li>
+<li><code>22:22</code>: Maps Git’s SSH operation port to port 22 of the host.</li>
+</ul>
+</li>
+</ul>
+<h3 id="Starting-Gitea-Services"><a href="#Starting-Gitea-Services" class="headerlink" title="Starting Gitea Services"></a>Starting Gitea Services</h3><p>In the directory where <code>docker-compose.yml</code> is located, execute the following command to pull the images and start the services:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker compose up -d</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-Initializing-Gitea-Settings"><a href="#3-Initializing-Gitea-Settings" class="headerlink" title="3. Initializing Gitea Settings"></a>3. Initializing Gitea Settings</h2><ol>
+<li><strong>Access the Web Interface</strong>: Open a browser and visit <code>http://&lt;your-server-IP&gt;:3000</code>.</li>
+<li><strong>Complete the Installation</strong>: You will see Gitea’s installation page.<ul>
+<li><strong>Database Settings</strong>: Already automatically configured via environment variables, no modification needed.</li>
+<li><strong>General Settings</strong>: This is the part you need to pay attention to.<ul>
+<li><strong>Server Domain</strong>: Fill in your domain name, e.g., <code>git.yourdomain.com</code>.</li>
+<li><strong>Gitea Base URL</strong>: Fill in the full access URL, e.g., <code>http://git.yourdomain.com/</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Click “Install Gitea”, and Gitea will complete the final setup and redirect you to the login page. Please register your administrator account immediately.</li>
+</ol>
+<h2 id="4-Security-Hardening"><a href="#4-Security-Hardening" class="headerlink" title="4. Security Hardening"></a>4. Security Hardening</h2><p>For a private Git server, security is paramount.</p>
+<h3 id="Disabling-User-Registration"><a href="#Disabling-User-Registration" class="headerlink" title="Disabling User Registration"></a>Disabling User Registration</h3><p>To prevent unauthorized users from registering, we need to modify Gitea’s configuration file.</p>
+<p><code>1</code> Edit the <code>app.ini</code> file:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim ./data/gitea/conf/app.ini</span><br></pre></td></tr></table></figure>
+
+<p><code>2</code> In the <code>[service]</code> section, find and modify or add the following configurations:</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[service]</span></span><br><span class="line"><span class="attr">DISABLE_REGISTRATION</span> = <span class="literal">true</span>  <span class="comment">; 禁用注册功能</span></span><br><span class="line"><span class="attr">SHOW_REGISTRATION_BUTTON</span> = <span class="literal">false</span> <span class="comment">; 从主页隐藏注册按钮</span></span><br></pre></td></tr></table></figure>
+
+<p><code>3</code> Restart Gitea to apply the configuration:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker compose restart gitea</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-Highly-Recommended-Using-a-Reverse-Proxy"><a href="#2-Highly-Recommended-Using-a-Reverse-Proxy" class="headerlink" title="2. (Highly Recommended) Using a Reverse Proxy"></a>2. (Highly Recommended) Using a Reverse Proxy</h3><p>Exposing the Web port directly to the public network is unsafe. It is recommended to use Nginx or another reverse proxy tool to serve the Web interface and use HTTPS.</p>
+<p><code>1</code> <strong>Modify Port Mapping</strong>: Restrict Gitea’s Web port to localhost access only.<br>   Modify the <code>ports</code> section in <code>docker-compose.yml</code>:<br>   <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ports:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">&quot;127.0.0.1:3000:3000&quot;</span> <span class="comment"># 仅允许本地访问</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">&quot;22:22&quot;</span></span><br></pre></td></tr></table></figure></p>
+<p><code>2</code> <strong>Restart Service</strong>:<br>   <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker compose down</span><br></pre></td></tr></table></figure><br>   <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker compose up -d</span><br></pre></td></tr></table></figure></p>
+<p><code>3</code> <strong>Configure Reverse Proxy</strong>: In your reverse proxy tool, set up a proxy rule to forward traffic from <code>git.yourdomain.com</code> to <code>http://127.0.0.1:3000</code>.</p>
+<p><strong>Nginx Example (Reverse Proxy Section Only)</strong></p>
+<p>The following example reverse proxies HTTP traffic for the domain <code>git.example.com</code> to local <code>127.0.0.1:3000</code>. Please make sure that you configured the port mapping as <code>127.0.0.1:3000:3000</code> in compose, and configured <code>ROOT_URL</code> in Gitea’s settings as <code>http://git.example.com/</code>.</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">location</span> / &#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://127.0.0.1:3000;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 透传必要头部，确保生成正确克隆地址与日志 IP</span></span><br><span class="line">    <span class="attribute">proxy_set_header</span> Host <span class="variable">$host</span>;</span><br><span class="line">    <span class="attribute">proxy_set_header</span> X-Real-IP <span class="variable">$remote_addr</span>;</span><br><span class="line">    <span class="attribute">proxy_set_header</span> X-Forwarded-For <span class="variable">$proxy_add_x_forwarded_for</span>;</span><br><span class="line">    <span class="attribute">proxy_set_header</span> X-Forwarded-Proto <span class="variable">$scheme</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># WebSocket 支持（如通知、终端等）</span></span><br><span class="line">    <span class="attribute">proxy_set_header</span> Upgrade <span class="variable">$http_upgrade</span>;</span><br><span class="line">    <span class="attribute">proxy_set_header</span> Connection <span class="string">&quot;upgrade&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 超时设置，避免大仓库推送中断</span></span><br><span class="line">    <span class="attribute">proxy_connect_timeout</span> <span class="number">60s</span>;</span><br><span class="line">    <span class="attribute">proxy_send_timeout</span> <span class="number">60s</span>;</span><br><span class="line">    <span class="attribute">proxy_read_timeout</span> <span class="number">3600s</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Test and reload Nginx configuration</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -t</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reload </span><br></pre></td></tr></table></figure>
+
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>Congratulations! You now have a feature-rich, secure, and reliable private Git server. Compared to heavy solutions like GitLab, Gitea consumes minimal resources while providing core features, making it ideal for individual developers and small teams. Deploying with Docker Compose makes the process simple, efficient, and easy to maintain.</p>
+
+  </div>
+
+  <footer class="article-reactions">
+    <div class="reaction-group">
+      <button type="button" class="reaction reaction--comment" aria-label="Jump to comments" data-action="scroll-to-comments">
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+
+      </button>
+      <span class="reaction-label">Comments</span>
+      
+    </div>
+    <div class="reaction-group reaction-group--right">
+      
+      <button type="button" class="reaction reaction--share" aria-label="Share" data-action="share">
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-share-2" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
+
+      </button>
+      <span class="reaction-label">Share</span>
+    </div>
+  </footer>
+
+  
+
+
+  <nav class="article-actions">
+    
+      <a class="article-action article-action--prev" href="/en/post/what-is-turing-a-server-into-cash-cow.html">
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+
+        <span class="action-label">Previous</span>
+        <span class="action-title">What is &#34;Server Cowification&#34;?</span>
+      </a>
+    
+    
+      <a class="article-action article-action--next" href="/en/post/openai-codex-support-login-by-chatgpt-plus.html">
+        <span class="action-label">Next</span>
+        <span class="action-title">OpenAI Codex CLI Now Supports Logging in with ChatGPT Accounts, Default Model Set to GPT-5</span>
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+
+      </a>
+    
+  </nav>
+</article>
+</div>
+
+<button type="button" class="back-to-top" data-action="scroll-to-top" aria-label="Back to top" hidden>
+  
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
+
+</button>
+
+
+  <section class="related-paper">
+    <header class="related-paper__head">
+      <h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+Related posts</h2>
+      <a class="related-paper__more" href="/en/archives/">
+        <span>View more</span>
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+
+      </a>
+    </header>
+    <div class="related-paper__grid">
+      
+        <a class="related-card" href="/en/post/use-docker-run-wallos.html">
+          <span class="related-card__thumb">
+            
+<div class="paper-thumb paper-thumb-0 paper-thumb--cover">
+  
+    <img class="paper-thumb__img" src="https://img.nep.me/ooo/cover-wallos.webp" alt="Quickly Build a Personal Subscription Management System with Docker and Wallos" loading="lazy" referrerpolicy="no-referrer">
+  
+</div>
+
+          </span>
+          <span class="related-card__body">
+            <strong class="related-card__title">Quickly Build a Personal Subscription Management System with Docker and Wallos</strong>
+            <em class="related-card__date">2025-09-12</em>
+          </span>
+        </a>
+      
+        <a class="related-card" href="/en/post/use-docker-run-ezbookkeeping.html">
+          <span class="related-card__thumb">
+            
+<div class="paper-thumb paper-thumb-1 paper-thumb--cover">
+  
+    <img class="paper-thumb__img" src="https://img.nep.me/i/2026/01/21/cover-ezbookkeeping.webp" alt="Quickly Set Up a Beautiful Personal Bookkeeping System with Docker and ezBookkeeping" loading="lazy" referrerpolicy="no-referrer">
+  
+</div>
+
+          </span>
+          <span class="related-card__body">
+            <strong class="related-card__title">Quickly Set Up a Beautiful Personal Bookkeeping System with Docker and ezBookkeeping</strong>
+            <em class="related-card__date">2025-09-02</em>
+          </span>
+        </a>
+      
+        <a class="related-card" href="/en/post/use-docker-run-memeos.html">
+          <span class="related-card__thumb">
+            
+<div class="paper-thumb paper-thumb-2 paper-thumb--cover">
+  
+    <img class="paper-thumb__img" src="https://img.nep.me/i/2025/08/18/cover-docker-memos-v2.webp" alt="Quickly Deploy Memos Personal Note System with Docker" loading="lazy" referrerpolicy="no-referrer">
+  
+</div>
+
+          </span>
+          <span class="related-card__body">
+            <strong class="related-card__title">Quickly Deploy Memos Personal Note System with Docker</strong>
+            <em class="related-card__date">2025-08-18</em>
+          </span>
+        </a>
+      
+        <a class="related-card" href="/en/post/use-docker-run-bitwarden.html">
+          <span class="related-card__thumb">
+            
+<div class="paper-thumb paper-thumb-0 paper-thumb--cover">
+  
+    <img class="paper-thumb__img" src="https://img.nep.me/i/2025/08/26/cover-bitwarden.webp" alt="Easily Deploy Bitwarden Server with Docker and Set Up Your Own Password Manager" loading="lazy" referrerpolicy="no-referrer">
+  
+</div>
+
+          </span>
+          <span class="related-card__body">
+            <strong class="related-card__title">Easily Deploy Bitwarden Server with Docker and Set Up Your Own Password Manager</strong>
+            <em class="related-card__date">2025-08-26</em>
+          </span>
+        </a>
+      
+    </div>
+  </section>
+
+
+      
+
+<section class="comments-section" aria-label="Comments">
+  <header class="comments-section__head">
+    <h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+Comments</h2>
+  </header>
+  <div id="artalk-comments"></div>
+</section>
+<script>
+window.addEventListener('load', function () {
+  if (typeof Artalk === 'undefined' || typeof Artalk.init !== 'function') return;
+  Artalk.init({
+    el: '#artalk-comments',
+    pageKey: "https://ooo.run/en/post/use-docker-run-gitea.html",
+    pageTitle: "Easily Self-Host Your Private Git Server with Gitea and Docker Compose",
+    server: "https://artalk.ooo.run",
+    site: "Mr. O's Blog"
+  });
+});
+</script>
+
+
+    </section>
+    
+  </main>
+
+  <div class="sidebar-backdrop js-sidebar-close" aria-hidden="true"></div>
+
+  
+<footer class="site-footer">
+  <span class="site-footer__left">© 2026 By Mr. O · Theme FramedInfra Based on <a href="https://github.com/Homulilly/hexo-theme-flatpaper" target="_blank">FlatPaper</a></span>
+  <span class="site-footer__right"><a href="/terms">Terms of Service</a> · <a href="/privacy">Privacy Policy</a> <br /> <a href="https://tools.ooo.run" target="_blank">Simple Tools</a></span>
+</footer>
+
+  
+<div class="search-panel" aria-hidden="true" data-index-url="/en/flatpaper-search.json">
+  <div class="search-backdrop js-search-close"></div>
+  <section class="search-dialog" role="dialog" aria-modal="true" aria-label="Search posts">
+    <span class="tape tape--top-left" aria-hidden="true"></span>
+    <header class="search-head">
+      <h2><span class="green-dot"></span>Search posts</h2>
+      <button class="icon-button js-search-close" type="button" aria-label="Close search">
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+
+      </button>
+    </header>
+    <label class="search-field">
+      
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+
+      <input id="flatpaper-search" class="search-input" type="search" placeholder="Type keywords, press Esc to close" autocomplete="off">
+    </label>
+    <div class="search-results" data-empty="Type keywords to search matching posts">
+      <p class="search-empty">Type keywords to search matching posts</p>
+    </div>
+  </section>
+</div>
+
+  <script>
+  window.FLATPAPER_I18N = {"language":"en","common.posts":"Posts","common.categories":"Categories","common.tags":"Tags","common.comments":"Comments","common.share":"Share","common.page":"Page","common.archive":"Archive","common.post_list":"Posts","common.search_posts":"Search posts","common.random_posts":"Random posts","common.reward":"Reward","common.view_all":"View all","pagination.prev":"Previous","pagination.next":"Next","pagination.post_pager":"Post pagination","pagination.archive_pager":"Archive pagination","index.featured":"Featured posts","index.pinned":"Pinned","index.read_more":"Read more","index.previous_slide":"Previous slide","index.next_slide":"Next slide","index.carousel_pagination":"Carousel pagination","index.carousel_slide":"Slide %d","index.latest_posts":"Latest posts","index.empty_posts":"No posts yet. Create your first post and the latest content will appear here.","archive.title":"Archive","archive.post_list":"Posts","taxonomy.category_count":"%d posts","taxonomy.empty_categories":"No categories yet.","taxonomy.empty_tags":"No tags yet.","links.label":"Friends","links.title":"Friend links","links.empty_data":"Could not load friend link data. Make sure source/_data/links.yml exists and run hexo clean.","links.rss_label":"%s's RSS","friends_feed.label":"Circle","friends_feed.title":"Friend circle","friends_feed.loading":"Loading friend updates...","friends_feed.missing_url":"No all.json URL configured.","friends_feed.load_failed":"Failed to load friend updates. Try again later.","friends_feed.empty":"No friend articles have been fetched yet.","friends_feed.load_more":"Load more","friends_feed.updated_at":"Updated at %s","friends_feed.friend_count":"%d friends","friends_feed.active_count":"%d active","friends_feed.article_count":"%d articles","friends_feed.unknown_author":"Unknown site","friends_feed.date_unknown":"Unknown time","post.scroll_to_comments":"Jump to comments","post.previous":"Previous","post.next":"Next","post.no_previous":"No earlier posts","post.no_next":"This is the latest post","post.back_to_top":"Back to top","post.related_posts":"Related posts","post.view_more":"View more","not_found.label":"Page missing","not_found.title":"Page not found","not_found.text":"This address may have moved, been deleted, or never existed.","not_found.home":"Back home","not_found.search":"Search posts","search.placeholder":"Type keywords, press Esc to close","search.empty":"Type keywords to search matching posts","search.loading":"Loading search index...","search.load_failed":"Failed to load the search index. Reopen search and try again.","search.no_result":"No posts found for \"%s\"","search.close":"Close search","code.copy":"Copy code","code.collapse":"Collapse code","code.expand":"Expand code","heading.anchor":"Link to this section: %s","head.tag":"Tag: %s","head.category":"Category: %s","head.archive":"Archive","head.archive_with_date":"Archive: %s","head.page_number":"Page %d","navigation.primary":"Primary navigation","navigation.mobile":"Mobile navigation","navigation.brand_home":"FlatPaper home","navigation.brand_menu":"Open site navigation","navigation.open_sidebar":"Open sidebar","navigation.close_sidebar":"Close sidebar","navigation.sidebar":"Sidebar","navigation.sidebar_tools":"Sidebar tools","navigation.site_links":"Site links","navigation.site_info":"Site information","colors.choose_theme_color":"Choose theme color","colors.theme_color":"Theme color","colors.toggle_color_mode":"Toggle color mode","colors.green":"Green","colors.purple":"Purple","colors.pink":"Pink","colors.sakura":"Sakura pink","colors.blue":"Blue","colors.orange":"Orange","colors.black":"Black","profile.default_bio":"Loves life, code, and sharing notes from both.","welcome.cta":"Start reading","welcome.title":"Welcome to FlatPaper","welcome.text":"A blog theme focused on content and a calm reading experience.","home_hero.label":"Home opening","home_hero.enter":"Go to content","home_hero.note":"Today","home_hero.default_subtitle":"Daily notes","home_hero.nav_links":"Hero navigation","home_hero.profile_links":"Profile links","home_hero.tools":"Hero tools","home_hero.shuffle_stickers":"Shuffle stickers","home_hero.link":"Link","home_hero.sticker_image":"Sticker image","home_hero.visit_confirm":"Visit %s?","home_hero.visit":"Visit","home_hero.cancel":"Cancel","toc.title":"Table of contents","toc.empty":"The table of contents is generated from post headings.","toc.expand_all":"Expand all headings","toc.collapse_all":"Collapse headings","sidebar.hot_tags":"Popular tags","sidebar.latest_posts":"Latest posts"};
+  </script>
+  
+<script src="/en/js/main.js"></script>
+
+  
+</body>
+</html>

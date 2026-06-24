@@ -1,0 +1,1021 @@
+<!doctype html>
+
+<html lang="en" data-fancybox-enabled="1">
+<head>
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FM1N1NHQ90"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FM1N1NHQ90');
+</script>
+
+
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7f3e9">
+
+<title>Building a Personal Blog with Hexo and GitHub | O&#39;s World</title>
+<meta name="description" content="IntroductionWelcome to my world! This is Mr. O. Have you ever thought about having your own blog to record your daily life, share your experiences, or showcase your professional sk...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Building a Personal Blog with Hexo and GitHub | O&#39;s World">
+<meta property="og:url" content="https://ooo.run/en/post/start-blog-with-hexo-and-github.html">
+<meta property="og:site_name" content="O&#39;s World">
+<meta property="og:description" content="IntroductionWelcome to my world! This is Mr. O. Have you ever thought about having your own blog to record your daily life, share your experiences, or showcase your professional sk...">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://img.nep.me/i/2025/08/04/cover-build-hexo-blog.webp">
+<meta property="article:published_time" content="2024-12-11T09:30:00.000Z">
+<meta property="article:modified_time" content="2026-06-24T12:47:30.176Z">
+<meta property="article:author" content="Mr. O">
+<meta property="article:tag" content="GitHub">
+<meta property="article:tag" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img.nep.me/i/2025/08/04/cover-build-hexo-blog.webp">
+<link rel="canonical" href="https://ooo.run/en/post/start-blog-with-hexo-and-github.html">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Building a Personal Blog with Hexo and GitHub","name":"Building a Personal Blog with Hexo and GitHub | O's World","description":"IntroductionWelcome to my world! This is Mr. O. Have you ever thought about having your own blog to record your daily life, share your experiences, or showcase your professional sk...","url":"https://ooo.run/en/post/start-blog-with-hexo-and-github.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"O's World","url":"https://ooo.run/en/"},"image":["https://img.nep.me/i/2025/08/04/cover-build-hexo-blog.webp"],"mainEntityOfPage":"https://ooo.run/en/post/start-blog-with-hexo-and-github.html","datePublished":"2024-12-11T09:30:00.000Z","dateModified":"2026-06-24T12:47:30.176Z","author":{"@type":"Person","name":"Mr. O"},"publisher":{"@type":"Organization","name":"O's World"},"keywords":"Hexo, GitHub"}</script>
+
+<script>
+  (function () {
+    var accents = { orange: 1, purple: 1, sakura: 1, blue: 1, pink: 1, green: 1, black: 1 };
+    var match = document.cookie.match(/(?:^|;\s*)flatpaper-accent=([^;]+)/);
+    var accent = 'blue';
+    if (match) {
+      try { accent = decodeURIComponent(match[1]); } catch (e) {}
+    }
+    if (!accents[accent]) accent = 'blue';
+    document.documentElement.setAttribute('data-accent', accent);
+    try {
+      if (localStorage.getItem('flatpaper-mode') === 'dark') {
+        document.documentElement.classList.add('dark-mode');
+      }
+    } catch (e) {}
+  })();
+</script>
+
+<link rel="stylesheet" href="/en/css/style.css">
+
+
+
+
+
+
+  
+<script defer src="https://u.nep.me/script.js" data-website-id="768b68c3-d4ed-429e-aa11-f5099ea5adbf" data-domains="ooo.run"></script>
+
+
+  
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8052638941019443" crossorigin="anonymous"></script>
+
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/artalk@2.9.1/dist/Artalk.css">
+
+<script defer src="https://cdn.jsdelivr.net/npm/artalk@2.9.1/dist/Artalk.js"></script>
+
+
+  
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
+<script defer src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+
+
+  
+<meta name="generator" content="Hexo 8.1.2"><link rel="alternate" href="/en/atom.xml" title="O's World" type="application/atom+xml">
+</head>
+
+<body
+  class="is-post tag-style-tape"
+  data-default-accent="blue"
+  data-code-theme="simple"
+  data-note-style="sticky"
+  data-note-icons="on"
+  data-button-style="tape"
+  data-strong-accent="on"
+>
+  <div class="page-grain"></div>
+  <svg width="0" height="0" style="position:absolute;z-index:-1;" aria-hidden="true">
+    <defs>
+      <filter id="paper-edge" x="-5%" y="-5%" width="110%" height="110%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.04" result="noise" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </defs>
+  </svg>
+  
+  <header class="site-header">
+  
+  <button class="icon-button js-sidebar-toggle sidebar-toggle" type="button" aria-label="Open sidebar" aria-controls="paper-sidebar-drawer" aria-expanded="false">
+    
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu" aria-hidden="true"><path d="M4 12h16"/><path d="M4 6h16"/><path d="M4 18h16"/></svg>
+
+  </button>
+
+  <div class="brand">
+    <div class="brand-mark-wrapper">
+      
+        <button class="brand-mark" type="button" aria-label="Open site navigation" aria-haspopup="true" aria-expanded="false" aria-controls="brand-nav-menu">
+          
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-grid" aria-hidden="true"><rect width="7" height="7" x="3" y="3" rx="1" /><rect width="7" height="7" x="14" y="3" rx="1" /><rect width="7" height="7" x="14" y="14" rx="1" /><rect width="7" height="7" x="3" y="14" rx="1" /></svg>
+
+        </button>
+        <div class="brand-nav-menu" id="brand-nav-menu" role="menu">
+          
+            <div class="brand-nav-group">
+              <div class="brand-nav-title">Blog</div>
+              
+                <a role="menuitem" href="https://ooo.run/" target="_blank" rel="noopener noreferrer">
+                  
+                    <img src="https://ooo.run/favicon.ico" alt="" class="nav-img-icon" aria-hidden="true" />
+                  
+                  <span>O‘s World</span>
+                </a>
+              
+            </div>
+          
+            <div class="brand-nav-group">
+              <div class="brand-nav-title">Project</div>
+              
+                <a role="menuitem" href="https://tools.ooo.run" target="_blank" rel="noopener noreferrer">
+                  
+                    <img src="https://tools.ooo.run/favicon.png" alt="" class="nav-img-icon" aria-hidden="true" />
+                  
+                  <span>Simple Tools</span>
+                </a>
+              
+                <a role="menuitem" href="https://ooo.run/games" target="_blank" rel="noopener noreferrer">
+                  
+                    <img src="https://img.nep.me/ooo/game.webp" alt="" class="nav-img-icon" aria-hidden="true" />
+                  
+                  <span>Simple Games</span>
+                </a>
+              
+            </div>
+          
+        </div>
+      
+    </div>
+    <a class="brand-text" href="/en/">O&#39;s World</a>
+  </div>
+
+  <nav class="site-nav" aria-label="Primary navigation">
+    
+      
+        <a class="site-nav-link " href="/en/">
+          
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home" aria-hidden="true"><path d="m3 10 9-7 9 7"/><path d="M5 10v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V10"/><path d="M9 21v-6h6v6"/></svg>
+
+          <span>Home</span>
+        </a>
+      
+    
+      
+        <a class="site-nav-link " href="/en/links/">
+          
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+
+          <span>Links</span>
+        </a>
+      
+    
+      
+        <div class="site-nav-item has-children">
+          <button class="site-nav-link site-nav-parent" type="button" aria-haspopup="true" aria-expanded="false">
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+
+            <span>Posts</span>
+          </button>
+          <div class="site-nav-menu" role="menu">
+            
+              <a role="menuitem" class="" href="/en/archives/">
+                
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-archive" aria-hidden="true"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg>
+
+                <span>Archives</span>
+              </a>
+            
+              <a role="menuitem" class="" href="/en/categories/">
+                
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+
+                <span>Categories</span>
+              </a>
+            
+              <a role="menuitem" class="" href="/en/tags/">
+                
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tag" aria-hidden="true"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+
+                <span>Tags</span>
+              </a>
+            
+          </div>
+        </div>
+      
+    
+  </nav>
+
+  <div class="header-tools">
+    <button class="icon-button js-search-open" type="button" aria-label="Search posts">
+      
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+
+    </button>
+    <div class="accent-picker">
+      <button class="icon-button accent-toggle" type="button" aria-label="Choose theme color" title="Choose theme color" aria-haspopup="true" aria-expanded="false" aria-controls="accent-menu">
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-palette" aria-hidden="true"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 5.9 2 10.8c0 3.3 2.7 6 6 6h1.2c.8 0 1.4.6 1.4 1.4 0 .4-.2.8-.2 1.2 0 .8.6 1.6 1.6 1.6 5.5 0 10-4.2 10-9.4C22 6.3 17.5 2 12 2Z"/></svg>
+
+      </button>
+      <div class="accent-menu" id="accent-menu" role="menu" aria-label="Theme color">
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="Orange" aria-checked="false" data-accent-option="orange">
+          <span class="accent-swatch accent-swatch--orange" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="Purple" aria-checked="false" data-accent-option="purple">
+          <span class="accent-swatch accent-swatch--purple" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="Sakura pink" aria-checked="false" data-accent-option="sakura">
+          <span class="accent-swatch accent-swatch--sakura" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="Blue" aria-checked="false" data-accent-option="blue">
+          <span class="accent-swatch accent-swatch--blue" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="Pink" aria-checked="false" data-accent-option="pink">
+          <span class="accent-swatch accent-swatch--pink" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="Green" aria-checked="false" data-accent-option="green">
+          <span class="accent-swatch accent-swatch--green" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="accent-option" role="menuitemradio" aria-label="Black" aria-checked="false" data-accent-option="black">
+          <span class="accent-swatch accent-swatch--black" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+    <button class="theme-toggle" type="button" aria-label="Toggle color mode">
+      <span class="theme-icon theme-icon--sun">
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+</span>
+      <span class="theme-icon theme-icon--moon">
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+</span>
+    </button>
+  </div>
+</header>
+
+
+  
+  <main class="paper-shell paper-shell--article">
+    
+
+<aside id="paper-sidebar-drawer" class="paper-sidebar paper-sidebar--right" aria-label="Sidebar">
+  <div class="drawer-toolbar" aria-label="Sidebar tools">
+    <div class="drawer-accent-options" role="group" aria-label="Theme color">
+      <button type="button" class="accent-option" aria-label="Orange" aria-pressed="false" data-accent-option="orange">
+        <span class="accent-swatch accent-swatch--orange" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="accent-option" aria-label="Purple" aria-pressed="false" data-accent-option="purple">
+        <span class="accent-swatch accent-swatch--purple" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="accent-option" aria-label="Sakura pink" aria-pressed="false" data-accent-option="sakura">
+        <span class="accent-swatch accent-swatch--sakura" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="accent-option" aria-label="Blue" aria-pressed="false" data-accent-option="blue">
+        <span class="accent-swatch accent-swatch--blue" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="accent-option" aria-label="Pink" aria-pressed="false" data-accent-option="pink">
+        <span class="accent-swatch accent-swatch--pink" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="accent-option" aria-label="Green" aria-pressed="false" data-accent-option="green">
+        <span class="accent-swatch accent-swatch--green" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="accent-option" aria-label="Black" aria-pressed="false" data-accent-option="black">
+        <span class="accent-swatch accent-swatch--black" aria-hidden="true"></span>
+      </button>
+    </div>
+    <button class="icon-button drawer-close js-sidebar-close" type="button" aria-label="Close sidebar">
+      
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+
+    </button>
+  </div>
+
+  <section class="side-card nav-card">
+    <nav class="site-nav-drawer" aria-label="Mobile navigation">
+      
+        
+          <a class="" href="/en/">
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-home" aria-hidden="true"><path d="m3 10 9-7 9 7"/><path d="M5 10v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V10"/><path d="M9 21v-6h6v6"/></svg>
+
+            <span>Home</span>
+          </a>
+        
+      
+        
+          <a class="" href="/en/links/">
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+
+            <span>Links</span>
+          </a>
+        
+      
+        
+          <div class="drawer-nav-group">
+            <button class="drawer-nav-parent" type="button" aria-expanded="false">
+              
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+
+              <span>Posts</span>
+            </button>
+            <div class="drawer-nav-children">
+              
+                <a class="" href="/en/archives/">
+                  
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-archive" aria-hidden="true"><rect width="20" height="5" x="2" y="3" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8"/><path d="M10 12h4"/></svg>
+
+                  <span>Archives</span>
+                </a>
+              
+                <a class="" href="/en/categories/">
+                  
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+
+                  <span>Categories</span>
+                </a>
+              
+                <a class="" href="/en/tags/">
+                  
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tag" aria-hidden="true"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+
+                  <span>Tags</span>
+                </a>
+              
+            </div>
+          </div>
+        
+      
+    </nav>
+  </section>
+
+  <section class="side-card profile-card">
+    
+      <div class="avatar" aria-hidden="true">
+        <span></span><i></i><em></em><b></b>
+      </div>
+    
+    <h3>Mr. O</h3>
+    <p class="profile-role">Independent Developer</p>
+    <p>Explore the internet world, share practical tutorials and exciting content, discover more interesting things.</p>
+    
+      <div class="site-info" aria-label="Site information">
+        
+          
+            <a class="site-info__item" href="/en/archives/">
+              <strong>64</strong>
+              <span>Posts</span>
+            </a>
+          
+        
+          
+            <a class="site-info__item" href="/en/categories/">
+              <strong>8</strong>
+              <span>Categories</span>
+            </a>
+          
+        
+          
+            <a class="site-info__item" href="/en/tags/">
+              <strong>98</strong>
+              <span>Tags</span>
+            </a>
+          
+        
+      </div>
+    
+    <div class="socials">
+      
+        <a href="https://t.me/fortewave" target="_blank" rel="noopener" aria-label="Telegram">
+          
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="currentColor" class="lucide lucide-telegram" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+
+          
+        </a>
+      
+      
+        <a href="/en/atom.xml" aria-label="RSS feed" title="RSS">
+          
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rss" aria-hidden="true"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+
+        </a>
+      
+    </div>
+  </section>
+
+  
+    <section class="side-card brand-link-card" aria-label="Site links">
+      
+        <div class="brand-link-group">
+          <div class="brand-link-title">Blog</div>
+          <div class="brand-link-list">
+            
+              <a href="https://ooo.run/" target="_blank" rel="noopener noreferrer">
+                
+                  <img src="https://ooo.run/favicon.ico" alt="" class="nav-img-icon" aria-hidden="true" />
+                
+                <span>O‘s World</span>
+              </a>
+            
+          </div>
+        </div>
+      
+        <div class="brand-link-group">
+          <div class="brand-link-title">Project</div>
+          <div class="brand-link-list">
+            
+              <a href="https://tools.ooo.run" target="_blank" rel="noopener noreferrer">
+                
+                  <img src="https://tools.ooo.run/favicon.png" alt="" class="nav-img-icon" aria-hidden="true" />
+                
+                <span>Simple Tools</span>
+              </a>
+            
+              <a href="https://ooo.run/games" target="_blank" rel="noopener noreferrer">
+                
+                  <img src="https://img.nep.me/ooo/game.webp" alt="" class="nav-img-icon" aria-hidden="true" />
+                
+                <span>Simple Games</span>
+              </a>
+            
+          </div>
+        </div>
+      
+    </section>
+  
+
+  
+    <div class="post-sticky-stack">
+      <section class="side-card toc-card">
+        <header class="toc-card__head">
+          <h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-table-of-contents" aria-hidden="true"><path d="M16 12H3"/><path d="M16 18H3"/><path d="M16 6H3"/><path d="M21 12h.01"/><path d="M21 18h.01"/><path d="M21 6h.01"/></svg>
+Table of contents</h2>
+          <button type="button" class="toc-toggle-all" data-action="toggle-toc" aria-pressed="false" aria-label="Expand all headings" title="Expand all headings">
+            
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+
+          </button>
+        </header>
+        <div class="toc-content">
+          
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Introduction"><span class="toc-text">Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hexo"><span class="toc-text">Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GitHub"><span class="toc-text">GitHub</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Prerequisites"><span class="toc-text">Prerequisites</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Error-running-commands-in-VS-Code-terminal"><span class="toc-text">Error running commands in VS Code terminal?</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Installing-Hexo"><span class="toc-text">Installing Hexo</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Initializing-the-Blog"><span class="toc-text">Initializing the Blog</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Previewing-the-Blog"><span class="toc-text">Previewing the Blog</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Setting-Blog-Information"><span class="toc-text">Setting Blog Information</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Adding-a-Theme-Butterfly"><span class="toc-text">Adding a Theme (Butterfly)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Adding-Articles"><span class="toc-text">Adding Articles</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Inserting-Images"><span class="toc-text">Inserting Images</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Adding-Pages"><span class="toc-text">Adding Pages</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Deploying-to-GitHub"><span class="toc-text">Deploying to GitHub</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Setting-GitHub-Pages"><span class="toc-text">Setting GitHub Pages</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Binding-a-Custom-Domain"><span class="toc-text">Binding a Custom Domain</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Adding-a-Comment-System"><span class="toc-text">Adding a Comment System</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Common-Hexo-Commands"><span class="toc-text">Common Hexo Commands</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Advanced-Backing-Up-with-GitHub"><span class="toc-text">Advanced: Backing Up with GitHub</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Committing-Updates"><span class="toc-text">Committing Updates</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Retrieving-the-Backup"><span class="toc-text">Retrieving the Backup</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Using-GitHub-Desktop"><span class="toc-text">Using GitHub Desktop</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Other-Operations"><span class="toc-text">Other Operations</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Adding-Search-to-the-Site"><span class="toc-text">Adding Search to the Site</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Adding-a-Sitemap"><span class="toc-text">Adding a Sitemap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Adding-RSS-Support"><span class="toc-text">Adding RSS Support</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Setting-Up-Friends-Links"><span class="toc-text">Setting Up Friends Links</span></a></li></ol></li></ol>
+          
+        </div>
+      </section>
+      
+
+  <section class="side-card recent-card latest-posts-card">
+    <h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-history" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>
+Latest posts</h2>
+    <ul class="recent-list">
+      
+        <li>
+          <a class="recent-item" href="/en/post/hello-world.html">
+            <strong>Hello World</strong>
+            <em>2026-06-24</em>
+          </a>
+        </li>
+      
+        <li>
+          <a class="recent-item" href="/en/post/docker-run-fizzy-kanban.html">
+            <strong>Deploying Fizzy with Docker: A Lightweight, Beautiful, Self-Hostable Kanban Tool</strong>
+            <em>2026-06-23</em>
+          </a>
+        </li>
+      
+        <li>
+          <a class="recent-item" href="/en/post/codex-is-buring-your-ssd.html">
+            <strong>Does Codex Logging Shorten SSD Lifespan? OpenAI Has Fixed It</strong>
+            <em>2026-06-23</em>
+          </a>
+        </li>
+      
+        <li>
+          <a class="recent-item" href="/en/post/how-much-can-you-save-with-subscription-vs-api.html">
+            <strong>Maximizing AI Subscriptions: How Much Do Claude Pro and ChatGPT Plus Really Save?</strong>
+            <em>2026-06-21</em>
+          </a>
+        </li>
+      
+        <li>
+          <a class="recent-item" href="/en/post/darkbloom-nodes-macbook-ai-mining-earnings.html">
+            <strong>A New Era of Mining: See How Much Your Mac Can Earn per Month</strong>
+            <em>2026-06-19</em>
+          </a>
+        </li>
+      
+    </ul>
+  </section>
+
+
+    </div>
+  
+
+  
+
+</aside>
+
+    <section class="paper-main">
+      
+
+<div class="article-tape-wrap">
+<span class="tape tape--top-right" aria-hidden="true"></span>
+<article class="article-paper">
+  <header class="article-header">
+    
+      <a class="label-pill" href="/en/categories/Tutorial/">
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-folder" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+
+        Tutorial
+      </a>
+    
+    <h1>Building a Personal Blog with Hexo and GitHub</h1>
+    <div class="meta-line meta-line--article">
+      <span class="meta-date">
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar" aria-hidden="true"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></svg>
+2024-12-11</span>
+      
+        <span class="meta-tags">
+          
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tag" aria-hidden="true"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+
+          <a class="meta-tag-link" href="/en/tags/Hexo/">#Hexo</a><a class="meta-tag-link" href="/en/tags/GitHub/">#GitHub</a>
+        </span>
+      
+    </div>
+  </header>
+
+  
+
+
+  <div class="article-content">
+    <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>Welcome to my world! This is Mr. O. Have you ever thought about having your own blog to record your daily life, share your experiences, or showcase your professional skills?</p>
+<p>Actually, building a personal blog is not as complicated as you might think. With the free hosting service provided by GitHub and the powerful, easy-to-use Hexo static blog framework, we can easily build our own blog platform. What’s more, this process is completely free!</p>
+<p>In this article, I will take you step-by-step through how to use GitHub Pages and Hexo to quickly deploy a beautiful and practical personal blog, letting your thoughts run free in the online world.</p>
+<p>Let’s get started!</p>
+<h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h3><p><a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a> is a fast, simple, and efficient blog framework that supports a rich variety of <a target="_blank" rel="noopener" href="https://hexo.io/themes/">themes</a>. We only need to write articles using Markdown syntax, and Hexo will generate the website files for us.     </p>
+<h3 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h3><p><a target="_blank" rel="noopener" href="https://github.com/">GitHub</a> is the world’s largest code hosting website and open-source community. We can use GitHub’s free <a target="_blank" rel="noopener" href="https://pages.github.com/">Pages</a> service to host our blog.  </p>
+<p>If you don’t have a GitHub account yet, you can sign up for free: <a target="_blank" rel="noopener" href="https://github.com/signup">https://github.com/signup</a></p>
+<h2 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h2><p>After having a GitHub account, we need to install the following software on our computer:</p>
+<ul>
+<li>Install <a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/download/package-manager">Node.js</a>: Check <a href="https://ooo.run/post/how-to-install-nodejs.html">How to install Node.js</a></li>
+<li>Install <a target="_blank" rel="noopener" href="https://git-scm.com/downloads">Git</a><ul>
+<li>Windows: Download the installer package to install.</li>
+<li>macOS: Automatically installed when installing Homebrew.</li>
+</ul>
+</li>
+<li>A text editor, recommended to install <a target="_blank" rel="noopener" href="https://code.visualstudio.com/">Visual Studio Code</a></li>
+</ul>
+<p>After installing VS Code, you can click on Extensions on the left, search for <strong>Simplified Chinese</strong> to install the language pack, click Install, and then click Change Language and Restart in the bottom right corner to restart.<br><img src="https://img.nep.me/i/2024/12/15/zc1bl7-2.webp" style="width:50%;" alt="image" /></p>
+<p>After installation, open the terminal program. You can verify the installation by checking the version commands.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; npm -v</span><br><span class="line">10.9.2</span><br><span class="line"></span><br><span class="line">&gt; git -v</span><br><span class="line">git version 2.47.0</span><br></pre></td></tr></table></figure>
+
+<details class="flatpaper-note flatpaper-note--info"><summary class="flatpaper-note__title"><span class="flatpaper-note__icon" aria-hidden="true"></span><span class="flatpaper-note__label">modern</span><span class="flatpaper-note__chevron" aria-hidden="true"></span></summary><div class="flatpaper-note__body"><p><strong>How to open the terminal</strong>:</p>
+<p>In <strong>VS Code</strong>, you can press the &#96;Ctrl + `&#96; (the key below Esc) shortcut to open the terminal at the bottom.<br>You can also use the menu <strong>Terminal</strong> &gt; <strong>New Terminal</strong></p></div></details>
+
+<h3 id="Error-running-commands-in-VS-Code-terminal"><a href="#Error-running-commands-in-VS-Code-terminal" class="headerlink" title="Error running commands in VS Code terminal?"></a>Error running commands in VS Code terminal?</h3><p>Just set the default profile to CMD.</p>
+<img src="https://img.nep.me/i/2024/12/15/zg4n8w-2.webp" style="width:50%;" alt="image" />
+
+<img src="https://img.nep.me/i/2024/12/15/zg6gyd-2.webp" style="width:50%;" alt="image" />
+
+<p>Then close and reopen VS Code.</p>
+<h2 id="Installing-Hexo"><a href="#Installing-Hexo" class="headerlink" title="Installing Hexo"></a>Installing Hexo</h2><p>We need to install the Hexo CLI using the <code>npm</code> command in the terminal:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+<p>After execution, run the <code>hexo -v</code> command. If the version information is successfully printed, it means the installation was successful:  </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; hexo -v</span><br><span class="line">hexo-cli: 4.3.2</span><br><span class="line">os: darwin 24.1.0 15.1.1</span><br><span class="line">node: 23.3.0</span><br><span class="line">acorn: 8.14.0</span><br><span class="line"><span class="comment"># ...</span></span><br></pre></td></tr></table></figure>
+
+<p>Next, create an empty folder to store your blog files. Once created, open it in VS Code by selecting <code>Open Folder</code>. Then open VS Code’s terminal and run the following commands sequentially.</p>
+<h3 id="Initializing-the-Blog"><a href="#Initializing-the-Blog" class="headerlink" title="Initializing the Blog"></a>Initializing the Blog</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+
+<p>Now look at the VS Code sidebar; many files have been automatically generated. Generally, we only need to focus on the contents inside the <code>source</code> directory, where <code>_posts</code> is where we store our blog posts.<br><img src="https://img.nep.me/i/2024/12/13/p5boqx-2.webp" alt="VS Code Sidebar">  </p>
+<h3 id="Previewing-the-Blog"><a href="#Previewing-the-Blog" class="headerlink" title="Previewing the Blog"></a>Previewing the Blog</h3><p>You can use the <code>hexo s</code> command to preview your website locally on your computer.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; hexo s</span><br><span class="line"><span class="comment"># If it outputs the following content, it means success</span></span><br><span class="line">INFO  Validating config</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http://localhost:4000/ . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+<p>Then you can open your browser and visit <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a> to view the website preview.  </p>
+<p><img src="https://img.nep.me/i/2024/12/13/bp3m0l-2.webp" alt="Hexo Preview"></p>
+<details class="flatpaper-note flatpaper-note--info"><summary class="flatpaper-note__title"><span class="flatpaper-note__icon" aria-hidden="true"></span><span class="flatpaper-note__label">modern</span><span class="flatpaper-note__chevron" aria-hidden="true"></span></summary><div class="flatpaper-note__body"><p><code>hexo s</code> is the shorthand form of <code>hexo server</code>, which is much more convenient.</p></div></details> 
+
+<details class="flatpaper-note flatpaper-note--info"><summary class="flatpaper-note__title"><span class="flatpaper-note__icon" aria-hidden="true"></span><span class="flatpaper-note__label">modern</span><span class="flatpaper-note__chevron" aria-hidden="true"></span></summary><div class="flatpaper-note__body"><p>In VS Code, hold down <code>Ctrl</code> on Windows or <code>Command⌘</code> on macOS and click the link in the terminal to open it quickly.</p></div></details> 
+
+<details class="flatpaper-note flatpaper-note--warning"><summary class="flatpaper-note__title"><span class="flatpaper-note__icon" aria-hidden="true"></span><span class="flatpaper-note__label">modern</span><span class="flatpaper-note__chevron" aria-hidden="true"></span></summary><div class="flatpaper-note__body"><p>When it is no longer needed, press <code>Ctrl + C</code> to terminate the process.</p></div></details> 
+
+<h3 id="Setting-Blog-Information"><a href="#Setting-Blog-Information" class="headerlink" title="Setting Blog Information"></a>Setting Blog Information</h3><p>We need to edit the <code>_config.yml</code> file in the root directory to set up our own site information.</p>
+<figure class="highlight yml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="comment">## title is the name of the site</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">&#x27;O’s World&#x27;</span></span><br><span class="line"><span class="comment">## subtitle, generally displayed below the site name</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">&quot;Mr. O&#x27;s Sharing Station, sharing interesting things&quot;</span></span><br><span class="line"><span class="comment">## description describes the content of the site</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">&#x27;Explore the internet world, share practical tutorials and exciting content, and discover more interesting things.&#x27;</span></span><br><span class="line"><span class="comment">## keywords are the site keywords used for search engine SEO optimization. Fill in a few words to tell search engines about your site.</span></span><br><span class="line"><span class="attr">keywords:</span> </span><br><span class="line"><span class="comment">## author is the name of the author, usually your nickname</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">Mr.</span> <span class="string">O</span></span><br><span class="line"><span class="comment">## Language of the site</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">en</span></span><br><span class="line"><span class="comment">## timezone. If you only edit files on your computer, you don&#x27;t need to fill it in; Hexo will generate it based on your local computer time.</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># URL</span></span><br><span class="line"><span class="comment">## url sets the site domain name. You can use the free domain provided by GitHub: &#x27;https://username.github.io/project&#x27;</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">http://ooo.run</span></span><br><span class="line"><span class="comment">## permalink is the link format of the site articles</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">post/:title.html</span></span><br></pre></td></tr></table></figure>
+<p><code>permalink</code> refers to the URL format of the articles. I prefer to use <code>post/:title.html</code>, which is cleaner, where <code>:title</code> refers to the file name. </p>
+<img src="https://img.nep.me/i/2024/12/13/8t0d4s-2.webp" style="width:50%;" alt="hexo url preview" />
+
+<p>The default is <code>:year/:month/:day/:title/</code>, which automatically includes the publication date information.  </p>
+<img src="https://img.nep.me/i/2024/12/13/8t2ul8-2.webp" style="width:50%;" alt="hexo url preview" />
+
+<details class="flatpaper-note flatpaper-note--warning"><summary class="flatpaper-note__title"><span class="flatpaper-note__icon" aria-hidden="true"></span><span class="flatpaper-note__label">modern</span><span class="flatpaper-note__chevron" aria-hidden="true"></span></summary><div class="flatpaper-note__body"><p>When editing a YAML format file, there must be a space after <code>:</code>; otherwise, it will throw an error. The content can be enclosed in single quotes.</p></div></details> 
+
+<p>After editing, you can run <code>hexo s</code> again to preview. </p>
+<h3 id="Adding-a-Theme-Butterfly"><a href="#Adding-a-Theme-Butterfly" class="headerlink" title="Adding a Theme (Butterfly)"></a>Adding a Theme (Butterfly)</h3><p>Hexo supports many themes. Below, we will use and configure the <a target="_blank" rel="noopener" href="https://butterfly.js.org/">Butterfly</a> theme.</p>
+<p>First, install the required dependencies:</p>
+<div class="flatpaper-tabs"><div class="flatpaper-tabs__nav" role="tablist"><button type="button" role="tab" id="tabs-8-tab-0" aria-controls="tabs-8-panel-0" aria-selected="true" class="flatpaper-tabs__nav-item is-active" data-index="0">npm</button><button type="button" role="tab" id="tabs-8-tab-1" aria-controls="tabs-8-panel-1" aria-selected="false" class="flatpaper-tabs__nav-item" data-index="1">pnpm</button></div><div class="flatpaper-tabs__panels"><section role="tabpanel" id="tabs-8-panel-0" aria-labelledby="tabs-8-tab-0" class="flatpaper-tabs__panel is-active" data-index="0"><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-util moment-timezone hexo-renderer-pug hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure></section><section role="tabpanel" id="tabs-8-panel-1" aria-labelledby="tabs-8-tab-1" class="flatpaper-tabs__panel" data-index="1" hidden><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm install hexo-util moment-timezone hexo-renderer-pug hexo-renderer-stylus</span><br></pre></td></tr></table></figure></section></div></div>
+
+<p>Open the terminal and run the following command in the blog directory to download the theme:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly</span><br></pre></td></tr></table></figure>
+
+<p>Then edit the <code>_config.yml</code> file in the blog directory, and change the theme setting at the bottom from <code>theme: landscape</code> to <code>butterfly</code>:</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">butterfly</span></span><br></pre></td></tr></table></figure>
+<p>Run <code>hexo s</code> to preview the theme effect.</p>
+<p>To prevent future updates of the theme from overwriting our custom configurations, you can copy the theme’s configuration file:<br>Windows CMD</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">copy themes\butterfly\_config.yml _config.butterfly.yml</span><br></pre></td></tr></table></figure>
+
+<p>macOS &#x2F; Linux </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> themes/butterfly/_config.yml _config.butterfly.yml</span><br></pre></td></tr></table></figure>
+<p>Then we can customize the theme in <code>_config.butterfly.yml</code> under the blog root directory, where we can modify features and set up navigation menus.</p>
+<p>For Chinese annotations of the theme configuration options, you can refer to the <a target="_blank" rel="noopener" href="https://butterfly.js.org/posts/4aa8abbe/">Butterfly Documentation (III) Theme Configuration</a></p>
+<h3 id="Adding-Articles"><a href="#Adding-Articles" class="headerlink" title="Adding Articles"></a>Adding Articles</h3><p>We can use the command <code>hexo n postname</code> to create a new article. This command is equivalent to:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new post postname</span><br></pre></td></tr></table></figure>
+<p>This will create a file named <code>postname.md</code> under the <code>source/_posts</code> folder.  </p>
+<p>We can edit this file using VS Code. The article uses Markdown syntax. After opening this file, we can see that some content has been automatically filled:   </p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">postname</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2024-12-11 22:30:38</span></span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+
+<p><code>title</code> is the displayed title of the article, <code>date</code> is the publication date, and <code>tags</code> represent the article tags. All of these can be modified. We can also add more information, such as categories and a cover image. </p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="comment"># Required</span></span><br><span class="line"><span class="comment"># Article title</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">An</span> <span class="string">Article</span></span><br><span class="line"><span class="comment"># Publication date</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2024-12-11 22:30:38</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Optional below</span></span><br><span class="line"><span class="comment"># Tags</span></span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line"> <span class="bullet">-</span> <span class="string">Tag</span> <span class="number">1</span></span><br><span class="line"> <span class="bullet">-</span> <span class="string">Tag</span> <span class="number">2</span></span><br><span class="line"><span class="comment"># Category</span></span><br><span class="line"><span class="attr">categories:</span> <span class="string">Tutorial</span></span><br><span class="line"><span class="comment"># Disable comments (default is enabled, can be omitted)</span></span><br><span class="line"><span class="attr">comments:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Applicable to Butterfly theme</span></span><br><span class="line"><span class="comment"># Cover thumbnail</span></span><br><span class="line"><span class="attr">cover:</span> <span class="string">&#x27;https://arina.loli.net/2024/11/23/D3zqLFyGStUWQHZ.png&#x27;</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="comment"># Write articles under --- using Markdown or HTML syntax</span></span><br><span class="line"><span class="comment"># ...</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Inserting-Images"><a href="#Inserting-Images" class="headerlink" title="Inserting Images"></a>Inserting Images</h3><p>Sometimes we need to insert images into our articles. We only need to place the images into the <code>source</code> folder in the Hexo directory. It is highly recommended to create a separate folder like <code>images</code> to store images.  </p>
+<p>Suppose we have two images <code>1.png</code> and <code>2.png</code>. The file directory will look like this:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">source/</span><br><span class="line">└── images/</span><br><span class="line">    ├── 1.png</span><br><span class="line">    └── 2.png</span><br></pre></td></tr></table></figure>
+
+<p>When referencing them in an article, we only need to use the following Markdown syntax. The path starts with <code>/</code>, without <code>source</code>:</p>
+<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">![](<span class="link">/images/1.png</span>)</span><br><span class="line">![<span class="string">2.png</span>](<span class="link">/images/2.png</span>)</span><br></pre></td></tr></table></figure>
+<p>Although VS Code cannot preview the images normally, previewing them in the browser via <code>hexo s</code> will display them correctly.  </p>
+<h3 id="Adding-Pages"><a href="#Adding-Pages" class="headerlink" title="Adding Pages"></a>Adding Pages</h3><p>In addition to articles, we also need to add some pages (Pages):</p>
+<h4 id="Tags-Page"><a href="#Tags-Page" class="headerlink" title="Tags Page"></a>Tags Page</h4><p>Run the following in the Hexo root directory:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page tags</span><br></pre></td></tr></table></figure>
+<p>This will generate <code>source/tags/index.md</code>. Edit this file:</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Tags</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2024-12-13 07:55:00</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&#x27;tags&#x27;</span></span><br><span class="line"><span class="attr">orderby:</span> <span class="string">random</span></span><br><span class="line"><span class="attr">order:</span> <span class="number">1</span></span><br><span class="line"><span class="attr">comments:</span> <span class="literal">false</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+<p>Then it can be accessed via <code>http://localhost:4000/tags/</code> or <code>https://yourdomain/tags/</code>.</p>
+<h4 id="Categories-Page"><a href="#Categories-Page" class="headerlink" title="Categories Page"></a>Categories Page</h4><p>Run the following in the Hexo root directory:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">hexo new page categories</span><br><span class="line">```  </span><br><span class="line">This will generate `<span class="built_in">source</span>/categories/index.md`. Edit this file:</span><br><span class="line"></span><br><span class="line">```yml</span><br><span class="line">---</span><br><span class="line">title: Categories</span><br><span class="line"><span class="built_in">date</span>: 2024-12-13 07:00:00</span><br><span class="line"><span class="built_in">type</span>: <span class="string">&#x27;categories&#x27;</span></span><br><span class="line">comments: <span class="literal">false</span></span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<h4 id="About-Page"><a href="#About-Page" class="headerlink" title="About Page"></a>About Page</h4><p>Run the following in the Hexo root directory:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">hexo new page about</span><br><span class="line">```  </span><br><span class="line">This will generate `<span class="built_in">source</span>/about/index.md`. Edit this file:</span><br><span class="line"></span><br><span class="line">```yml</span><br><span class="line">---</span><br><span class="line">title: About</span><br><span class="line"><span class="built_in">date</span>: 2024-12-13 07:00:00</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line"><span class="comment"># Write content in Markdown or HTML format</span></span><br></pre></td></tr></table></figure>
+
+<p><code>about</code> is not a built-in Hexo page type, so it does not need a <code>type:</code> field, but we need to write some self-introduction ourselves in Markdown or HTML format.  </p>
+<h4 id="Adding-Pages-to-Navigation"><a href="#Adding-Pages-to-Navigation" class="headerlink" title="Adding Pages to Navigation"></a>Adding Pages to Navigation</h4><p>Edit the theme configuration file <code>_config.butterfly.yml</code> and modify the <code>menu</code> section:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  Home: / || fas fa-home</span><br><span class="line">  Categories: /categories/ || fas fa-archive</span><br><span class="line">  Tags: /tags/ || fas fa-tag</span><br><span class="line">  About: /about/ || fas fa-user</span><br><span class="line">  Links: /link/ || fas fa-link</span><br></pre></td></tr></table></figure>
+<details class="flatpaper-note flatpaper-note--warning"><summary class="flatpaper-note__title"><span class="flatpaper-note__icon" aria-hidden="true"></span><span class="flatpaper-note__label">modern</span><span class="flatpaper-note__chevron" aria-hidden="true"></span></summary><div class="flatpaper-note__body"><p>Modifying the theme configuration file does not automatically refresh the preview under <code>hexo s</code>. You need to terminate it with <code>Ctrl + C</code> and rerun it.</p></div></details>
+
+<p>After saving and running <code>hexo s</code>, you will see the menu in the top right corner.  </p>
+<h2 id="Deploying-to-GitHub"><a href="#Deploying-to-GitHub" class="headerlink" title="Deploying to GitHub"></a>Deploying to GitHub</h2><p>We have completed the main configurations and created a new article. Now we will host the blog on GitHub Pages so that it can be accessed over the internet.</p>
+<p>Go to <a target="_blank" rel="noopener" href="https://github.com/new">https://github.com/new</a> to create a new repository. The <code>Repository name</code> must be <code>&lt;username&gt;.github.io</code>; otherwise, it will not work.</p>
+<p>Then open the terminal to install <code>hexo-deployer-git</code>:</p>
+<div class="flatpaper-tabs"><div class="flatpaper-tabs__nav" role="tablist"><button type="button" role="tab" id="tabs-9-tab-0" aria-controls="tabs-9-panel-0" aria-selected="true" class="flatpaper-tabs__nav-item is-active" data-index="0">npm</button><button type="button" role="tab" id="tabs-9-tab-1" aria-controls="tabs-9-panel-1" aria-selected="false" class="flatpaper-tabs__nav-item" data-index="1">pnpm</button></div><div class="flatpaper-tabs__panels"><section role="tabpanel" id="tabs-9-panel-0" aria-labelledby="tabs-9-tab-0" class="flatpaper-tabs__panel is-active" data-index="0"><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></section><section role="tabpanel" id="tabs-9-panel-1" aria-labelledby="tabs-9-tab-1" class="flatpaper-tabs__panel" data-index="1" hidden><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm install hexo-deployer-git</span><br></pre></td></tr></table></figure></section></div></div>
+
+<p>Then edit the <code>_config.yml</code> file under the blog directory to configure the <code>deploy</code> section at the bottom.</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="comment"># Repository address</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/&lt;username&gt;/&lt;username&gt;.github.io</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">gh-pages</span></span><br></pre></td></tr></table></figure>
+
+<p>First, open the terminal to set up your Git identity:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Set Git identity</span></span><br><span class="line">git config --global user.email <span class="string">&quot;you@example.com&quot;</span></span><br><span class="line">git config --global user.name <span class="string">&quot;Your Name&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Let Git save our login credentials</span></span><br><span class="line">git config --global credential.helper store</span><br></pre></td></tr></table></figure>
+
+<p>Then run:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>We need to authorize the Git program. Click <code>Sign in with your browser</code> in the popup window.</p>
+<img src="https://img.nep.me/i/2024/12/15/10fxxim-2.webp" style="width:25%;" alt="image" />
+
+<p>In the next step, click <strong>Authorize git-ecosystem</strong>.<br><img src="https://img.nep.me/i/2024/12/15/10g85rg-2.webp" style="width:50%;" alt="image" /></p>
+<p>Then, enter your password to complete the deployment.  </p>
+<p>This will push the website to GitHub. </p>
+<p>If successful, it will output something like:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Writing objects: 100% (16/16), 1.27 KiB | 1.27 MiB/s, <span class="keyword">done</span>.</span><br><span class="line">Total 16 (delta 6), reused 0 (delta 0), pack-reused 0 (from 0)</span><br><span class="line">remote: Resolving deltas: 100% (6/6), completed with 6 <span class="built_in">local</span> objects.</span><br><span class="line">To https://github.com/&lt;yourname&gt;/&lt;xxxxxxxxx&gt;.git</span><br><span class="line">   812f2f9..5ff5eac  HEAD -&gt; gh-pages</span><br><span class="line">branch <span class="string">&#x27;master&#x27;</span> <span class="built_in">set</span> up to track <span class="string">&#x27;https://github.com/&lt;yourname&gt;/&lt;xxxxxxxxx&gt;.git/gh-pages&#x27;</span>.</span><br><span class="line">INFO  Deploy <span class="keyword">done</span>: git</span><br></pre></td></tr></table></figure>
+
+<p>Advanced Tutorial: See <a href="https://ooo.run/post/how-to-add-ssh-key-to-github.html" target="_blank">How to Connect to GitHub Using SSH Key</a></p>
+<h3 id="Setting-GitHub-Pages"><a href="#Setting-GitHub-Pages" class="headerlink" title="Setting GitHub Pages"></a>Setting GitHub Pages</h3><p>On the GitHub repository page, click <strong>Settings</strong> at the top, find <strong>Pages</strong> on the left, edit the <strong>Branch</strong> section, set it to <code>gh-pages</code> + <code>/(root)</code>, and click <strong>Save</strong>.</p>
+<img src="https://img.nep.me/i/2024/12/13/8tl89y-2.webp" style="width:75%;" alt="gh-page-settings" />
+
+<p>Then you can visit <code>https://&lt;username&gt;.github.io</code> to view the website. If it shows a 404, please wait a few minutes.</p>
+<h3 id="Binding-a-Custom-Domain"><a href="#Binding-a-Custom-Domain" class="headerlink" title="Binding a Custom Domain"></a>Binding a Custom Domain</h3><h4 id="Purchasing-a-Domain"><a href="#Purchasing-a-Domain" class="headerlink" title="Purchasing a Domain"></a>Purchasing a Domain</h4><p>If you have your own domain name, in addition to using the free secondary domain provided by GitHub, you can configure it to access your blog using your own domain name.  </p>
+<p>If you don’t have a domain name yet, we recommend purchasing one from the following two websites:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cloudflare.com/">Cloudflare</a> promises to sell domains at <strong>cost price</strong>, but generally does not have first-year discounts.</li>
+<li><a target="_blank" rel="noopener" href="https://porkbun.com/">Porkbun</a> - click <code>Show All Extensions</code> &gt; <code>Sort by price</code> in the search results, where you can often find great first-year discounts.<br>It is generally recommended to choose common suffixes like <code>.com</code> or <code>.me</code> for registration.</li>
+</ul>
+<h4 id="Binding-to-GitHub"><a href="#Binding-to-GitHub" class="headerlink" title="Binding to GitHub"></a>Binding to GitHub</h4><p>The first step is to go to your domain provider or Cloudflare, and add a CNAME record in the <strong>DNS</strong> settings:</p>
+<ul>
+<li>Type: <code>CNAME</code></li>
+<li>Name (host): Fill in <code>@</code> (representing <code>https://ooo.run</code>), or it can be <code>www</code> or another subdomain.</li>
+<li>Content (target): <code>username.github.io</code></li>
+</ul>
+<img src="https://img.nep.me/i/2024/12/14/r8178j-2.webp" style="width:75%;" alt="cloudflare cname" />
+
+<p>Step 2: Visit the GitHub website, and fill in your custom domain in the repository’s <code>Settings</code> &gt; <code>Pages</code> &gt; <code>Custom domain</code>.   </p>
+<img src="https://img.nep.me/i/2024/12/13/ahmi85-2.webp" style="width:50%;" alt="github-pages-custom-domain" />
+
+
+<p>Step 3: Create a <code>CNAME</code> file under the <code>source</code> folder. The filename must be in <strong>uppercase letters</strong> with no extension, and its content should be the domain name you want to use, e.g., <code>example.com</code>.</p>
+<p>Finally, run the commands to push the updates to GitHub.  </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g </span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>Then you can access your blog through your own domain name.</p>
+<h2 id="Adding-a-Comment-System"><a href="#Adding-a-Comment-System" class="headerlink" title="Adding a Comment System"></a>Adding a Comment System</h2><p>Hexo does not come with a built-in comment system, so we need to add one ourselves. You can use:</p>
+<ul>
+<li>GitHub-based <strong>Giscus</strong> </li>
+<li>Self-hostable <strong>Twikoo</strong> or <strong>Arttalk</strong></li>
+<li>Third-party comment system <strong>Disqus</strong> (contains ads)</li>
+</ul>
+<p>For details, see <a href="https://ooo.run/post/how-to-add-comment-system-for-static-blog.html">Adding a Comment System to Hexo Blog: Giscus, Twikoo, Artalk, or Disqus</a>  </p>
+<h2 id="Common-Hexo-Commands"><a href="#Common-Hexo-Commands" class="headerlink" title="Common Hexo Commands"></a>Common Hexo Commands</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Local preview</span></span><br><span class="line">hexo s</span><br><span class="line"><span class="comment"># Equivalent to</span></span><br><span class="line">hexo server</span><br><span class="line"></span><br><span class="line"><span class="comment"># Generate site</span></span><br><span class="line">hexo g</span><br><span class="line"><span class="comment"># Equivalent to</span></span><br><span class="line">hexo generate</span><br><span class="line"></span><br><span class="line"><span class="comment"># Deploy</span></span><br><span class="line">hexo d</span><br><span class="line"><span class="comment"># Equivalent to</span></span><br><span class="line">hexo deploy </span><br><span class="line"></span><br><span class="line"><span class="comment"># Clear cache. If you encounter errors, try running hexo clean first</span></span><br><span class="line">hexo cl</span><br><span class="line"><span class="comment"># Equivalent to</span></span><br><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+
+<h2 id="Advanced-Backing-Up-with-GitHub"><a href="#Advanced-Backing-Up-with-GitHub" class="headerlink" title="Advanced: Backing Up with GitHub"></a>Advanced: Backing Up with GitHub</h2><p>Our blog source files are saved locally. If you switch to another computer, you will need to back them up manually.</p>
+<p>In the source files, we need to focus on:</p>
+<ul>
+<li><code>source</code> folder: Stores the source files of the blog posts. If lost, you will have to start over.</li>
+<li><code>_config.yml</code>: Stores the site configuration settings.</li>
+<li><code>_config.butterfly.yml</code>: Stores the theme configuration settings.</li>
+</ul>
+<p>The easiest way is to copy the entire Hexo folder directory and manually transfer it to other devices, and install Node.js and Git on the new device. This is suitable for those who only write on specific devices and rarely switch, since manual copying cannot keep multiple devices synchronized with each other.  </p>
+<p>Here we recommend using GitHub to back up our entire Hexo folder.  </p>
+<details class="flatpaper-note flatpaper-note--warning"><summary class="flatpaper-note__title"><span class="flatpaper-note__icon" aria-hidden="true"></span><span class="flatpaper-note__label">modern</span><span class="flatpaper-note__chevron" aria-hidden="true"></span></summary><div class="flatpaper-note__body"><p>The following introduces backing up to the same repository as the blog. Since the repository is public, please do not store passwords or other sensitive personal information in your configuration files.</p>
+<p>If you want to keep it private, you can create a private repository to store the backup.</p></div></details>
+
+<p>Before starting, we need to edit the <code>.gitignore</code> in the blog root directory and add <code>themes/</code> to the last line to ignore the nested Git theme folder:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">themes/</span><br></pre></td></tr></table></figure>
+
+<details class="flatpaper-note flatpaper-note--info"><summary class="flatpaper-note__title"><span class="flatpaper-note__icon" aria-hidden="true"></span><span class="flatpaper-note__label">modern</span><span class="flatpaper-note__chevron" aria-hidden="true"></span></summary><div class="flatpaper-note__body"><p>If you also want to back up the theme folder:<br>You need to open your file manager and delete the <code>.git</code> folder under the theme directory <code>themes/butterfly</code>.</p></div></details>
+<img src="https://img.nep.me/i/2024/12/15/10m93v4-2.webp" style="width:75%;" alt="image" />
+<details class="flatpaper-note flatpaper-note--info"><summary class="flatpaper-note__title"><span class="flatpaper-note__icon" aria-hidden="true"></span><span class="flatpaper-note__label">modern</span><span class="flatpaper-note__chevron" aria-hidden="true"></span></summary><div class="flatpaper-note__body"><p>On macOS, you can press <code>Command + Shift + .</code> to show hidden files&#x2F;folders.</p></div></details>
+
+<p>Run the following commands in the Hexo root directory:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Initialize</span></span><br><span class="line">git init</span><br><span class="line"></span><br><span class="line"><span class="comment"># Switch branch name to main</span></span><br><span class="line">git branch -M main</span><br><span class="line"></span><br><span class="line"><span class="comment"># Track current files</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;first commit&quot;</span> --all</span><br><span class="line"></span><br><span class="line"><span class="comment"># Add remote repository. Use your own repository link and replace &lt;username&gt;</span></span><br><span class="line">git remote add origin https://github.com/&lt;username&gt;/&lt;username&gt;.github.io.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># Push to server</span></span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
+
+<h3 id="Committing-Updates"><a href="#Committing-Updates" class="headerlink" title="Committing Updates"></a>Committing Updates</h3><p>After making updates locally, use the <code>git push</code> command in the Hexo directory to sync with GitHub.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># If you wrote new articles</span></span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line"><span class="comment"># Save updates to local Git</span></span><br><span class="line"><span class="comment"># -m &quot;update&quot; is used to remark the update content, &quot;update&quot; can be customized</span></span><br><span class="line">git commit -m <span class="string">&quot;update&quot;</span> --all</span><br><span class="line"></span><br><span class="line"><span class="comment"># Sync to GitHub</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+
+<p>Now visit the GitHub repository and click the branch dropdown at the top. The <code>main</code> branch is where our backups are stored.</p>
+<img src="https://img.nep.me/i/2024/12/15/10r2to3-2.webp" style="width:50%;" alt="image" />
+
+<h3 id="Retrieving-the-Backup"><a href="#Retrieving-the-Backup" class="headerlink" title="Retrieving the Backup"></a>Retrieving the Backup</h3><p>When the files on GitHub are newer than your local ones (for example, updated on another device), use <code>git pull</code> in the Hexo directory to sync locally:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure>
+
+<p><strong>When we switch to a completely new device</strong>, we need to install Node.js and Git first, and then fetch the backup from the GitHub server:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Download the backup branch data to the local computer</span></span><br><span class="line">git <span class="built_in">clone</span> -b main https://github.com/&lt;username&gt;/&lt;username&gt;.github.io.git </span><br><span class="line"></span><br><span class="line"><span class="comment"># Enter the Hexo directory</span></span><br><span class="line"><span class="built_in">cd</span> &lt;username&gt;.github.io.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># Install dependencies</span></span><br><span class="line">npm install</span><br><span class="line"></span><br><span class="line"><span class="comment"># Preview</span></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<h3 id="Using-GitHub-Desktop"><a href="#Using-GitHub-Desktop" class="headerlink" title="Using GitHub Desktop"></a>Using GitHub Desktop</h3><p>Too tedious to type commands every time? Install <a target="_blank" rel="noopener" href="https://desktop.github.com/download/">GitHub Desktop</a>! </p>
+<p><img src="https://img.nep.me/i/2024/12/13/xb5cee-2.webp"></p>
+<p>We can use the graphical interface for simple operations, starting with the button on the top right:</p>
+<p><img src="https://img.nep.me/i/2024/12/13/xeohvs-2.webp"></p>
+<ul>
+<li>By default, <code>Fetch origin</code> checks for updates.</li>
+<li>When the server is newer than local, it displays <code>Pull origin</code>, meaning you can pull updates from GitHub.</li>
+<li>When the local files are newer than the server, it displays <code>Push origin</code>, meaning you can push updates to GitHub. After updating locally, you can write a summary in the bottom-left <strong>Summary</strong> field, click <code>Commit to main</code>, and then push the updates.</li>
+</ul>
+<h2 id="Other-Operations"><a href="#Other-Operations" class="headerlink" title="Other Operations"></a>Other Operations</h2><h3 id="Adding-Search-to-the-Site"><a href="#Adding-Search-to-the-Site" class="headerlink" title="Adding Search to the Site"></a>Adding Search to the Site</h3><p>Run in the Hexo root directory:</p>
+<div class="flatpaper-tabs"><div class="flatpaper-tabs__nav" role="tablist"><button type="button" role="tab" id="tabs-10-tab-0" aria-controls="tabs-10-panel-0" aria-selected="true" class="flatpaper-tabs__nav-item is-active" data-index="0">npm</button><button type="button" role="tab" id="tabs-10-tab-1" aria-controls="tabs-10-panel-1" aria-selected="false" class="flatpaper-tabs__nav-item" data-index="1">pnpm</button></div><div class="flatpaper-tabs__panels"><section role="tabpanel" id="tabs-10-panel-0" aria-labelledby="tabs-10-tab-0" class="flatpaper-tabs__panel is-active" data-index="0"><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure></section><section role="tabpanel" id="tabs-10-panel-1" aria-labelledby="tabs-10-tab-1" class="flatpaper-tabs__panel" data-index="1" hidden><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm install hexo-generator-searchdb</span><br></pre></td></tr></table></figure></section></div></div>
+
+<p>Modify the site configuration file <code>_config.yml</code> and append at the end:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br></pre></td></tr></table></figure>
+
+<p>Modify the theme configuration file <code>_config.butterfly.yml</code>:</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Enable search</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">use:</span> <span class="string">local_search</span></span><br></pre></td></tr></table></figure>
+
+<p>Then you can run the search:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Generate site files</span></span><br><span class="line">hexo clean </span><br><span class="line">hexo g </span><br><span class="line"></span><br><span class="line"><span class="comment"># Start preview</span></span><br><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<h3 id="Adding-a-Sitemap"><a href="#Adding-a-Sitemap" class="headerlink" title="Adding a Sitemap"></a>Adding a Sitemap</h3><p>Run in the Hexo root directory:</p>
+<div class="flatpaper-tabs"><div class="flatpaper-tabs__nav" role="tablist"><button type="button" role="tab" id="tabs-11-tab-0" aria-controls="tabs-11-panel-0" aria-selected="true" class="flatpaper-tabs__nav-item is-active" data-index="0">npm</button><button type="button" role="tab" id="tabs-11-tab-1" aria-controls="tabs-11-panel-1" aria-selected="false" class="flatpaper-tabs__nav-item" data-index="1">pnpm</button></div><div class="flatpaper-tabs__panels"><section role="tabpanel" id="tabs-11-panel-0" aria-labelledby="tabs-11-tab-0" class="flatpaper-tabs__panel is-active" data-index="0"><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure></section><section role="tabpanel" id="tabs-11-panel-1" aria-labelledby="tabs-11-tab-1" class="flatpaper-tabs__panel" data-index="1" hidden><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm install hexo-generator-sitemap </span><br></pre></td></tr></table></figure></section></div></div>
+
+<p>In the future, when generating site files, the <code>sitemap.xml</code> file will be automatically generated. You can access it via <code>http://localhost:4000/sitemap.xml</code> during local <code>hexo s</code> previews.</p>
+<h3 id="Adding-RSS-Support"><a href="#Adding-RSS-Support" class="headerlink" title="Adding RSS Support"></a>Adding RSS Support</h3><p>Run in the Hexo root directory:</p>
+<div class="flatpaper-tabs"><div class="flatpaper-tabs__nav" role="tablist"><button type="button" role="tab" id="tabs-12-tab-0" aria-controls="tabs-12-panel-0" aria-selected="true" class="flatpaper-tabs__nav-item is-active" data-index="0">npm</button><button type="button" role="tab" id="tabs-12-tab-1" aria-controls="tabs-12-panel-1" aria-selected="false" class="flatpaper-tabs__nav-item" data-index="1">pnpm</button></div><div class="flatpaper-tabs__panels"><section role="tabpanel" id="tabs-12-panel-0" aria-labelledby="tabs-12-tab-0" class="flatpaper-tabs__panel is-active" data-index="0"><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-feed --save</span><br></pre></td></tr></table></figure></section><section role="tabpanel" id="tabs-12-panel-1" aria-labelledby="tabs-12-tab-1" class="flatpaper-tabs__panel" data-index="1" hidden><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm install hexo-generator-feed</span><br></pre></td></tr></table></figure></section></div></div>
+
+<p>Then edit the <code>_config.yml</code> file under the Hexo root directory, and append at the end:</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># RSS</span></span><br><span class="line"><span class="attr">feed:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">atom</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">atom.xml</span></span><br><span class="line">  <span class="comment"># Limit the number of articles output</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">20</span></span><br></pre></td></tr></table></figure>
+
+<p>In the future, when generating site files, the <code>atom.xml</code> file will be automatically generated. You can access it via <code>http://localhost:4000/atom.xml</code> during local <code>hexo s</code> previews.</p>
+<details class="flatpaper-note flatpaper-note--default"><summary class="flatpaper-note__title"><span class="flatpaper-note__icon" aria-hidden="true"></span><span class="flatpaper-note__label">morden</span><span class="flatpaper-note__chevron" aria-hidden="true"></span></summary><div class="flatpaper-note__body"><p>Garbled text when previewing <code>atom.xml</code> locally? Don’t worry. This is an issue with the local server. The <code>atom.xml</code> file itself is completely fine and will display normally after being pushed to the server.</p></div></details>
+
+<h3 id="Setting-Up-Friends-Links"><a href="#Setting-Up-Friends-Links" class="headerlink" title="Setting Up Friends Links"></a>Setting Up Friends Links</h3><p>In addition to the built-in Hexo page types, the Butterfly theme also supports configuring a friends links page:<br>Run in the Hexo root directory:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page <span class="built_in">link</span></span><br></pre></td></tr></table></figure>
+<p>This will generate <code>source/link/index.md</code>. Edit this file:</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Links</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2024-12-13 07:00:05</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&#x27;link&#x27;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+
+<p>We also need to create a <code>_data</code> folder under the <code>source</code> directory, and then create a <code>link.yml</code> file, filling in the links in the following format:</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">class_name:</span> <span class="string">Friends</span> <span class="string">Links</span></span><br><span class="line">  <span class="attr">class_desc:</span> <span class="string">Those</span> <span class="string">people,</span> <span class="string">those</span> <span class="string">stories</span></span><br><span class="line">  <span class="attr">link_list:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Hexo</span></span><br><span class="line">      <span class="attr">link:</span> <span class="string">https://hexo.io/zh-tw/</span></span><br><span class="line">      <span class="attr">avatar:</span> <span class="string">https://d33wubrfki0l68.cloudfront.net/6657ba50e702d84afb32fe846bed54fba1a77add/827ae/logo.svg</span></span><br><span class="line">      <span class="attr">descr:</span> <span class="string">A</span> <span class="string">fast,</span> <span class="string">simple</span> <span class="string">&amp;</span> <span class="string">powerful</span> <span class="string">blog</span> <span class="string">framework</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> <span class="attr">class_name:</span> <span class="string">Recommended</span> <span class="string">Sites</span></span><br><span class="line">  <span class="attr">class_desc:</span> <span class="string">Sites</span> <span class="string">worth</span> <span class="string">recommending</span></span><br><span class="line">  <span class="attr">link_list:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Youtube</span></span><br><span class="line">      <span class="attr">link:</span> <span class="string">https://www.youtube.com/</span></span><br><span class="line">      <span class="attr">avatar:</span> <span class="string">https://i.loli.net/2020/05/14/9ZkGg8v3azHJfM1.png</span></span><br><span class="line">      <span class="attr">descr:</span> <span class="string">Video</span> <span class="string">hosting</span> <span class="string">site</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Weibo</span></span><br><span class="line">      <span class="attr">link:</span> <span class="string">https://www.weibo.com/</span></span><br><span class="line">      <span class="attr">avatar:</span> <span class="string">https://i.loli.net/2020/05/14/TLJBum386vcnI1P.png</span></span><br><span class="line">      <span class="attr">descr:</span> <span class="string">China&#x27;s</span> <span class="string">largest</span> <span class="string">social</span> <span class="string">sharing</span> <span class="string">platform</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Twitter</span></span><br><span class="line">      <span class="attr">link:</span> <span class="string">https://twitter.com/</span></span><br><span class="line">      <span class="attr">avatar:</span> <span class="string">https://i.loli.net/2020/05/14/5VyHPQqR6LWF39a.png</span></span><br><span class="line">      <span class="attr">descr:</span> <span class="string">Social</span> <span class="string">sharing</span> <span class="string">platform</span></span><br></pre></td></tr></table></figure>
+
+  </div>
+
+  <footer class="article-reactions">
+    <div class="reaction-group">
+      <button type="button" class="reaction reaction--comment" aria-label="Jump to comments" data-action="scroll-to-comments">
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+
+      </button>
+      <span class="reaction-label">Comments</span>
+      
+    </div>
+    <div class="reaction-group reaction-group--right">
+      
+      <button type="button" class="reaction reaction--share" aria-label="Share" data-action="share">
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-share-2" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" x2="15.42" y1="13.51" y2="17.49"/><line x1="15.41" x2="8.59" y1="6.51" y2="10.49"/></svg>
+
+      </button>
+      <span class="reaction-label">Share</span>
+    </div>
+  </footer>
+
+  
+
+
+  <nav class="article-actions">
+    
+      <a class="article-action article-action--prev" href="/en/post/how-to-install-nodejs.html">
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+
+        <span class="action-label">Previous</span>
+        <span class="action-title">How to Install Node.js</span>
+      </a>
+    
+    
+      <span class="article-action article-action--next is-disabled" aria-disabled="true">
+        <span class="action-label">Next</span>
+        <span class="action-title">This is the latest post</span>
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+
+      </span>
+    
+  </nav>
+</article>
+</div>
+
+<button type="button" class="back-to-top" data-action="scroll-to-top" aria-label="Back to top" hidden>
+  
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
+
+</button>
+
+
+  <section class="related-paper">
+    <header class="related-paper__head">
+      <h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-link" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+Related posts</h2>
+      <a class="related-paper__more" href="/en/archives/">
+        <span>View more</span>
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+
+      </a>
+    </header>
+    <div class="related-paper__grid">
+      
+        <a class="related-card" href="/en/post/how-to-add-comment-system-for-static-blog.html">
+          <span class="related-card__thumb">
+            
+<div class="paper-thumb paper-thumb-0 paper-thumb--cover">
+  
+    <img class="paper-thumb__img" src="https://img.nep.me/i/2025/08/04/cover-hexo-add-comments.webp" alt="Adding a Comment System to a Hexo Blog: Giscus, Twikoo, Artalk, or Disqus" loading="lazy" referrerpolicy="no-referrer">
+  
+</div>
+
+          </span>
+          <span class="related-card__body">
+            <strong class="related-card__title">Adding a Comment System to a Hexo Blog: Giscus, Twikoo, Artalk, or Disqus</strong>
+            <em class="related-card__date">2024-12-14</em>
+          </span>
+        </a>
+      
+        <a class="related-card" href="/en/post/how-to-add-ssh-key-to-github.html">
+          <span class="related-card__thumb">
+            
+<div class="paper-thumb paper-thumb-1 paper-thumb--cover">
+  
+    <img class="paper-thumb__img" src="https://img.nep.me/i/2025/08/04/cover-connect-github-with-sshkey.webp" alt="How to Connect to GitHub Using SSH Key" loading="lazy" referrerpolicy="no-referrer">
+  
+</div>
+
+          </span>
+          <span class="related-card__body">
+            <strong class="related-card__title">How to Connect to GitHub Using SSH Key</strong>
+            <em class="related-card__date">2024-12-13</em>
+          </span>
+        </a>
+      
+        <a class="related-card" href="/en/post/docker-run-fizzy-kanban.html">
+          <span class="related-card__thumb">
+            
+<div class="paper-thumb paper-thumb-2 paper-thumb--cover">
+  
+    <img class="paper-thumb__img" src="https://img.nep.me/ooo/cover-fizzy.webp" alt="Deploying Fizzy with Docker: A Lightweight, Beautiful, Self-Hostable Kanban Tool" loading="lazy" referrerpolicy="no-referrer">
+  
+</div>
+
+          </span>
+          <span class="related-card__body">
+            <strong class="related-card__title">Deploying Fizzy with Docker: A Lightweight, Beautiful, Self-Hostable Kanban Tool</strong>
+            <em class="related-card__date">2026-06-23</em>
+          </span>
+        </a>
+      
+        <a class="related-card" href="/en/post/nginx-vs-caddy.html">
+          <span class="related-card__thumb">
+            
+<div class="paper-thumb paper-thumb-0 paper-thumb--cover">
+  
+    <img class="paper-thumb__img" src="https://img.nep.me/ooo/cover-nginx-vs-caddy.webp" alt="Nginx vs Caddy: A Comparison Guide for DevOps Practitioners" loading="lazy" referrerpolicy="no-referrer">
+  
+</div>
+
+          </span>
+          <span class="related-card__body">
+            <strong class="related-card__title">Nginx vs Caddy: A Comparison Guide for DevOps Practitioners</strong>
+            <em class="related-card__date">2026-06-12</em>
+          </span>
+        </a>
+      
+    </div>
+  </section>
+
+
+      
+
+<section class="comments-section" aria-label="Comments">
+  <header class="comments-section__head">
+    <h2>
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+Comments</h2>
+  </header>
+  <div id="artalk-comments"></div>
+</section>
+<script>
+window.addEventListener('load', function () {
+  if (typeof Artalk === 'undefined' || typeof Artalk.init !== 'function') return;
+  Artalk.init({
+    el: '#artalk-comments',
+    pageKey: "https://ooo.run/en/post/start-blog-with-hexo-and-github.html",
+    pageTitle: "Building a Personal Blog with Hexo and GitHub",
+    server: "https://artalk.ooo.run",
+    site: "Mr. O's Blog"
+  });
+});
+</script>
+
+
+    </section>
+    
+  </main>
+
+  <div class="sidebar-backdrop js-sidebar-close" aria-hidden="true"></div>
+
+  
+<footer class="site-footer">
+  <span class="site-footer__left">© 2026 By Mr. O · Theme FramedInfra Based on <a href="https://github.com/Homulilly/hexo-theme-flatpaper" target="_blank">FlatPaper</a></span>
+  <span class="site-footer__right"><a href="/terms">Terms of Service</a> · <a href="/privacy">Privacy Policy</a> <br /> <a href="https://tools.ooo.run" target="_blank">Simple Tools</a></span>
+</footer>
+
+  
+<div class="search-panel" aria-hidden="true" data-index-url="/en/flatpaper-search.json">
+  <div class="search-backdrop js-search-close"></div>
+  <section class="search-dialog" role="dialog" aria-modal="true" aria-label="Search posts">
+    <span class="tape tape--top-left" aria-hidden="true"></span>
+    <header class="search-head">
+      <h2><span class="green-dot"></span>Search posts</h2>
+      <button class="icon-button js-search-close" type="button" aria-label="Close search">
+        
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+
+      </button>
+    </header>
+    <label class="search-field">
+      
+<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+
+      <input id="flatpaper-search" class="search-input" type="search" placeholder="Type keywords, press Esc to close" autocomplete="off">
+    </label>
+    <div class="search-results" data-empty="Type keywords to search matching posts">
+      <p class="search-empty">Type keywords to search matching posts</p>
+    </div>
+  </section>
+</div>
+
+  <script>
+  window.FLATPAPER_I18N = {"language":"en","common.posts":"Posts","common.categories":"Categories","common.tags":"Tags","common.comments":"Comments","common.share":"Share","common.page":"Page","common.archive":"Archive","common.post_list":"Posts","common.search_posts":"Search posts","common.random_posts":"Random posts","common.reward":"Reward","common.view_all":"View all","pagination.prev":"Previous","pagination.next":"Next","pagination.post_pager":"Post pagination","pagination.archive_pager":"Archive pagination","index.featured":"Featured posts","index.pinned":"Pinned","index.read_more":"Read more","index.previous_slide":"Previous slide","index.next_slide":"Next slide","index.carousel_pagination":"Carousel pagination","index.carousel_slide":"Slide %d","index.latest_posts":"Latest posts","index.empty_posts":"No posts yet. Create your first post and the latest content will appear here.","archive.title":"Archive","archive.post_list":"Posts","taxonomy.category_count":"%d posts","taxonomy.empty_categories":"No categories yet.","taxonomy.empty_tags":"No tags yet.","links.label":"Friends","links.title":"Friend links","links.empty_data":"Could not load friend link data. Make sure source/_data/links.yml exists and run hexo clean.","links.rss_label":"%s's RSS","friends_feed.label":"Circle","friends_feed.title":"Friend circle","friends_feed.loading":"Loading friend updates...","friends_feed.missing_url":"No all.json URL configured.","friends_feed.load_failed":"Failed to load friend updates. Try again later.","friends_feed.empty":"No friend articles have been fetched yet.","friends_feed.load_more":"Load more","friends_feed.updated_at":"Updated at %s","friends_feed.friend_count":"%d friends","friends_feed.active_count":"%d active","friends_feed.article_count":"%d articles","friends_feed.unknown_author":"Unknown site","friends_feed.date_unknown":"Unknown time","post.scroll_to_comments":"Jump to comments","post.previous":"Previous","post.next":"Next","post.no_previous":"No earlier posts","post.no_next":"This is the latest post","post.back_to_top":"Back to top","post.related_posts":"Related posts","post.view_more":"View more","not_found.label":"Page missing","not_found.title":"Page not found","not_found.text":"This address may have moved, been deleted, or never existed.","not_found.home":"Back home","not_found.search":"Search posts","search.placeholder":"Type keywords, press Esc to close","search.empty":"Type keywords to search matching posts","search.loading":"Loading search index...","search.load_failed":"Failed to load the search index. Reopen search and try again.","search.no_result":"No posts found for \"%s\"","search.close":"Close search","code.copy":"Copy code","code.collapse":"Collapse code","code.expand":"Expand code","heading.anchor":"Link to this section: %s","head.tag":"Tag: %s","head.category":"Category: %s","head.archive":"Archive","head.archive_with_date":"Archive: %s","head.page_number":"Page %d","navigation.primary":"Primary navigation","navigation.mobile":"Mobile navigation","navigation.brand_home":"FlatPaper home","navigation.brand_menu":"Open site navigation","navigation.open_sidebar":"Open sidebar","navigation.close_sidebar":"Close sidebar","navigation.sidebar":"Sidebar","navigation.sidebar_tools":"Sidebar tools","navigation.site_links":"Site links","navigation.site_info":"Site information","colors.choose_theme_color":"Choose theme color","colors.theme_color":"Theme color","colors.toggle_color_mode":"Toggle color mode","colors.green":"Green","colors.purple":"Purple","colors.pink":"Pink","colors.sakura":"Sakura pink","colors.blue":"Blue","colors.orange":"Orange","colors.black":"Black","profile.default_bio":"Loves life, code, and sharing notes from both.","welcome.cta":"Start reading","welcome.title":"Welcome to FlatPaper","welcome.text":"A blog theme focused on content and a calm reading experience.","home_hero.label":"Home opening","home_hero.enter":"Go to content","home_hero.note":"Today","home_hero.default_subtitle":"Daily notes","home_hero.nav_links":"Hero navigation","home_hero.profile_links":"Profile links","home_hero.tools":"Hero tools","home_hero.shuffle_stickers":"Shuffle stickers","home_hero.link":"Link","home_hero.sticker_image":"Sticker image","home_hero.visit_confirm":"Visit %s?","home_hero.visit":"Visit","home_hero.cancel":"Cancel","toc.title":"Table of contents","toc.empty":"The table of contents is generated from post headings.","toc.expand_all":"Expand all headings","toc.collapse_all":"Collapse headings","sidebar.hot_tags":"Popular tags","sidebar.latest_posts":"Latest posts"};
+  </script>
+  
+<script src="/en/js/main.js"></script>
+
+  
+</body>
+</html>
