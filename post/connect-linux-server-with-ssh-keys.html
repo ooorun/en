@@ -564,17 +564,17 @@ Latest posts</h2>
 </ul>
 <h2 id="Step-2-Upload-the-Public-Key-to-the-Server"><a href="#Step-2-Upload-the-Public-Key-to-the-Server" class="headerlink" title="Step 2: Upload the Public Key to the Server"></a>Step 2: Upload the Public Key to the Server</h2><p>Now that we have generated the key pair, the next step is to copy the public key to your Linux server.</p>
 <ol>
-<li><p>Using the <code>ssh-copy-id</code> command (Recommended)<br> This is the simplest method. It automatically copies your public key into the server’s <code>~/.ssh/authorized_keys</code> file and applies the correct file permissions.</p>
+<li><p>Using the <code>ssh-copy-id</code> command (Recommended)<br> This is the simplest method. It automatically copies your public key into the server&#39;s <code>~/.ssh/authorized_keys</code> file and applies the correct file permissions.</p>
 <p> Simply run the following command:</p>
  <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-copy-id -i ~/.ssh/id_ed25519.pub username@server_ip</span><br></pre></td></tr></table></figure>
 
-<p> The program will prompt you to enter the server’s password. Once entered, the public key will be uploaded automatically.</p>
+<p> The program will prompt you to enter the server&#39;s password. Once entered, the public key will be uploaded automatically.</p>
 </li>
 <li><p>Manual Copying<br> If <code>ssh-copy-id</code> is unavailable or password login is already disabled, we can add it manually. </p>
 <p> First, run the following command in your local terminal to view and copy the public key content:</p>
  <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> ~/.ssh/id_ed25519.pub</span><br></pre></td></tr></table></figure>
 
-<p> Then, log in to the server’s terminal via Web Console. Create the <code>.ssh</code> directory on the server (if it doesn’t exist) and set the correct permissions:</p>
+<p> Then, log in to the server&#39;s terminal via Web Console. Create the <code>.ssh</code> directory on the server (if it doesn&#39;t exist) and set the correct permissions:</p>
  <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/.ssh</span><br><span class="line"><span class="built_in">chmod</span> 700 ~/.ssh</span><br></pre></td></tr></table></figure>
 
 <p> Next, open or create the <code>authorized_keys</code> file:</p>

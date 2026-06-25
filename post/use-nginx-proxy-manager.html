@@ -18,12 +18,12 @@
 <meta name="theme-color" content="#f7f3e9">
 
 <title>Nginx Proxy Manager Tutorial | O&#39;s World</title>
-<meta name="description" content="IntroductionFor modern websites, HTTPS certificates have become essential. Although we can obtain free certificates using Let’s Encrypt and quickly request&#x2F;automatically renew...">
+<meta name="description" content="IntroductionFor modern websites, HTTPS certificates have become essential. Although we can obtain free certificates using Let&#39;s Encrypt and quickly request&#x2F;automatically r...">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx Proxy Manager Tutorial | O&#39;s World">
 <meta property="og:url" content="https://ooo.run/en/post/use-nginx-proxy-manager.html">
 <meta property="og:site_name" content="O&#39;s World">
-<meta property="og:description" content="IntroductionFor modern websites, HTTPS certificates have become essential. Although we can obtain free certificates using Let’s Encrypt and quickly request&#x2F;automatically renew...">
+<meta property="og:description" content="IntroductionFor modern websites, HTTPS certificates have become essential. Although we can obtain free certificates using Let&#39;s Encrypt and quickly request&#x2F;automatically r...">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img.nep.me/i/2024/12/15/3w01bl-2.webp">
 <meta property="og:image" content="https://img.nep.me/i/2024/12/15/8rqhli-2.webp">
@@ -48,7 +48,7 @@
 <meta name="twitter:image" content="https://img.nep.me/i/2024/12/15/3w01bl-2.webp">
 <link rel="canonical" href="https://ooo.run/en/post/use-nginx-proxy-manager.html">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Nginx Proxy Manager Tutorial","name":"Nginx Proxy Manager Tutorial | O's World","description":"IntroductionFor modern websites, HTTPS certificates have become essential. Although we can obtain free certificates using Let’s Encrypt and quickly request&#x2F;automatically renew...","url":"https://ooo.run/en/post/use-nginx-proxy-manager.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"O's World","url":"https://ooo.run/en/"},"mainEntityOfPage":"https://ooo.run/en/post/use-nginx-proxy-manager.html","datePublished":"2024-12-14T17:16:18.000Z","dateModified":"2026-06-24T21:23:05.197Z","author":{"@type":"Person","name":"Mr. O"},"publisher":{"@type":"Organization","name":"O's World"},"keywords":"Docker, Nginx Proxy Manager, HTTPS"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Nginx Proxy Manager Tutorial","name":"Nginx Proxy Manager Tutorial | O's World","description":"IntroductionFor modern websites, HTTPS certificates have become essential. Although we can obtain free certificates using Let&#39;s Encrypt and quickly request&#x2F;automatically r...","url":"https://ooo.run/en/post/use-nginx-proxy-manager.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"O's World","url":"https://ooo.run/en/"},"mainEntityOfPage":"https://ooo.run/en/post/use-nginx-proxy-manager.html","datePublished":"2024-12-14T17:16:18.000Z","dateModified":"2026-06-24T21:23:05.197Z","author":{"@type":"Person","name":"Mr. O"},"publisher":{"@type":"Organization","name":"O's World"},"keywords":"Docker, Nginx Proxy Manager, HTTPS"}</script>
 
 <script>
   (function () {
@@ -542,14 +542,14 @@ Latest posts</h2>
 
 
   <div class="article-content">
-    <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>For modern websites, HTTPS certificates have become essential. Although we can obtain free certificates using Let’s Encrypt and quickly request&#x2F;automatically renew them with acme.sh, editing Nginx configuration files every time we add a new domain is still somewhat tedious.  </p>
+    <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>For modern websites, HTTPS certificates have become essential. Although we can obtain free certificates using Let&#39;s Encrypt and quickly request&#x2F;automatically renew them with acme.sh, editing Nginx configuration files every time we add a new domain is still somewhat tedious.  </p>
 <p>This article will introduce how to use <strong>Nginx Proxy Manager</strong> to set up an Nginx reverse proxy, which also supports automatic application and renewal of HTTPS certificates. You can even use APIs to apply for certificates within a local area network (LAN)!  </p>
-<p>Nginx Proxy Manager is fully graphical, so it doesn’t matter if you don’t understand code. It is highly suitable for personal use!   </p>
+<p>Nginx Proxy Manager is fully graphical, so it doesn&#39;t matter if you don&#39;t understand code. It is highly suitable for personal use!   </p>
 <p>Main Features:</p>
 <ul>
 <li>Beautiful user interface</li>
 <li>Easy reverse proxy configuration</li>
-<li>Easy HTTPS configuration with built-in Let’s Encrypt support</li>
+<li>Easy HTTPS configuration with built-in Let&#39;s Encrypt support</li>
 <li>Docker image provided for easy deployment</li>
 <li>Multi-user support with simple access permission settings</li>
 </ul>
@@ -593,7 +593,7 @@ Latest posts</h2>
 </tr>
 </tbody></table>
 <h2 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h2><p>Nginx Proxy Manager is deployed using <code>Docker</code>, so you will need to have Docker and Docker Compose installed on your server.</p>
-<p>If you haven’t installed them yet, you can check: <a href="https://ooo.run/en/post/debian-install-docker.html" target="_blank">Installing Docker and Docker Compose on Debian</a></p>
+<p>If you haven&#39;t installed them yet, you can check: <a href="https://ooo.run/en/post/debian-install-docker.html" target="_blank">Installing Docker and Docker Compose on Debian</a></p>
 <h2 id="Installing-with-Docker"><a href="#Installing-with-Docker" class="headerlink" title="Installing with Docker"></a>Installing with Docker</h2><p>Create a working directory, then create a <code>docker-compose.yml</code> file inside it and fill it with the following content:</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">app:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">&#x27;jc21/nginx-proxy-manager:latest&#x27;</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">unless-stopped</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;80:80&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;81:81&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;443:443&#x27;</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./data:/data</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./letsencrypt:/etc/letsencrypt</span></span><br></pre></td></tr></table></figure>
 <ul>
@@ -601,7 +601,7 @@ Latest posts</h2>
 <li><code>81</code> is the management port for Nginx Proxy Manager.</li>
 <li><code>443</code> is the port for HTTPS web traffic.</li>
 </ul>
-<p>Nginx Proxy Manager’s data is stored in the <code>./data</code> folder in the same directory as <code>docker-compose.yml</code>, and certificates are stored in the <code>./letsencrypt</code> folder. You can modify these paths as needed.</p>
+<p>Nginx Proxy Manager&#39;s data is stored in the <code>./data</code> folder in the same directory as <code>docker-compose.yml</code>, and certificates are stored in the <code>./letsencrypt</code> folder. You can modify these paths as needed.</p>
 <div class="flatpaper-note flatpaper-note--warning"><span class="flatpaper-note__icon" aria-hidden="true"></span><div class="flatpaper-note__body"><p>Since ports 80 and 443 are required, if you have Nginx installed on the host machine, please disable it first.</p></div></div>
 
 <p>Use <code>docker compose</code> to run Nginx Proxy Manager:</p>
@@ -627,10 +627,10 @@ Latest posts</h2>
 <p>Certificates generated by Nginx Proxy Manager will renew automatically.  </p>
 <h3 id="Single-Domain-Certificate"><a href="#Single-Domain-Certificate" class="headerlink" title="Single-Domain Certificate"></a>Single-Domain Certificate</h3><p>To apply for a single-domain certificate, you only need to:</p>
 <ul>
-<li>Point your domain’s DNS resolution to the server.</li>
+<li>Point your domain&#39;s DNS resolution to the server.</li>
 <li><strong>Domain Names</strong>: Enter the domain name you want the certificate for.</li>
-<li>Enter the email address to be used with Let’s Encrypt.</li>
-<li>Agree to the Let’s Encrypt Terms of Service.</li>
+<li>Enter the email address to be used with Let&#39;s Encrypt.</li>
+<li>Agree to the Let&#39;s Encrypt Terms of Service.</li>
 <li>Click <strong>Save</strong>.</li>
 </ul>
 <p><img src="https://img.nep.me/i/2024/12/15/3zn2an-2.webp" alt="Nginx Proxy Manager Add Single Cert"> </p>
@@ -642,7 +642,7 @@ Latest posts</h2>
 <li><strong>Token name</strong>: Change to a name for distinction.</li>
 <li><strong>Permissions</strong>: Keep the default <strong>Edit</strong>.</li>
 <li><strong>Zone Resources</strong>: <strong>Specific zone</strong>, and select the corresponding domain.</li>
-<li><strong>Client IP Filtering</strong>: Configure which IPs can use the token. You can select <strong>Is in</strong>, then enter your server’s IP.</li>
+<li><strong>Client IP Filtering</strong>: Configure which IPs can use the token. You can select <strong>Is in</strong>, then enter your server&#39;s IP.</li>
 <li><strong>TTL</strong>: Token expiration. By default, it is valid permanently.</li>
 </ul>
 <img src="https://img.nep.me/i/2024/12/15/46p2d9-2.webp" style="width:75%;" alt="Clodflare API Token Config" />
@@ -654,17 +654,17 @@ Latest posts</h2>
 <p>Then apply for the certificate in Nginx Proxy Manager:</p>
 <ul>
 <li><strong>Domain Names</strong>: Enter <code>*.example.com</code> and <code>example.com</code>.</li>
-<li>Enter the email address for Let’s Encrypt.</li>
+<li>Enter the email address for Let&#39;s Encrypt.</li>
 <li>Enable <strong>Use a DNS Challenge</strong>.</li>
 <li><strong>DNS Provider</strong>: Choose <strong>Cloudflare</strong>.</li>
 <li>Replace the <code>token</code> in the <strong>Credential File Content</strong>.</li>
-<li>Agree to the Let’s Encrypt Terms of Service.</li>
+<li>Agree to the Let&#39;s Encrypt Terms of Service.</li>
 <li>Click <code>Save</code> to apply.</li>
 </ul>
 <img src="https://img.nep.me/i/2024/12/15/51nizh-2.webp" style="width:50%;" alt="image" />
 
 <p>Once successful, it will appear in the list.<br><img src="https://img.nep.me/i/2024/12/15/545b7p-2.webp"> </p>
-<h2 id="Adding-Reverse-Proxy-Sites"><a href="#Adding-Reverse-Proxy-Sites" class="headerlink" title="Adding Reverse Proxy Sites"></a>Adding Reverse Proxy Sites</h2><h3 id="Example-Reverse-Proxying-the-Admin-Panel"><a href="#Example-Reverse-Proxying-the-Admin-Panel" class="headerlink" title="Example: Reverse Proxying the Admin Panel"></a>Example: Reverse Proxying the Admin Panel</h3><p>By default, Nginx Proxy Manager’s administration port is exposed to the public internet, which is insecure. However, if we remove this port mapping, modifying settings in the future becomes tedious. To solve this, we can configure a subdomain for access. First, point a subdomain like <code>nginx.example.com</code> to your server.</p>
+<h2 id="Adding-Reverse-Proxy-Sites"><a href="#Adding-Reverse-Proxy-Sites" class="headerlink" title="Adding Reverse Proxy Sites"></a>Adding Reverse Proxy Sites</h2><h3 id="Example-Reverse-Proxying-the-Admin-Panel"><a href="#Example-Reverse-Proxying-the-Admin-Panel" class="headerlink" title="Example: Reverse Proxying the Admin Panel"></a>Example: Reverse Proxying the Admin Panel</h3><p>By default, Nginx Proxy Manager&#39;s administration port is exposed to the public internet, which is insecure. However, if we remove this port mapping, modifying settings in the future becomes tedious. To solve this, we can configure a subdomain for access. First, point a subdomain like <code>nginx.example.com</code> to your server.</p>
 <p>In <code>Hosts</code> &gt; <code>Proxy Hosts</code>, click <code>Add Proxy Host</code>. The target address for the admin panel is <code>http://127.0.0.1:81</code>:</p>
 <ul>
 <li><strong>Domain Names</strong>: Enter your subdomain.</li>
@@ -690,7 +690,7 @@ Latest posts</h2>
 <p>We can add custom configurations in the <strong>Advanced</strong> tab, for example:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gzip on;</span><br><span class="line">gzip_min_length 1k;</span><br><span class="line">gzip_comp_level 2;</span><br><span class="line">gzip_types text/plain application/javascript application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png font/ttf font/otf image/svg+xml;</span><br><span class="line">gzip_vary on;</span><br></pre></td></tr></table></figure>
 
-<p>These will be inserted into the site’s Nginx configuration block.</p>
+<p>These will be inserted into the site&#39;s Nginx configuration block.</p>
 <p>If you add a custom <code>location</code> block, it must contain proxy forwarding declarations.</p>
 <p>Now visit <code>https://nginx.example.com</code> in your browser. If you can access it successfully, we can comment out the admin port in the Docker compose configuration!</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ports:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">&#x27;80:80&#x27;</span></span><br><span class="line">  <span class="comment"># - &#x27;81:81&#x27;</span></span><br></pre></td></tr></table></figure>
@@ -703,7 +703,7 @@ Latest posts</h2>
 <p>You cannot use <code>127.0.0.1</code> to proxy services running on the host machine or other Docker containers. Instead, use the command <code>ip addr show docker0</code> to find the IP address of the Docker bridge network, which is typically <code>172.17.0.1</code>. Other Docker containers must also be configured to listen on <code>172.17.0.1</code> rather than <code>127.0.0.1</code> to disable public access while allowing reverse proxying.</p>
 <p><img src="https://img.nep.me/i/2024/12/15/72czrt-2.webp"></p>
 <h3 id="Viewing-Configurations"><a href="#Viewing-Configurations" class="headerlink" title="Viewing Configurations"></a>Viewing Configurations</h3><p>The generated configurations for reverse proxied sites are located under <code>data/nginx/proxy_host</code> on the host machine, saved as numerically incrementing <code>.conf</code> files.</p>
-<h3 id="Proxying-Static-Sites-on-the-Host-Machine"><a href="#Proxying-Static-Sites-on-the-Host-Machine" class="headerlink" title="Proxying Static Sites on the Host Machine"></a>Proxying Static Sites on the Host Machine</h3><p>Since Nginx Proxy Manager binds to ports 80 and 443, you cannot run another Nginx instance directly on the host machine using those same ports to serve static sites. Instead, configure the host’s Nginx to listen on <code>172.17.0.1:8080</code>, and then use Nginx Proxy Manager to add a reverse proxy pointing to it.</p>
+<h3 id="Proxying-Static-Sites-on-the-Host-Machine"><a href="#Proxying-Static-Sites-on-the-Host-Machine" class="headerlink" title="Proxying Static Sites on the Host Machine"></a>Proxying Static Sites on the Host Machine</h3><p>Since Nginx Proxy Manager binds to ports 80 and 443, you cannot run another Nginx instance directly on the host machine using those same ports to serve static sites. Instead, configure the host&#39;s Nginx to listen on <code>172.17.0.1:8080</code>, and then use Nginx Proxy Manager to add a reverse proxy pointing to it.</p>
 <h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>If you are a personal user who primarily uses Nginx for reverse proxying, Nginx Proxy Manager is an ideal choice to simplify configuration, especially for SSL certificates. It is beginner-friendly and can also be used in local area networks.</p>
 <p>If you need to serve websites directly via Nginx, especially in <strong>production environments</strong>, manually configuring Nginx is recommended to fully leverage its performance and flexibility. You can use acme.sh to obtain and automatically renew SSL certificates.</p>
 

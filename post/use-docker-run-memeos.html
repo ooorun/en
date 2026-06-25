@@ -557,7 +557,7 @@ Latest posts</h2>
 
 <p><strong>Configuration Explanation:</strong></p>
 <ul>
-<li><code>ports</code>: Maps Memos’ Web interface to port 5230 of the host</li>
+<li><code>ports</code>: Maps Memos&#39; Web interface to port 5230 of the host</li>
 <li><code>volumes</code>: Persists Memos data in the <code>data</code> folder under the same directory as <code>docker-compose.yml</code>, ensuring data is not lost when the container is reconstructed</li>
 </ul>
 <blockquote>
@@ -576,7 +576,7 @@ Latest posts</h2>
 <li>Turn on the <code>Disallow user registration</code> option.</li>
 </ul>
 <h3 id="2-Highly-Recommended-Using-a-Reverse-Proxy"><a href="#2-Highly-Recommended-Using-a-Reverse-Proxy" class="headerlink" title="2. (Highly Recommended) Using a Reverse Proxy"></a>2. (Highly Recommended) Using a Reverse Proxy</h3><p>Exposing the Web port directly to the public internet is unsafe. It is recommended to use Nginx or another reverse proxy tool to serve the Web interface and use HTTPS.</p>
-<p><code>1</code> <strong>Modify Port Mapping</strong>: Restrict Memos’ Web port to localhost access only.<br>Modify the <code>ports</code> section in the <code>docker-compose.yml</code> file:</p>
+<p><code>1</code> <strong>Modify Port Mapping</strong>: Restrict Memos&#39; Web port to localhost access only.<br>Modify the <code>ports</code> section in the <code>docker-compose.yml</code> file:</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">ports:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">&quot;127.0.0.1:5230:5230&quot;</span> <span class="comment"># 仅允许本地访问</span></span><br></pre></td></tr></table></figure>
 
 <p><code>2</code> <strong>Restart Service</strong>:</p>

@@ -529,7 +529,7 @@ Latest posts</h2>
   <div class="article-content">
     <h2 id="Bug-Information"><a href="#Bug-Information" class="headerlink" title="Bug Information"></a>Bug Information</h2><div class="flatpaper-note flatpaper-note--primary"><span class="flatpaper-note__icon" aria-hidden="true"></span><div class="flatpaper-note__body"><p>Good news: OpenAI has fixed this issue in Codex version 0.142.0. You can now use it without concern.</p></div></div>
 
-<p>Recently, with its powerful features and smooth user experience, Codex’s weekly active users have surpassed the <strong>5 million</strong> milestone. More and more developers and tech enthusiasts have adopted it as a go-to assistant for high-frequency daily use.</p>
+<p>Recently, with its powerful features and smooth user experience, Codex&#39;s weekly active users have surpassed the <strong>5 million</strong> milestone. More and more developers and tech enthusiasts have adopted it as a go-to assistant for high-frequency daily use.</p>
 <p>However, as the user base grows, some users have reported that under certain streaming output or automated task scenarios, Codex continuously writes TRACE-level logs to the local disk.</p>
 <p>An <a target="_blank" rel="noopener" href="https://github.com/openai/codex/issues/28224">ISSUE</a> on GitHub claims that this bug can generate <strong>640GB&#x2F;year</strong> of write operations, which is lethal for consumer-grade SSDs. For mainstream 1TB or 2TB consumer-grade SSDs (with rated lifespans typically around 600TBW to 1200TBW), this is indeed quite severe.</p>
 <p><strong>Furthermore, because the AI boom is at an unprecedented peak, the global demand for high-bandwidth, high-performance storage has erupted. This has driven up SSD prices, making storage costs quite expensive—especially on Mac devices where drives cannot be replaced. During this period when every gigabyte counts, we must be extra meticulous about every bit of wear and every gigabyte of space on our hard drives.</strong></p>
@@ -555,7 +555,7 @@ Latest posts</h2>
 <p>Then execute:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlite3 ~/.codex/logs_2.sqlite <span class="string">&quot;CREATE TRIGGER IF NOT EXISTS block_log_inserts BEFORE INSERT ON logs BEGIN SELECT RAISE(IGNORE); END;&quot;</span></span><br></pre></td></tr></table></figure>
 <p>Once set up, new log entries will be intercepted, thereby reducing subsequent write operations.</p>
-<p>Note that this method will affect Codex’s ability to generate diagnostic logs. If you need to report issues to the official support later or are concerned about compatibility with future versions, you should avoid this workaround and opt for periodic cleanups instead.</p>
+<p>Note that this method will affect Codex&#39;s ability to generate diagnostic logs. If you need to report issues to the official support later or are concerned about compatibility with future versions, you should avoid this workaround and opt for periodic cleanups instead.</p>
 <details class="flatpaper-note flatpaper-note--info"><summary class="flatpaper-note__title"><span class="flatpaper-note__icon" aria-hidden="true"></span><span class="flatpaper-note__label">How to Restore</span><span class="flatpaper-note__chevron" aria-hidden="true"></span></summary><div class="flatpaper-note__body"><p>If you want to restore logging, simply drop the trigger. Exit Codex first, then run:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlite3 ~/.codex/logs_2.sqlite <span class="string">&quot;DROP TRIGGER IF EXISTS block_log_inserts;&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -566,7 +566,7 @@ Latest posts</h2>
 <p>You can also run this command to inspect all current triggers:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlite3 ~/.codex/logs_2.sqlite <span class="string">&quot;SELECT name, tbl_name, sql FROM sqlite_master WHERE type=&#x27;trigger&#x27;;&quot;</span></span><br></pre></td></tr></table></figure></div></details>
 
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>The numbers in the GitHub issue are somewhat exaggerated; Codex’s logging issue is not as scary as rumored on the web. Nonetheless, we are grateful that OpenAI has fixed the bug. Happy coding with Codex!</p>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><p>The numbers in the GitHub issue are somewhat exaggerated; Codex&#39;s logging issue is not as scary as rumored on the web. Nonetheless, we are grateful that OpenAI has fixed the bug. Happy coding with Codex!</p>
 
   </div>
 

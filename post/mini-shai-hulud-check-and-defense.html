@@ -551,9 +551,9 @@ Latest posts</h2>
 <li>The attacker forked the <code>TanStack/router</code> repository.</li>
 <li>The attacker renamed the forked repository to <code>zblgg/configuration</code> to bypass fork list audits.</li>
 <li>The attacker submitted a Pull Request, triggering the <code>pull_request_target</code> workflow in the target repository.</li>
-<li>This workflow incorrectly checked out and executed code from the attacker’s fork.</li>
+<li>This workflow incorrectly checked out and executed code from the attacker&#39;s fork.</li>
 <li>The attacker poisoned the GitHub Actions cache, writing a malicious pnpm store into the cache.</li>
-<li>When a subsequent legitimate maintainer’s PR was merged into the main branch, the release workflow restored the poisoned cache.</li>
+<li>When a subsequent legitimate maintainer&#39;s PR was merged into the main branch, the release workflow restored the poisoned cache.</li>
 <li>A binary controlled by the attacker read the OIDC Token from the memory space of the GitHub Actions Runner process.</li>
 <li>The attacker used these Tokens to publish malicious versions of the npm packages.</li>
 </ol>
@@ -577,15 +577,15 @@ Latest posts</h2>
 <p>Linux:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.config/systemd/user/gh-token-monitor.service</span><br></pre></td></tr></table></figure>
 
-<p><strong>If it receives a 40X error due to the GitHub token being revoked, the process will attempt to execute <code>rm -rf ~/</code>, wiping the user’s home directory completely!</strong> However, this daemon process will automatically exit after running for 24 hours.</p>
+<p><strong>If it receives a 40X error due to the GitHub token being revoked, the process will attempt to execute <code>rm -rf ~/</code>, wiping the user&#39;s home directory completely!</strong> However, this daemon process will automatically exit after running for 24 hours.</p>
 <blockquote>
-<p>Note: Similar to previous Mini Shai-Hulud variants, the malware checks if the system’s language is set to Russian. If so, it terminates immediately and does not steal any data.</p>
+<p>Note: Similar to previous Mini Shai-Hulud variants, the malware checks if the system&#39;s language is set to Russian. If so, it terminates immediately and does not steal any data.</p>
 </blockquote>
 <h2 id="4-Detection-Guide"><a href="#4-Detection-Guide" class="headerlink" title="4. Detection Guide"></a>4. Detection Guide</h2><ol>
 <li><strong>Audit Packages</strong>: Search lockfiles and CI logs for affected package versions. Check if <code>router_init.js</code> or <code>setup.mjs</code> exists in the package root directory.</li>
 <li><strong>Detect and Clean Persistent Threats</strong>: Search for the <code>gh-token-monitor</code> daemon process on developer machines and delete it (refer to the paths in the indicators below).</li>
 <li><strong>Rotate All Credentials</strong>: If you suspect you have been affected, immediately rotate GitHub tokens, npm tokens, AWS credentials, Vault tokens, Kubernetes service accounts, and CI&#x2F;CD secrets.<blockquote>
-<p><strong>Warning: Before revoking GitHub tokens, make sure to inspect and remove the persistent daemon process to avoid triggering the malware’s destructive command (<code>rm -rf ~/</code>).</strong></p>
+<p><strong>Warning: Before revoking GitHub tokens, make sure to inspect and remove the persistent daemon process to avoid triggering the malware&#39;s destructive command (<code>rm -rf ~/</code>).</strong></p>
 </blockquote>
 </li>
 <li><strong>Inspect IDE Directories</strong>: Check for leftover <code>router_runtime.js</code> or <code>setup.mjs</code> files in <code>.claude/</code> and <code>.vscode/</code> directories. These files might persist even after running <code>npm uninstall</code>.</li>
@@ -1409,7 +1409,7 @@ Latest posts</h2>
 </tr>
 </tbody></table>
 <h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>This attack illustrates a new trend in supply chain threats: attackers no longer limit their focus to package registry accounts. Instead, they chain together GitHub Actions, caching, OIDC, developer terminals, CI&#x2F;CD secrets, and open-source release workflows into a cohesive exploit path.</p>
-<p>For security teams, simply “upgrading dependencies” is no longer sufficient. Effective protection must cover the entire pipeline—from code commits, CI execution, credential issuing, and package publishing, down to the developer’s local environment.</p>
+<p>For security teams, simply “upgrading dependencies” is no longer sufficient. Effective protection must cover the entire pipeline—from code commits, CI execution, credential issuing, and package publishing, down to the developer&#39;s local environment.</p>
 <p>This incident serves as a critical reminder: CI&#x2F;CD is part of the production environment, dependencies are part of the executable codebase, and developer machines are part of the supply chain boundary.</p>
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://www.wiz.io/blog/mini-shai-hulud-strikes-again-tanstack-more-npm-packages-compromised#notable-updates-14">Mini Shai-Hulud Strikes Again: TanStack + more npm Packages Compromised</a></li>
