@@ -3,13 +3,13 @@
 <html lang="en" data-fancybox-enabled="1">
 <head>
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FM1N1NHQ90"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PZSHQ0MC4Q"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-FM1N1NHQ90');
+  gtag('config', 'G-PZSHQ0MC4Q');
 </script>
 
 
@@ -39,7 +39,7 @@
 <meta property="og:image" content="https://img.nep.me/i/2024/12/15/5lxr81-2.webp">
 <meta property="og:image" content="https://img.nep.me/i/2024/12/15/72czrt-2.webp">
 <meta property="article:published_time" content="2024-12-14T17:16:18.000Z">
-<meta property="article:modified_time" content="2026-06-24T13:21:55.194Z">
+<meta property="article:modified_time" content="2026-06-24T21:23:05.197Z">
 <meta property="article:author" content="Mr. O">
 <meta property="article:tag" content="Docker">
 <meta property="article:tag" content="HTTPS">
@@ -48,7 +48,7 @@
 <meta name="twitter:image" content="https://img.nep.me/i/2024/12/15/3w01bl-2.webp">
 <link rel="canonical" href="https://ooo.run/en/post/use-nginx-proxy-manager.html">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Nginx Proxy Manager Tutorial","name":"Nginx Proxy Manager Tutorial | O's World","description":"IntroductionFor modern websites, HTTPS certificates have become essential. Although we can obtain free certificates using Let’s Encrypt and quickly request&#x2F;automatically renew...","url":"https://ooo.run/en/post/use-nginx-proxy-manager.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"O's World","url":"https://ooo.run/en/"},"mainEntityOfPage":"https://ooo.run/en/post/use-nginx-proxy-manager.html","datePublished":"2024-12-14T17:16:18.000Z","dateModified":"2026-06-24T13:21:55.194Z","author":{"@type":"Person","name":"Mr. O"},"publisher":{"@type":"Organization","name":"O's World"},"keywords":"Docker, Nginx Proxy Manager, HTTPS"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Nginx Proxy Manager Tutorial","name":"Nginx Proxy Manager Tutorial | O's World","description":"IntroductionFor modern websites, HTTPS certificates have become essential. Although we can obtain free certificates using Let’s Encrypt and quickly request&#x2F;automatically renew...","url":"https://ooo.run/en/post/use-nginx-proxy-manager.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"O's World","url":"https://ooo.run/en/"},"mainEntityOfPage":"https://ooo.run/en/post/use-nginx-proxy-manager.html","datePublished":"2024-12-14T17:16:18.000Z","dateModified":"2026-06-24T21:23:05.197Z","author":{"@type":"Person","name":"Mr. O"},"publisher":{"@type":"Organization","name":"O's World"},"keywords":"Docker, Nginx Proxy Manager, HTTPS"}</script>
 
 <script>
   (function () {
@@ -352,7 +352,7 @@
         
           
             <a class="site-info__item" href="/en/archives/">
-              <strong>63</strong>
+              <strong>64</strong>
               <span>Posts</span>
             </a>
           
@@ -366,7 +366,7 @@
         
           
             <a class="site-info__item" href="/en/tags/">
-              <strong>98</strong>
+              <strong>99</strong>
               <span>Tags</span>
             </a>
           
@@ -462,6 +462,13 @@ Latest posts</h2>
     <ul class="recent-list">
       
         <li>
+          <a class="recent-item" href="/en/post/google-finally-lets-you-change-gmail-address.html">
+            <strong>Google Finally Allows Gmail Address Changes: Say Goodbye to the Cringe Email You Registered at Age 8</strong>
+            <em>2026-06-25</em>
+          </a>
+        </li>
+      
+        <li>
           <a class="recent-item" href="/en/post/docker-run-fizzy-kanban.html">
             <strong>Deploying Fizzy with Docker: A Lightweight, Beautiful, Self-Hostable Kanban Tool</strong>
             <em>2026-06-23</em>
@@ -486,13 +493,6 @@ Latest posts</h2>
           <a class="recent-item" href="/en/post/darkbloom-nodes-macbook-ai-mining-earnings.html">
             <strong>A New Era of Mining: See How Much Your Mac Can Earn per Month</strong>
             <em>2026-06-19</em>
-          </a>
-        </li>
-      
-        <li>
-          <a class="recent-item" href="/en/post/project-tiny-world-builder.html">
-            <strong>Open Source Treasure: Tiny World Builder - Create Mini Worlds in Your Browser</strong>
-            <em>2026-06-16</em>
           </a>
         </li>
       
@@ -593,7 +593,7 @@ Latest posts</h2>
 </tr>
 </tbody></table>
 <h2 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites"></a>Prerequisites</h2><p>Nginx Proxy Manager is deployed using <code>Docker</code>, so you will need to have Docker and Docker Compose installed on your server.</p>
-<p>If you haven’t installed them yet, you can check: <a href="https://ooo.run/post/debian-install-docker.html" target="_blank">Installing Docker and Docker Compose on Debian</a></p>
+<p>If you haven’t installed them yet, you can check: <a href="https://ooo.run/en/post/debian-install-docker.html" target="_blank">Installing Docker and Docker Compose on Debian</a></p>
 <h2 id="Installing-with-Docker"><a href="#Installing-with-Docker" class="headerlink" title="Installing with Docker"></a>Installing with Docker</h2><p>Create a working directory, then create a <code>docker-compose.yml</code> file inside it and fill it with the following content:</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">app:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">&#x27;jc21/nginx-proxy-manager:latest&#x27;</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">unless-stopped</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;80:80&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;81:81&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;443:443&#x27;</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./data:/data</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./letsencrypt:/etc/letsencrypt</span></span><br></pre></td></tr></table></figure>
 <ul>
@@ -602,7 +602,7 @@ Latest posts</h2>
 <li><code>443</code> is the port for HTTPS web traffic.</li>
 </ul>
 <p>Nginx Proxy Manager’s data is stored in the <code>./data</code> folder in the same directory as <code>docker-compose.yml</code>, and certificates are stored in the <code>./letsencrypt</code> folder. You can modify these paths as needed.</p>
-<details class="flatpaper-note flatpaper-note--warning"><summary class="flatpaper-note__title"><span class="flatpaper-note__icon" aria-hidden="true"></span><span class="flatpaper-note__label">modern</span><span class="flatpaper-note__chevron" aria-hidden="true"></span></summary><div class="flatpaper-note__body"><p>Since ports 80 and 443 are required, if you have Nginx installed on the host machine, please disable it first.</p></div></details>
+<div class="flatpaper-note flatpaper-note--warning"><span class="flatpaper-note__icon" aria-hidden="true"></span><div class="flatpaper-note__body"><p>Since ports 80 and 443 are required, if you have Nginx installed on the host machine, please disable it first.</p></div></div>
 
 <p>Use <code>docker compose</code> to run Nginx Proxy Manager:</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker compose pull </span><br><span class="line">docker compose up -d</span><br></pre></td></tr></table></figure>
@@ -611,7 +611,7 @@ Latest posts</h2>
 <p><img src="https://img.nep.me/i/2024/12/15/3w01bl-2.webp" alt="nginx-proxy-manager-login-screen"></p>
 <p>The default admin credentials are as follows. You will be prompted to reset your email and password upon logging in:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Email:    admin@example.com</span><br><span class="line">Password: changeme</span><br></pre></td></tr></table></figure>
-<details class="flatpaper-note flatpaper-note--warning"><summary class="flatpaper-note__title"><span class="flatpaper-note__icon" aria-hidden="true"></span><span class="flatpaper-note__label">modern</span><span class="flatpaper-note__chevron" aria-hidden="true"></span></summary><div class="flatpaper-note__body"><p>After startup, please log in immediately to configure your account credentials.</p></div></details>
+<div class="flatpaper-note flatpaper-note--warning"><span class="flatpaper-note__icon" aria-hidden="true"></span><div class="flatpaper-note__body"><p>After startup, please log in immediately to configure your account credentials.</p></div></div>
 
 <h2 id="Feature-Introduction"><a href="#Feature-Introduction" class="headerlink" title="Feature Introduction"></a>Feature Introduction</h2><p>Once installed, we can see the functional areas of Nginx Proxy Manager at the top:</p>
 <ul>
@@ -649,7 +649,7 @@ Latest posts</h2>
 
 <p>Click <strong>Continue to summary</strong>, verify the token details, and if correct, click <strong>Create Token</strong>.</p>
 <p>Once created, the Token will be displayed. Click <strong>Copy</strong> to copy it.<br><img src="https://img.nep.me/i/2024/12/15/4ajdxe-2.webp"></p>
-<details class="flatpaper-note flatpaper-note--info"><summary class="flatpaper-note__title"><span class="flatpaper-note__icon" aria-hidden="true"></span><span class="flatpaper-note__label">modern</span><span class="flatpaper-note__chevron" aria-hidden="true"></span></summary><div class="flatpaper-note__body"><p>Only this time you can view the Token in plaintext; it cannot be viewed again. </p></div></details>
+<div class="flatpaper-note flatpaper-note--info"><span class="flatpaper-note__icon" aria-hidden="true"></span><div class="flatpaper-note__body"><p>Only this time you can view the Token in plaintext; it cannot be viewed again. </p></div></div>
 
 <p>Then apply for the certificate in Nginx Proxy Manager:</p>
 <ul>
@@ -698,7 +698,7 @@ Latest posts</h2>
 <p>Then recreate and restart the Nginx Proxy Manager container:</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker compose down</span><br><span class="line">docker compose up -d</span><br></pre></td></tr></table></figure>
 
-<details class="flatpaper-note flatpaper-note--info"><summary class="flatpaper-note__title"><span class="flatpaper-note__icon" aria-hidden="true"></span><span class="flatpaper-note__label">modern</span><span class="flatpaper-note__chevron" aria-hidden="true"></span></summary><div class="flatpaper-note__body"><p>Since the admin panel resides within the container environment, we can proxy to <code>127.0.0.1</code>.</p></div></details>
+<div class="flatpaper-note flatpaper-note--info"><span class="flatpaper-note__icon" aria-hidden="true"></span><div class="flatpaper-note__body"><p>Since the admin panel resides within the container environment, we can proxy to <code>127.0.0.1</code>.</p></div></div>
 
 <p>You cannot use <code>127.0.0.1</code> to proxy services running on the host machine or other Docker containers. Instead, use the command <code>ip addr show docker0</code> to find the IP address of the Docker bridge network, which is typically <code>172.17.0.1</code>. Other Docker containers must also be configured to listen on <code>172.17.0.1</code> rather than <code>127.0.0.1</code> to disable public access while allowing reverse proxying.</p>
 <p><img src="https://img.nep.me/i/2024/12/15/72czrt-2.webp"></p>
@@ -863,7 +863,7 @@ window.addEventListener('load', function () {
     pageKey: "https://ooo.run/en/post/use-nginx-proxy-manager.html",
     pageTitle: "Nginx Proxy Manager Tutorial",
     server: "https://artalk.ooo.run",
-    site: "Mr. O's Blog"
+    site: "Mr. O 的博客"
   });
 });
 </script>

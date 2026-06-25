@@ -3,13 +3,13 @@
 <html lang="en" data-fancybox-enabled="1">
 <head>
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FM1N1NHQ90"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PZSHQ0MC4Q"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-FM1N1NHQ90');
+  gtag('config', 'G-PZSHQ0MC4Q');
 </script>
 
 
@@ -26,7 +26,7 @@
 <meta property="og:description" content="More and more applications now support one-click deployment using Docker. This article will introduce how to install Docker and Docker Compose on Debian 12. Verification Environmen...">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-12-14T09:04:34.000Z">
-<meta property="article:modified_time" content="2026-06-24T13:21:55.194Z">
+<meta property="article:modified_time" content="2026-06-24T21:18:15.652Z">
 <meta property="article:author" content="Mr. O">
 <meta property="article:tag" content="Debian">
 <meta property="article:tag" content="Docker">
@@ -35,7 +35,7 @@
 <meta name="twitter:card" content="summary">
 <link rel="canonical" href="https://ooo.run/en/post/debian-install-docker.html">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Installing Docker and Docker Compose on Debian 12","name":"Installing Docker and Docker Compose on Debian 12 | O's World","description":"More and more applications now support one-click deployment using Docker. This article will introduce how to install Docker and Docker Compose on Debian 12. Verification Environmen...","url":"https://ooo.run/en/post/debian-install-docker.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"O's World","url":"https://ooo.run/en/"},"mainEntityOfPage":"https://ooo.run/en/post/debian-install-docker.html","datePublished":"2024-12-14T09:04:34.000Z","dateModified":"2026-06-24T13:21:55.194Z","author":{"@type":"Person","name":"Mr. O"},"publisher":{"@type":"Organization","name":"O's World"},"keywords":"Docker, Docker Compose, Debian, Linux"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Installing Docker and Docker Compose on Debian 12","name":"Installing Docker and Docker Compose on Debian 12 | O's World","description":"More and more applications now support one-click deployment using Docker. This article will introduce how to install Docker and Docker Compose on Debian 12. Verification Environmen...","url":"https://ooo.run/en/post/debian-install-docker.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"O's World","url":"https://ooo.run/en/"},"mainEntityOfPage":"https://ooo.run/en/post/debian-install-docker.html","datePublished":"2024-12-14T09:04:34.000Z","dateModified":"2026-06-24T21:18:15.652Z","author":{"@type":"Person","name":"Mr. O"},"publisher":{"@type":"Organization","name":"O's World"},"keywords":"Docker, Docker Compose, Debian, Linux"}</script>
 
 <script>
   (function () {
@@ -339,7 +339,7 @@
         
           
             <a class="site-info__item" href="/en/archives/">
-              <strong>63</strong>
+              <strong>64</strong>
               <span>Posts</span>
             </a>
           
@@ -353,7 +353,7 @@
         
           
             <a class="site-info__item" href="/en/tags/">
-              <strong>98</strong>
+              <strong>99</strong>
               <span>Tags</span>
             </a>
           
@@ -449,6 +449,13 @@ Latest posts</h2>
     <ul class="recent-list">
       
         <li>
+          <a class="recent-item" href="/en/post/google-finally-lets-you-change-gmail-address.html">
+            <strong>Google Finally Allows Gmail Address Changes: Say Goodbye to the Cringe Email You Registered at Age 8</strong>
+            <em>2026-06-25</em>
+          </a>
+        </li>
+      
+        <li>
           <a class="recent-item" href="/en/post/docker-run-fizzy-kanban.html">
             <strong>Deploying Fizzy with Docker: A Lightweight, Beautiful, Self-Hostable Kanban Tool</strong>
             <em>2026-06-23</em>
@@ -473,13 +480,6 @@ Latest posts</h2>
           <a class="recent-item" href="/en/post/darkbloom-nodes-macbook-ai-mining-earnings.html">
             <strong>A New Era of Mining: See How Much Your Mac Can Earn per Month</strong>
             <em>2026-06-19</em>
-          </a>
-        </li>
-      
-        <li>
-          <a class="recent-item" href="/en/post/project-tiny-world-builder.html">
-            <strong>Open Source Treasure: Tiny World Builder - Create Mini Worlds in Your Browser</strong>
-            <em>2026-06-16</em>
           </a>
         </li>
       
@@ -592,7 +592,7 @@ Latest posts</h2>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Pull/update images</span></span><br><span class="line">docker compose pull</span><br><span class="line"></span><br><span class="line"><span class="comment"># Start containers</span></span><br><span class="line">docker compose up</span><br><span class="line"></span><br><span class="line"><span class="comment"># Start containers in background</span></span><br><span class="line">docker compose up -d</span><br><span class="line"></span><br><span class="line"><span class="comment"># Stop containers</span></span><br><span class="line">docker compose stop</span><br><span class="line"></span><br><span class="line"><span class="comment"># Stop and remove containers, networks, volumes, and images</span></span><br><span class="line">docker compose down</span><br><span class="line"></span><br><span class="line"><span class="comment"># Restart containers</span></span><br><span class="line">docker compose restart</span><br><span class="line"></span><br><span class="line"><span class="comment"># View running services</span></span><br><span class="line">docker compose ps</span><br><span class="line"></span><br><span class="line"><span class="comment"># View logs</span></span><br><span class="line">docker compose logs</span><br><span class="line"><span class="comment"># View logs in real-time</span></span><br><span class="line">docker compose logs -f</span><br><span class="line"></span><br><span class="line"><span class="comment"># Enter container and run interactive command</span></span><br><span class="line">docker compose <span class="built_in">exec</span> &lt;service_name&gt; &lt;<span class="built_in">command</span>&gt;</span><br><span class="line">docker compose <span class="built_in">exec</span> nginx /bin/bash</span><br><span class="line"></span><br><span class="line"><span class="comment"># View service resource stats (real-time CPU, memory usage, etc.)</span></span><br><span class="line">docker compose stats</span><br></pre></td></tr></table></figure>
 
 <p>Still feel <code>docker compose</code> is too long? Run the following commands to use <code>dc</code> as an alias:</p>
-<details class="flatpaper-note flatpaper-note--info"><summary class="flatpaper-note__title"><span class="flatpaper-note__icon" aria-hidden="true"></span><span class="flatpaper-note__label">modern</span><span class="flatpaper-note__chevron" aria-hidden="true"></span></summary><div class="flatpaper-note__body"><p>Before running, run <code>dc</code> first to ensure the command is not currently in use by another program, and run <code>dc version</code> after to verify.</p></div></details>
+<div class="flatpaper-note flatpaper-note--info"><span class="flatpaper-note__icon" aria-hidden="true"></span><div class="flatpaper-note__body"><p>Before running, run <code>dc</code> first to ensure the command is not currently in use by another program, and run <code>dc version</code> after to verify.</p></div></div>
 
 <div class="flatpaper-tabs"><div class="flatpaper-tabs__nav" role="tablist"><button type="button" role="tab" id="tabs-3-tab-0" aria-controls="tabs-3-panel-0" aria-selected="true" class="flatpaper-tabs__nav-item is-active" data-index="0">bash</button><button type="button" role="tab" id="tabs-3-tab-1" aria-controls="tabs-3-panel-1" aria-selected="false" class="flatpaper-tabs__nav-item" data-index="1">zsh</button></div><div class="flatpaper-tabs__panels"><section role="tabpanel" id="tabs-3-panel-0" aria-labelledby="tabs-3-tab-0" class="flatpaper-tabs__panel is-active" data-index="0"><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;alias dc=&quot;docker compose&quot;&#x27;</span> &gt;&gt; ~/.bashrc </span><br><span class="line"><span class="built_in">source</span> ~/.bashrc </span><br></pre></td></tr></table></figure></section><section role="tabpanel" id="tabs-3-panel-1" aria-labelledby="tabs-3-tab-1" class="flatpaper-tabs__panel" data-index="1" hidden><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;alias dc=&quot;docker compose&quot;&#x27;</span> &gt;&gt; ~/.zshrc </span><br><span class="line"><span class="built_in">source</span> ~/.zshrc </span><br></pre></td></tr></table></figure></section></div></div>
 
@@ -761,7 +761,7 @@ window.addEventListener('load', function () {
     pageKey: "https://ooo.run/en/post/debian-install-docker.html",
     pageTitle: "Installing Docker and Docker Compose on Debian 12",
     server: "https://artalk.ooo.run",
-    site: "Mr. O's Blog"
+    site: "Mr. O 的博客"
   });
 });
 </script>

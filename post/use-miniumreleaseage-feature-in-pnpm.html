@@ -3,13 +3,13 @@
 <html lang="en" data-fancybox-enabled="1">
 <head>
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FM1N1NHQ90"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PZSHQ0MC4Q"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-FM1N1NHQ90');
+  gtag('config', 'G-PZSHQ0MC4Q');
 </script>
 
 
@@ -26,14 +26,14 @@
 <meta property="og:description" content="Supply chain attacks targeting developers have become increasingly frequent and larger in scale. For instance, in the recent Mini Shai-Hulud supply chain attack, even developers of...">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2026-05-19T05:08:26.000Z">
-<meta property="article:modified_time" content="2026-06-24T13:21:55.198Z">
+<meta property="article:modified_time" content="2026-06-24T21:23:05.197Z">
 <meta property="article:author" content="Mr. O">
 <meta property="article:tag" content="Developer Security">
 <meta property="article:tag" content="pnpm">
 <meta name="twitter:card" content="summary">
 <link rel="canonical" href="https://ooo.run/en/post/use-miniumreleaseage-feature-in-pnpm.html">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Prevent Supply Chain Attacks by Setting minimumReleaseAge in pnpm","name":"Prevent Supply Chain Attacks by Setting minimumReleaseAge in pnpm | O's World","description":"Supply chain attacks targeting developers have become increasingly frequent and larger in scale. For instance, in the recent Mini Shai-Hulud supply chain attack, even developers of...","url":"https://ooo.run/en/post/use-miniumreleaseage-feature-in-pnpm.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"O's World","url":"https://ooo.run/en/"},"mainEntityOfPage":"https://ooo.run/en/post/use-miniumreleaseage-feature-in-pnpm.html","datePublished":"2026-05-19T05:08:26.000Z","dateModified":"2026-06-24T13:21:55.198Z","author":{"@type":"Person","name":"Mr. O"},"publisher":{"@type":"Organization","name":"O's World"},"keywords":"Developer Security, pnpm"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Prevent Supply Chain Attacks by Setting minimumReleaseAge in pnpm","name":"Prevent Supply Chain Attacks by Setting minimumReleaseAge in pnpm | O's World","description":"Supply chain attacks targeting developers have become increasingly frequent and larger in scale. For instance, in the recent Mini Shai-Hulud supply chain attack, even developers of...","url":"https://ooo.run/en/post/use-miniumreleaseage-feature-in-pnpm.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"O's World","url":"https://ooo.run/en/"},"mainEntityOfPage":"https://ooo.run/en/post/use-miniumreleaseage-feature-in-pnpm.html","datePublished":"2026-05-19T05:08:26.000Z","dateModified":"2026-06-24T21:23:05.197Z","author":{"@type":"Person","name":"Mr. O"},"publisher":{"@type":"Organization","name":"O's World"},"keywords":"Developer Security, pnpm"}</script>
 
 <script>
   (function () {
@@ -337,7 +337,7 @@
         
           
             <a class="site-info__item" href="/en/archives/">
-              <strong>63</strong>
+              <strong>64</strong>
               <span>Posts</span>
             </a>
           
@@ -351,7 +351,7 @@
         
           
             <a class="site-info__item" href="/en/tags/">
-              <strong>98</strong>
+              <strong>99</strong>
               <span>Tags</span>
             </a>
           
@@ -447,6 +447,13 @@ Latest posts</h2>
     <ul class="recent-list">
       
         <li>
+          <a class="recent-item" href="/en/post/google-finally-lets-you-change-gmail-address.html">
+            <strong>Google Finally Allows Gmail Address Changes: Say Goodbye to the Cringe Email You Registered at Age 8</strong>
+            <em>2026-06-25</em>
+          </a>
+        </li>
+      
+        <li>
           <a class="recent-item" href="/en/post/docker-run-fizzy-kanban.html">
             <strong>Deploying Fizzy with Docker: A Lightweight, Beautiful, Self-Hostable Kanban Tool</strong>
             <em>2026-06-23</em>
@@ -471,13 +478,6 @@ Latest posts</h2>
           <a class="recent-item" href="/en/post/darkbloom-nodes-macbook-ai-mining-earnings.html">
             <strong>A New Era of Mining: See How Much Your Mac Can Earn per Month</strong>
             <em>2026-06-19</em>
-          </a>
-        </li>
-      
-        <li>
-          <a class="recent-item" href="/en/post/project-tiny-world-builder.html">
-            <strong>Open Source Treasure: Tiny World Builder - Create Mini Worlds in Your Browser</strong>
-            <em>2026-06-16</em>
           </a>
         </li>
       
@@ -527,7 +527,7 @@ Latest posts</h2>
 
 
   <div class="article-content">
-    <p>Supply chain attacks targeting developers have become increasingly frequent and larger in scale. For instance, in the recent <a href="https://ooo.run/post/mini-shai-hulud-check-and-defense.html">Mini Shai-Hulud supply chain attack</a>, even developers of top-tier projects were not immune. Shockingly, the hacking group TeamPCP, who initiated the attack, open-sourced their attack code (which has since been taken down by GitHub), making such attacks even easier to execute.</p>
+    <p>Supply chain attacks targeting developers have become increasingly frequent and larger in scale. For instance, in the recent <a href="https://ooo.run/en/post/mini-shai-hulud-check-and-defense.html">Mini Shai-Hulud supply chain attack</a>, even developers of top-tier projects were not immune. Shockingly, the hacking group TeamPCP, who initiated the attack, open-sourced their attack code (which has since been taken down by GitHub), making such attacks even easier to execute.</p>
 <p>However, the attack window is typically short, meaning you can avoid being compromised simply by not installing the affected package version during that period. <strong>pnpm</strong> provides a built-in feature to address this: <code>minimumReleaseAge</code> is a configuration designed to mitigate npm supply chain attack risks. When set, any newly published package version must wait for a specified number of minutes before pnpm allows it to be resolved and installed.</p>
 <p>According to the official pnpm documentation, this configuration applies to all dependencies, including transitive ones. It was introduced in pnpm v10.16.0, and starting with pnpm v11, its default value is set to 1440 (which equates to 1 day).</p>
 <p>It is highly recommended for pnpm users to upgrade to v11: <a target="_blank" rel="noopener" href="https://pnpm.io/migration">pnpm - Migrating from v10 to v11</a></p>
@@ -808,7 +808,7 @@ window.addEventListener('load', function () {
     pageKey: "https://ooo.run/en/post/use-miniumreleaseage-feature-in-pnpm.html",
     pageTitle: "Prevent Supply Chain Attacks by Setting minimumReleaseAge in pnpm",
     server: "https://artalk.ooo.run",
-    site: "Mr. O's Blog"
+    site: "Mr. O 的博客"
   });
 });
 </script>

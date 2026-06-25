@@ -3,13 +3,13 @@
 <html lang="en" data-fancybox-enabled="1">
 <head>
   
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FM1N1NHQ90"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PZSHQ0MC4Q"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-FM1N1NHQ90');
+  gtag('config', 'G-PZSHQ0MC4Q');
 </script>
 
 
@@ -26,7 +26,7 @@
 <meta property="og:description" content="IntroductionIn the digital age, password security is crucial. However, setting complex and unique passwords for every account, and managing them efficiently across different device...">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-08-26T03:00:00.000Z">
-<meta property="article:modified_time" content="2026-06-24T13:21:55.198Z">
+<meta property="article:modified_time" content="2026-06-24T21:23:05.197Z">
 <meta property="article:author" content="Mr. O">
 <meta property="article:tag" content="Bitwarden">
 <meta property="article:tag" content="Docker">
@@ -35,7 +35,7 @@
 <meta name="twitter:card" content="summary">
 <link rel="canonical" href="https://ooo.run/en/post/use-docker-run-bitwarden.html">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Easily Deploy Bitwarden Server with Docker and Set Up Your Own Password Manager","name":"Easily Deploy Bitwarden Server with Docker and Set Up Your Own Password Manager | O's World","description":"IntroductionIn the digital age, password security is crucial. However, setting complex and unique passwords for every account, and managing them efficiently across different device...","url":"https://ooo.run/en/post/use-docker-run-bitwarden.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"O's World","url":"https://ooo.run/en/"},"mainEntityOfPage":"https://ooo.run/en/post/use-docker-run-bitwarden.html","datePublished":"2025-08-26T03:00:00.000Z","dateModified":"2026-06-24T13:21:55.198Z","author":{"@type":"Person","name":"Mr. O"},"publisher":{"@type":"Organization","name":"O's World"},"keywords":"Docker, Self-hosted, Bitwarden, Password Manager"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Easily Deploy Bitwarden Server with Docker and Set Up Your Own Password Manager","name":"Easily Deploy Bitwarden Server with Docker and Set Up Your Own Password Manager | O's World","description":"IntroductionIn the digital age, password security is crucial. However, setting complex and unique passwords for every account, and managing them efficiently across different device...","url":"https://ooo.run/en/post/use-docker-run-bitwarden.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"O's World","url":"https://ooo.run/en/"},"mainEntityOfPage":"https://ooo.run/en/post/use-docker-run-bitwarden.html","datePublished":"2025-08-26T03:00:00.000Z","dateModified":"2026-06-24T21:23:05.197Z","author":{"@type":"Person","name":"Mr. O"},"publisher":{"@type":"Organization","name":"O's World"},"keywords":"Docker, Self-hosted, Bitwarden, Password Manager"}</script>
 
 <script>
   (function () {
@@ -339,7 +339,7 @@
         
           
             <a class="site-info__item" href="/en/archives/">
-              <strong>63</strong>
+              <strong>64</strong>
               <span>Posts</span>
             </a>
           
@@ -353,7 +353,7 @@
         
           
             <a class="site-info__item" href="/en/tags/">
-              <strong>98</strong>
+              <strong>99</strong>
               <span>Tags</span>
             </a>
           
@@ -449,6 +449,13 @@ Latest posts</h2>
     <ul class="recent-list">
       
         <li>
+          <a class="recent-item" href="/en/post/google-finally-lets-you-change-gmail-address.html">
+            <strong>Google Finally Allows Gmail Address Changes: Say Goodbye to the Cringe Email You Registered at Age 8</strong>
+            <em>2026-06-25</em>
+          </a>
+        </li>
+      
+        <li>
           <a class="recent-item" href="/en/post/docker-run-fizzy-kanban.html">
             <strong>Deploying Fizzy with Docker: A Lightweight, Beautiful, Self-Hostable Kanban Tool</strong>
             <em>2026-06-23</em>
@@ -473,13 +480,6 @@ Latest posts</h2>
           <a class="recent-item" href="/en/post/darkbloom-nodes-macbook-ai-mining-earnings.html">
             <strong>A New Era of Mining: See How Much Your Mac Can Earn per Month</strong>
             <em>2026-06-19</em>
-          </a>
-        </li>
-      
-        <li>
-          <a class="recent-item" href="/en/post/project-tiny-world-builder.html">
-            <strong>Open Source Treasure: Tiny World Builder - Create Mini Worlds in Your Browser</strong>
-            <em>2026-06-16</em>
           </a>
         </li>
       
@@ -548,7 +548,7 @@ Latest posts</h2>
 <p>With Vaultwarden, you not only control your own data but also unlock all premium features of Bitwarden for free, such as the built-in TOTP authenticator, while still being able to seamlessly use official clients.</p>
 <h2 id="1-Environment-Preparation"><a href="#1-Environment-Preparation" class="headerlink" title="1. Environment Preparation"></a>1. Environment Preparation</h2><p>Before starting, you need your own VPS or a NAS system that supports Docker containers.</p>
 <h3 id="1-Installing-Docker-and-Docker-Compose"><a href="#1-Installing-Docker-and-Docker-Compose" class="headerlink" title="1. Installing Docker and Docker Compose"></a>1. Installing Docker and Docker Compose</h3><p>This is the foundation of our containerized deployment. If your server does not have it installed yet, you can refer to the following tutorial.</p>
-<div class="flatpaper-note flatpaper-note--info"><span class="flatpaper-note__icon" aria-hidden="true"></span><div class="flatpaper-note__body"><p><strong>Extended Reading:</strong> <a href="https://ooo.run/post/debian-install-docker.html" target="_blank">Installing Docker and Docker Compose in Debian 12</a></p></div></div>
+<div class="flatpaper-note flatpaper-note--info"><span class="flatpaper-note__icon" aria-hidden="true"></span><div class="flatpaper-note__body"><p><strong>Extended Reading:</strong> <a href="https://ooo.run/en/post/debian-install-docker.html" target="_blank">Installing Docker and Docker Compose in Debian 12</a></p></div></div>
 
 <h3 id="2-Prepare-a-Domain-Name"><a href="#2-Prepare-a-Domain-Name" class="headerlink" title="2. Prepare a Domain Name"></a>2. Prepare a Domain Name</h3><p>To access your password manager securely via HTTPS, you need a domain name and must resolve it to your server’s IP address.</p>
 <h3 id="3-Create-Project-Directory"><a href="#3-Create-Project-Directory" class="headerlink" title="3. Create Project Directory"></a>3. Create Project Directory</h3><p>Create a dedicated directory for Vaultwarden to store configuration files and data.</p>
@@ -787,7 +787,7 @@ window.addEventListener('load', function () {
     pageKey: "https://ooo.run/en/post/use-docker-run-bitwarden.html",
     pageTitle: "Easily Deploy Bitwarden Server with Docker and Set Up Your Own Password Manager",
     server: "https://artalk.ooo.run",
-    site: "Mr. O's Blog"
+    site: "Mr. O 的博客"
   });
 });
 </script>
