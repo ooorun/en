@@ -10,7 +10,28 @@
   <rights>All rights reserved 2026, Mr. O</rights>
   <subtitle>Mr. O's Sharing Station, sharing interesting things</subtitle>
   <title>O's World</title>
-  <updated>2026-06-25T10:23:22.669Z</updated>
+  <updated>2026-06-26T21:08:58.148Z</updated>
+  <entry>
+    <author>
+      <name>Mr. O</name>
+    </author>
+    <category term="News" scheme="https://ooo.run/en/categories/News/"/>
+    <category term="OpenAI" scheme="https://ooo.run/en/tags/OpenAI/"/>
+    <category term="ChatGPT" scheme="https://ooo.run/en/tags/ChatGPT/"/>
+    <category term="GPT-5.6" scheme="https://ooo.run/en/tags/GPT-5-6/"/>
+    <content>
+      <![CDATA[<p><strong>Date: US Time, June 26, 2026</strong></p><p>OpenAI has officially announced the preview of its next-generation GPT-5.6 model series, opening it first in a limited preview format to select trusted partners. This release includes three models: the flagship model <strong>GPT-5.6 Sol</strong>, the balanced model for everyday tasks <strong>GPT-5.6 Terra</strong>, and <strong>GPT-5.6 Luna</strong>, which focuses on speed and cost efficiency. This marks another rapid iteration following GPT-5.5 (released in April 2026), continuing OpenAI&#39;s cadence of releasing a flagship model roughly every six weeks.</p><h3 id="Three-Variants-Targeting-Different-Needs"><a href="#Three-Variants-Targeting-Different-Needs" class="headerlink" title="Three Variants Targeting Different Needs"></a>Three Variants Targeting Different Needs</h3><ul><li><strong>Sol:</strong> The most powerful flagship model, with significant improvements in agentic capabilities, particularly excelling in coding, biology, and cybersecurity. It introduces new <strong>Max</strong> reasoning mode and <strong>Ultra</strong> mode (which can coordinate multiple sub-agents to handle highly complex tasks).</li><li><strong>Terra:</strong> Performance comparable to GPT-5.5, but at approximately half the cost (reportedly offering more competitive pricing for input&#x2F;output tokens), suitable for everyday tasks.</li><li><strong>Luna:</strong> The fastest and lowest-cost option, providing strong capabilities while achieving the highest cost-effectiveness.</li></ul><p>According to OpenAI&#39;s announcement, GPT-5.6 Sol is currently their most capable model, demonstrating outstanding performance in real-world coding debugging, vulnerability discovery, and patching. It also features further optimizations in context window and token efficiency (previous rumors suggested it might support up to a <strong>1.5 million</strong> token context). The model has also been reinforced with reasoning training, enabling longer internal chains of thought before responding.</p><h3 id="Security-and-Access-Restrictions-Influenced-by-the-US-Government"><a href="#Security-and-Access-Restrictions-Influenced-by-the-US-Government" class="headerlink" title="Security and Access Restrictions: Influenced by the US Government"></a>Security and Access Restrictions: Influenced by the US Government</h3><p>Although OpenAI emphasizes its “belief in broad access” and plans to fully open it to ChatGPT, Codex, and the API in the coming weeks, this release takes the form of a limited preview, initially restricted to about 20 trusted partners (the participant list has been shared with the government). This decision stems from the security concerns of the US government (the Trump administration), particularly regarding the review of cybersecurity capabilities of advanced AI models.</p><p>OpenAI stated in its system card and announcement that it has built its most robust safety stack to date, including reinforcement training, activation classifiers, and real-time monitoring. The model was evaluated under the Preparedness Framework at a “High” level for cybersecurity and biological&#x2F;chemical risks, but did not reach the “Critical” threshold. Tests showed that Sol&#39;s ability to help defenders find and fix vulnerabilities is stronger than its ability to autonomously execute end-to-end attacks. The company also acknowledged a certain tendency to act “outside user intent” in agentic coding tasks, though the absolute occurrence rate remains low.</p><p>OpenAI made it clear that such government reviews should not become the long-term default practice, and is working with the government to establish a repeatable review framework to achieve broader availability as soon as possible.</p><h3 id="Outlook"><a href="#Outlook" class="headerlink" title="Outlook"></a>Outlook</h3><p>From an industry perspective, the release of GPT-5.6 marks a new phase in the AI competition. On the one hand, model capabilities continue to advance towards stronger agents, code execution, and long-term task planning; on the other hand, attention from governments, enterprises, and society regarding the risks of frontier models is rapidly increasing. In the future, the release cadence of frontier AI models may no longer be determined solely by technological maturity, but will also be jointly influenced by safety evaluations, regulatory requirements, and the international competitive environment.</p><p>Currently, the GPT-5.6 series is not yet fully available. According to media reports, OpenAI plans to gradually expand access in the coming weeks after completing initial evaluations. For regular users and developers, the true impact of GPT-5.6 may not become clear until it is officially integrated into product lines such as the API, ChatGPT, or Codex.</p>]]>
+    </content>
+    <id>https://ooo.run/en/post/openai-gpt-5-6-limited-preview.html</id>
+    <link href="https://ooo.run/en/post/openai-gpt-5-6-limited-preview.html"/>
+    <published>2026-06-26T20:42:03.000Z</published>
+    <summary>
+      <![CDATA[<p><strong>Date: US Time, June 26, 2026</strong></p>
+<p>OpenAI has officially announced the preview of its next-generation GPT-5.6 model ser]]>
+    </summary>
+    <title>OpenAI Releases GPT-5.6 Model Series: Sol, Terra, and Luna Enter Limited Preview, Initial Access Restricted by US Government Requirements</title>
+    <updated>2026-06-26T21:08:58.148Z</updated>
+  </entry>
   <entry>
     <author>
       <name>Mr. O</name>
@@ -380,24 +401,5 @@
     </summary>
     <title>Analysis and Detection Guide for the Mini Shai-Hulud Supply Chain Attack</title>
     <updated>2026-06-24T13:21:55.202Z</updated>
-  </entry>
-  <entry>
-    <author>
-      <name>Mr. O</name>
-    </author>
-    <category term="Notes" scheme="https://ooo.run/en/categories/Notes/"/>
-    <category term="ChatGPT" scheme="https://ooo.run/en/tags/ChatGPT/"/>
-    <category term="Codex" scheme="https://ooo.run/en/tags/Codex/"/>
-    <content>
-      <![CDATA[<p>Recently, OpenAI launched a major promotion offering one free seat of ChatGPT Business for 48 months. Many users might plan to use two accounts simultaneously to enjoy double the quota.</p><h2 id="Method-for-Using-Two-ChatGPT-Accounts-Simultaneously-CC-Switch"><a href="#Method-for-Using-Two-ChatGPT-Accounts-Simultaneously-CC-Switch" class="headerlink" title="Method for Using Two ChatGPT Accounts Simultaneously (CC-Switch)"></a>Method for Using Two ChatGPT Accounts Simultaneously (CC-Switch)</h2><p>When using two accounts at the same time, we can use <a href="https://github.com/farion1231/cc-switch">CC-Switch</a> to quickly switch accounts without having to log in again.</p><p>After logging into one account, simply add a new OpenAI Official provider in the Codex application of CC-Switch. However, after enabling the new provider, running <code>codex</code> might trigger an account error prompt:</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: account/read failed during TUI bootstrap: account/read failed: email and plan <span class="built_in">type</span> are required <span class="keyword">for</span> chatgpt authentication (code -32600)</span><br></pre></td></tr></table></figure><p>You can directly execute the following command to authenticate the second account using device code.</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">codex login --device-auth</span><br></pre></td></tr></table></figure><p>However, for security reasons, device code authentication is disabled by default. You can refer to the following method to enable it.</p><h2 id="Enabling-Device-Code-Authentication"><a href="#Enabling-Device-Code-Authentication" class="headerlink" title="Enabling Device Code Authentication"></a>Enabling Device Code Authentication</h2><p>The workspace admin can visit <strong>Workspace Settings</strong> &gt; <strong>Permissions &amp; Roles</strong> on the web, and enable the <strong>Enable Device Code Authentication for Codex CLI</strong> option on the right side.</p><p><a href="https://chatgpt.com/admin/permissions">https://chatgpt.com/admin/permissions</a></p><p><img src="https://img.nep.me/ooo/codex-device-code-enable.webp" alt="codex-device-code-enable.png"></p><p>After that, you can successfully complete the authentication using the device code.</p>]]>
-    </content>
-    <id>https://ooo.run/en/post/chatgpt-business-enable-codex-device-code.html</id>
-    <link href="https://ooo.run/en/post/chatgpt-business-enable-codex-device-code.html"/>
-    <published>2026-05-11T07:54:26.000Z</published>
-    <summary>
-      <![CDATA[<p>Recently, OpenAI launched a major promotion offering one free seat of ChatGPT Business for 48 months. Many users might plan to use two ac]]>
-    </summary>
-    <title>ChatGPT Business: Enabling Device Code Authentication for Members</title>
-    <updated>2026-06-24T13:21:55.198Z</updated>
   </entry>
 </feed>
