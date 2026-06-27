@@ -27,9 +27,10 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://img.nep.me/ooo/fizzy-board.webp">
 <meta property="og:image" content="https://img.nep.me/ooo/fizzy-login.webp">
+<meta property="og:image" content="https://img.nep.me/ooo/fizzy-add-passkey.webp">
 <meta property="og:image" content="https://img.nep.me/ooo/fizzy-playgroud.webp">
 <meta property="article:published_time" content="2026-06-23T09:00:00.000Z">
-<meta property="article:modified_time" content="2026-06-24T21:23:05.197Z">
+<meta property="article:modified_time" content="2026-06-27T01:59:20.699Z">
 <meta property="article:author" content="Mr. O">
 <meta property="article:tag" content="Docker">
 <meta property="article:tag" content="Fizzy">
@@ -37,7 +38,7 @@
 <meta name="twitter:image" content="https://img.nep.me/ooo/fizzy-board.webp">
 <link rel="canonical" href="https://ooo.run/en/post/docker-run-fizzy-kanban.html">
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Deploying Fizzy with Docker: A Lightweight, Beautiful, Self-Hostable Kanban Tool","name":"Deploying Fizzy with Docker: A Lightweight, Beautiful, Self-Hostable Kanban Tool | O's World","description":"Fizzy IntroductionFizzy (https://fizzy.do) is a brand new Kanban task management tool released by the famous software company 37signals (the team that developed Basecamp and HEY)...","url":"https://ooo.run/en/post/docker-run-fizzy-kanban.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"O's World","url":"https://ooo.run/en/"},"mainEntityOfPage":"https://ooo.run/en/post/docker-run-fizzy-kanban.html","datePublished":"2026-06-23T09:00:00.000Z","dateModified":"2026-06-24T21:23:05.197Z","author":{"@type":"Person","name":"Mr. O"},"publisher":{"@type":"Organization","name":"O's World"},"keywords":"Docker, Fizzy"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Deploying Fizzy with Docker: A Lightweight, Beautiful, Self-Hostable Kanban Tool","name":"Deploying Fizzy with Docker: A Lightweight, Beautiful, Self-Hostable Kanban Tool | O's World","description":"Fizzy IntroductionFizzy (https://fizzy.do) is a brand new Kanban task management tool released by the famous software company 37signals (the team that developed Basecamp and HEY)...","url":"https://ooo.run/en/post/docker-run-fizzy-kanban.html","inLanguage":"en","isPartOf":{"@type":"WebSite","name":"O's World","url":"https://ooo.run/en/"},"mainEntityOfPage":"https://ooo.run/en/post/docker-run-fizzy-kanban.html","datePublished":"2026-06-23T09:00:00.000Z","dateModified":"2026-06-27T01:59:20.699Z","author":{"@type":"Person","name":"Mr. O"},"publisher":{"@type":"Organization","name":"O's World"},"keywords":"Docker, Fizzy"}</script>
 
 <script>
   (function () {
@@ -343,7 +344,7 @@
         
           
             <a class="site-info__item" href="/en/archives/">
-              <strong>65</strong>
+              <strong>66</strong>
               <span>Posts</span>
             </a>
           
@@ -357,7 +358,7 @@
         
           
             <a class="site-info__item" href="/en/tags/">
-              <strong>100</strong>
+              <strong>101</strong>
               <span>Tags</span>
             </a>
           
@@ -440,7 +441,7 @@ Table of contents</h2>
         </header>
         <div class="toc-content">
           
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Fizzy-Introduction"><span class="toc-text">Fizzy Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Advantages-of-Fizzy"><span class="toc-text">Advantages of Fizzy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Deploying-with-Docker"><span class="toc-text">Deploying with Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Verify-Docker-Environment"><span class="toc-text">Verify Docker Environment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-docker-compose-yaml-File"><span class="toc-text">Create docker-compose.yaml File</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Start-the-Docker-Container"><span class="toc-text">Start the Docker Container</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Accessing-Fizzy"><span class="toc-text">Accessing Fizzy</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Nginx-Reverse-Proxy-Configuration"><span class="toc-text">Nginx Reverse Proxy Configuration</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Caddy-Reverse-Proxy-Configuration"><span class="toc-text">Caddy Reverse Proxy Configuration</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Register-and-Login"><span class="toc-text">Register and Login</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Getting-the-Verification-Code-via-Docker-Command"><span class="toc-text">Getting the Verification Code via Docker Command</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Usage-Guide"><span class="toc-text">Usage Guide</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Security-Warning"><span class="toc-text">Security Warning</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Fizzy-Introduction"><span class="toc-text">Fizzy Introduction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Advantages-of-Fizzy"><span class="toc-text">Advantages of Fizzy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Deploying-with-Docker"><span class="toc-text">Deploying with Docker</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Verify-Docker-Environment"><span class="toc-text">Verify Docker Environment</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-docker-compose-yaml-File"><span class="toc-text">Create docker-compose.yaml File</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Start-the-Docker-Container"><span class="toc-text">Start the Docker Container</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Accessing-Fizzy"><span class="toc-text">Accessing Fizzy</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Nginx-Reverse-Proxy-Configuration"><span class="toc-text">Nginx Reverse Proxy Configuration</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Caddy-Reverse-Proxy-Configuration"><span class="toc-text">Caddy Reverse Proxy Configuration</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Register-and-Login"><span class="toc-text">Register and Login</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Getting-the-Verification-Code-via-Docker-Command"><span class="toc-text">Getting the Verification Code via Docker Command</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Adding-a-Passkey"><span class="toc-text">Adding a Passkey</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Usage-Guide"><span class="toc-text">Usage Guide</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Security-Warning"><span class="toc-text">Security Warning</span></a></li></ol>
           
         </div>
       </section>
@@ -451,6 +452,13 @@ Table of contents</h2>
 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-history" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg>
 Latest posts</h2>
     <ul class="recent-list">
+      
+        <li>
+          <a class="recent-item" href="/en/post/fix-electron-42-app-cannot-run.html">
+            <strong>Fix Electron 42 App Error on First Run of pnpm dev</strong>
+            <em>2026-06-27</em>
+          </a>
+        </li>
       
         <li>
           <a class="recent-item" href="/en/post/openai-gpt-5-6-limited-preview.html">
@@ -477,13 +485,6 @@ Latest posts</h2>
           <a class="recent-item" href="/en/post/how-much-can-you-save-with-subscription-vs-api.html">
             <strong>Maximizing AI Subscriptions: How Much Do Claude Pro and ChatGPT Plus Really Save?</strong>
             <em>2026-06-21</em>
-          </a>
-        </li>
-      
-        <li>
-          <a class="recent-item" href="/en/post/darkbloom-nodes-macbook-ai-mining-earnings.html">
-            <strong>A New Era of Mining: See How Much Your Mac Can Earn per Month</strong>
-            <em>2026-06-19</em>
           </a>
         </li>
       
@@ -596,6 +597,12 @@ Latest posts</h2>
 <p>Output:</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span><span class="string">&quot;id&quot;</span> =&gt; <span class="string">&quot;abcdefg.....&quot;</span><span class="punctuation">,</span> <span class="string">&quot;code&quot;</span> =&gt; <span class="string">&quot;ABCEFG&quot;</span><span class="punctuation">,</span></span><br></pre></td></tr></table></figure>
 <p>Just use the six characters after <code>code</code> to log in.</p>
+<h3 id="Adding-a-Passkey"><a href="#Adding-a-Passkey" class="headerlink" title="Adding a Passkey"></a>Adding a Passkey</h3><p>However, you can&#39;t open the server to query it every time you log in. Fizzy supports adding Passkeys.</p>
+<p>Click on the top or press <code>J</code> to open the settings panel, then click <code>My Profile</code>. In the bottom left corner, there is a <code>Manage passkey</code> button. Click it to add a Passkey. After that, you can log in quickly and conveniently.</p>
+<img src="https://img.nep.me/ooo/fizzy-add-passkey.webp" alt="fizzy-add-passkey.png" style="width:75%;max-width:100%;height:auto" />
+
+<div class="flatpaper-note flatpaper-note--info"><span class="flatpaper-note__icon" aria-hidden="true"></span><div class="flatpaper-note__body"><p>Recommended: <a href="https://ooo.run/en/post/use-docker-run-bitwarden.html">Easily Deploy Bitwarden Server with Docker, Build Your Own Password Manager</a></p></div></div>
+
 <h2 id="Usage-Guide"><a href="#Usage-Guide" class="headerlink" title="Usage Guide"></a>Usage Guide</h2><p>After entering the verification code and logging in, you will enter Fizzy&#39;s Playground main board. Currently, Fizzy only supports an English interface.</p>
 <p><img src="https://img.nep.me/ooo/fizzy-playgroud.webp" alt="fizzy-playgroud.png"></p>
 <p>In Fizzy, each column represents a board, which can be used to indicate the state or attributes of a task. The built-in cards explain how to use Fizzy. Briefly speaking, for the three default boards:</p>
