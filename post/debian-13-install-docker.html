@@ -343,7 +343,7 @@
         
           
             <a class="site-info__item" href="/en/archives/">
-              <strong>71</strong>
+              <strong>73</strong>
               <span>Posts</span>
             </a>
           
@@ -357,7 +357,7 @@
         
           
             <a class="site-info__item" href="/en/tags/">
-              <strong>103</strong>
+              <strong>107</strong>
               <span>Tags</span>
             </a>
           
@@ -453,6 +453,20 @@ Latest posts</h2>
     <ul class="recent-list">
       
         <li>
+          <a class="recent-item" href="/en/post/vercel-services-multiple-frameworks-one-project.html">
+            <strong>Vercel Services Released: Deploying Next.js, FastAPI, Go, and Astro in a Single Project</strong>
+            <em>2026-07-01</em>
+          </a>
+        </li>
+      
+        <li>
+          <a class="recent-item" href="/en/post/backends-is-back-vercel-support-dockerfile.html">
+            <strong>Backend is Back: Vercel Finally Supports Running Dockerfile Directly</strong>
+            <em>2026-07-01</em>
+          </a>
+        </li>
+      
+        <li>
           <a class="recent-item" href="/en/post/open-lovable-clone-website-to-react.html">
             <strong>Open Lovable: A Magical Tool to One-Click &#34;Clone&#34; Any Website into a React App</strong>
             <em>2026-06-30</em>
@@ -470,20 +484,6 @@ Latest posts</h2>
           <a class="recent-item" href="/en/post/how-to-check-codex-reset-expiration.html">
             <strong>How to Check the Expiration Date of Granted Codex Reset Credits</strong>
             <em>2026-06-29</em>
-          </a>
-        </li>
-      
-        <li>
-          <a class="recent-item" href="/en/post/fable-5-whitelist-new-privileged-class-ai-monopoly.html">
-            <strong>The Birth of the Cyber Privileged Class: The End of the AI Non-Profit Utopia Seen from the Fable 5 Whitelist</strong>
-            <em>2026-06-29</em>
-          </a>
-        </li>
-      
-        <li>
-          <a class="recent-item" href="/en/post/fix-electron-42-app-cannot-run.html">
-            <strong>Fix Electron 42 App Error on First Run of pnpm dev</strong>
-            <em>2026-06-27</em>
           </a>
         </li>
       
@@ -562,10 +562,10 @@ Latest posts</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt upgrade -y</span><br><span class="line">apt install curl vim wget gnupg dpkg apt-transport-https lsb-release ca-certificates</span><br></pre></td></tr></table></figure>
 
 <p>Then add <strong>Docker</strong>&#39;s GPG public key and apt repository:</p>
-<div class="flatpaper-tabs"><div class="flatpaper-tabs__nav" role="tablist"><button type="button" role="tab" id="tabs-17-tab-0" aria-controls="tabs-17-panel-0" aria-selected="true" class="flatpaper-tabs__nav-item is-active" data-index="0">Debian</button><button type="button" role="tab" id="tabs-17-tab-1" aria-controls="tabs-17-panel-1" aria-selected="false" class="flatpaper-tabs__nav-item" data-index="1">Ubuntu</button></div><div class="flatpaper-tabs__panels"><section role="tabpanel" id="tabs-17-panel-0" aria-labelledby="tabs-17-tab-0" class="flatpaper-tabs__panel is-active" data-index="0"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -sSL https://download.docker.com/linux/debian/gpg | gpg --dearmor &gt; /usr/share/keyrings/docker-ce.gpg</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb [arch=<span class="subst">$(dpkg --print-architecture)</span> signed-by=/usr/share/keyrings/docker-ce.gpg] https://download.docker.com/linux/debian <span class="subst">$(lsb_release -sc)</span> stable&quot;</span> &gt; /etc/apt/sources.list.d/docker.list</span><br></pre></td></tr></table></figure></section><section role="tabpanel" id="tabs-17-panel-1" aria-labelledby="tabs-17-tab-1" class="flatpaper-tabs__panel" data-index="1" hidden><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -sSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor &gt; /usr/share/keyrings/docker-ce.gpg</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb [arch=<span class="subst">$(dpkg --print-architecture)</span> signed-by=/usr/share/keyrings/docker-ce.gpg] https://download.docker.com/linux/ubuntu <span class="subst">$(lsb_release -sc)</span> stable&quot;</span> &gt; /etc/apt/sources.list.d/docker.list</span><br></pre></td></tr></table></figure></section></div></div>
+<div class="flatpaper-tabs"><div class="flatpaper-tabs__nav" role="tablist"><button type="button" role="tab" id="tabs-18-tab-0" aria-controls="tabs-18-panel-0" aria-selected="true" class="flatpaper-tabs__nav-item is-active" data-index="0">Debian</button><button type="button" role="tab" id="tabs-18-tab-1" aria-controls="tabs-18-panel-1" aria-selected="false" class="flatpaper-tabs__nav-item" data-index="1">Ubuntu</button></div><div class="flatpaper-tabs__panels"><section role="tabpanel" id="tabs-18-panel-0" aria-labelledby="tabs-18-tab-0" class="flatpaper-tabs__panel is-active" data-index="0"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -sSL https://download.docker.com/linux/debian/gpg | gpg --dearmor &gt; /usr/share/keyrings/docker-ce.gpg</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb [arch=<span class="subst">$(dpkg --print-architecture)</span> signed-by=/usr/share/keyrings/docker-ce.gpg] https://download.docker.com/linux/debian <span class="subst">$(lsb_release -sc)</span> stable&quot;</span> &gt; /etc/apt/sources.list.d/docker.list</span><br></pre></td></tr></table></figure></section><section role="tabpanel" id="tabs-18-panel-1" aria-labelledby="tabs-18-tab-1" class="flatpaper-tabs__panel" data-index="1" hidden><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -sSL https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor &gt; /usr/share/keyrings/docker-ce.gpg</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb [arch=<span class="subst">$(dpkg --print-architecture)</span> signed-by=/usr/share/keyrings/docker-ce.gpg] https://download.docker.com/linux/ubuntu <span class="subst">$(lsb_release -sc)</span> stable&quot;</span> &gt; /etc/apt/sources.list.d/docker.list</span><br></pre></td></tr></table></figure></section></div></div>
 
 <p>For machines located in mainland China, you can use the domestic mirror from <a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/">Tsinghua TUNA</a>:</p>
-<div class="flatpaper-tabs"><div class="flatpaper-tabs__nav" role="tablist"><button type="button" role="tab" id="tabs-18-tab-0" aria-controls="tabs-18-panel-0" aria-selected="true" class="flatpaper-tabs__nav-item is-active" data-index="0">Debian</button><button type="button" role="tab" id="tabs-18-tab-1" aria-controls="tabs-18-panel-1" aria-selected="false" class="flatpaper-tabs__nav-item" data-index="1">Ubuntu</button></div><div class="flatpaper-tabs__panels"><section role="tabpanel" id="tabs-18-panel-0" aria-labelledby="tabs-18-tab-0" class="flatpaper-tabs__panel is-active" data-index="0"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -sS https://download.docker.com/linux/debian/gpg | gpg --dearmor &gt; /usr/share/keyrings/docker-ce.gpg</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb [arch=<span class="subst">$(dpkg --print-architecture)</span> signed-by=/usr/share/keyrings/docker-ce.gpg] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian <span class="subst">$(lsb_release -sc)</span> stable&quot;</span> &gt; /etc/apt/sources.list.d/docker.list</span><br></pre></td></tr></table></figure></section><section role="tabpanel" id="tabs-18-panel-1" aria-labelledby="tabs-18-tab-1" class="flatpaper-tabs__panel" data-index="1" hidden><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -sS https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor &gt; /usr/share/keyrings/docker-ce.gpg</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb [arch=<span class="subst">$(dpkg --print-architecture)</span> signed-by=/usr/share/keyrings/docker-ce.gpg] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu <span class="subst">$(lsb_release -sc)</span> stable&quot;</span> &gt; /etc/apt/sources.list.d/docker.list</span><br></pre></td></tr></table></figure></section></div></div>
+<div class="flatpaper-tabs"><div class="flatpaper-tabs__nav" role="tablist"><button type="button" role="tab" id="tabs-19-tab-0" aria-controls="tabs-19-panel-0" aria-selected="true" class="flatpaper-tabs__nav-item is-active" data-index="0">Debian</button><button type="button" role="tab" id="tabs-19-tab-1" aria-controls="tabs-19-panel-1" aria-selected="false" class="flatpaper-tabs__nav-item" data-index="1">Ubuntu</button></div><div class="flatpaper-tabs__panels"><section role="tabpanel" id="tabs-19-panel-0" aria-labelledby="tabs-19-tab-0" class="flatpaper-tabs__panel is-active" data-index="0"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -sS https://download.docker.com/linux/debian/gpg | gpg --dearmor &gt; /usr/share/keyrings/docker-ce.gpg</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb [arch=<span class="subst">$(dpkg --print-architecture)</span> signed-by=/usr/share/keyrings/docker-ce.gpg] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/debian <span class="subst">$(lsb_release -sc)</span> stable&quot;</span> &gt; /etc/apt/sources.list.d/docker.list</span><br></pre></td></tr></table></figure></section><section role="tabpanel" id="tabs-19-panel-1" aria-labelledby="tabs-19-tab-1" class="flatpaper-tabs__panel" data-index="1" hidden><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -sS https://download.docker.com/linux/ubuntu/gpg | gpg --dearmor &gt; /usr/share/keyrings/docker-ce.gpg</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb [arch=<span class="subst">$(dpkg --print-architecture)</span> signed-by=/usr/share/keyrings/docker-ce.gpg] https://mirrors.tuna.tsinghua.edu.cn/docker-ce/linux/ubuntu <span class="subst">$(lsb_release -sc)</span> stable&quot;</span> &gt; /etc/apt/sources.list.d/docker.list</span><br></pre></td></tr></table></figure></section></div></div>
 
 <p>After updating the system, you can then install Docker CE and the Docker Compose plugin:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt update</span><br><span class="line">apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin</span><br></pre></td></tr></table></figure>
@@ -597,7 +597,7 @@ Latest posts</h2>
 <p>Still find <code>docker compose</code> too long to type? Execute the commands below, and you&#39;ll be able to use <code>dc</code> as an alternative:</p>
 <div class="flatpaper-note flatpaper-note--info"><span class="flatpaper-note__icon" aria-hidden="true"></span><div class="flatpaper-note__body"><p>Before executing, run <code>dc</code> once to confirm the command is not currently in use. After execution, run <code>dc version</code> to verify.</p></div></div>
 
-<div class="flatpaper-tabs"><div class="flatpaper-tabs__nav" role="tablist"><button type="button" role="tab" id="tabs-19-tab-0" aria-controls="tabs-19-panel-0" aria-selected="true" class="flatpaper-tabs__nav-item is-active" data-index="0">bash</button><button type="button" role="tab" id="tabs-19-tab-1" aria-controls="tabs-19-panel-1" aria-selected="false" class="flatpaper-tabs__nav-item" data-index="1">zsh</button></div><div class="flatpaper-tabs__panels"><section role="tabpanel" id="tabs-19-panel-0" aria-labelledby="tabs-19-tab-0" class="flatpaper-tabs__panel is-active" data-index="0"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;alias dc=&quot;docker compose&quot;&#x27;</span> &gt;&gt; ~/.bashrc </span><br><span class="line"><span class="built_in">source</span> ~/.bashrc </span><br></pre></td></tr></table></figure></section><section role="tabpanel" id="tabs-19-panel-1" aria-labelledby="tabs-19-tab-1" class="flatpaper-tabs__panel" data-index="1" hidden><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;alias dc=&quot;docker compose&quot;&#x27;</span> &gt;&gt; ~/.zshrc </span><br><span class="line"><span class="built_in">source</span> ~/.zshrc </span><br></pre></td></tr></table></figure></section></div></div>
+<div class="flatpaper-tabs"><div class="flatpaper-tabs__nav" role="tablist"><button type="button" role="tab" id="tabs-20-tab-0" aria-controls="tabs-20-panel-0" aria-selected="true" class="flatpaper-tabs__nav-item is-active" data-index="0">bash</button><button type="button" role="tab" id="tabs-20-tab-1" aria-controls="tabs-20-panel-1" aria-selected="false" class="flatpaper-tabs__nav-item" data-index="1">zsh</button></div><div class="flatpaper-tabs__panels"><section role="tabpanel" id="tabs-20-panel-0" aria-labelledby="tabs-20-tab-0" class="flatpaper-tabs__panel is-active" data-index="0"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;alias dc=&quot;docker compose&quot;&#x27;</span> &gt;&gt; ~/.bashrc </span><br><span class="line"><span class="built_in">source</span> ~/.bashrc </span><br></pre></td></tr></table></figure></section><section role="tabpanel" id="tabs-20-panel-1" aria-labelledby="tabs-20-tab-1" class="flatpaper-tabs__panel" data-index="1" hidden><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;alias dc=&quot;docker compose&quot;&#x27;</span> &gt;&gt; ~/.zshrc </span><br><span class="line"><span class="built_in">source</span> ~/.zshrc </span><br></pre></td></tr></table></figure></section></div></div>
 
 <p>Effect:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@debian:~# dc</span><br><span class="line">-bash: dc: <span class="built_in">command</span> not found</span><br><span class="line"></span><br><span class="line">root@debian:~# dc version</span><br><span class="line">Docker Compose version v5.2.0</span><br></pre></td></tr></table></figure>
@@ -635,13 +635,13 @@ Latest posts</h2>
 
   <nav class="article-actions">
     
-      <span class="article-action article-action--prev is-disabled" aria-disabled="true">
+      <a class="article-action article-action--prev" href="/en/post/backends-is-back-vercel-support-dockerfile.html">
         
 <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
 
         <span class="action-label">Previous</span>
-        <span class="action-title">No earlier posts</span>
-      </span>
+        <span class="action-title">Backend is Back: Vercel Finally Supports Running Dockerfile Directly</span>
+      </a>
     
     
       <a class="article-action article-action--next" href="/en/post/open-lovable-clone-website-to-react.html">
