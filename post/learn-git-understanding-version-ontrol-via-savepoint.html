@@ -339,7 +339,7 @@
         
           
             <a class="site-info__item" href="/en/archives/">
-              <strong>75</strong>
+              <strong>76</strong>
               <span>Posts</span>
             </a>
           
@@ -353,7 +353,7 @@
         
           
             <a class="site-info__item" href="/en/tags/">
-              <strong>110</strong>
+              <strong>111</strong>
               <span>Tags</span>
             </a>
           
@@ -449,6 +449,13 @@ Latest posts</h2>
     <ul class="recent-list">
       
         <li>
+          <a class="recent-item" href="/en/post/docker-compose-init-containers.html">
+            <strong>Docker Compose Adds Init Containers: Say Goodbye to One-Off Initialization Services</strong>
+            <em>2026-07-04</em>
+          </a>
+        </li>
+      
+        <li>
           <a class="recent-item" href="/en/post/paper-shaders-open-source-webgl-design-effects.html">
             <strong>Open Source Project: Turning Cool WebGL Shaders into Frontend Components - An Introduction to Paper Shaders</strong>
             <em>2026-07-02</em>
@@ -473,13 +480,6 @@ Latest posts</h2>
           <a class="recent-item" href="/en/post/backends-is-back-vercel-support-dockerfile.html">
             <strong>Backend is Back: Vercel Finally Supports Running Dockerfile Directly</strong>
             <em>2026-07-01</em>
-          </a>
-        </li>
-      
-        <li>
-          <a class="recent-item" href="/en/post/debian-13-install-docker.html">
-            <strong>2026 Debian 13 Tutorial: Installing Docker and Docker Compose</strong>
-            <em>2026-06-30</em>
           </a>
         </li>
       
@@ -633,8 +633,8 @@ Latest posts</h2>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br><span class="line"><span class="comment"># Or use the cleaner single-line output</span></span><br><span class="line">git <span class="built_in">log</span> --oneline</span><br></pre></td></tr></table></figure>
 
 <h3 id="2-View-File-Changes-Git-Diff"><a href="#2-View-File-Changes-Git-Diff" class="headerlink" title="2. View File Changes (Git Diff)"></a>2. View File Changes (Git Diff)</h3><p>Before creating a savepoint, you need to confirm exactly what you&#39;ve changed:</p>
-<div class="flatpaper-tabs"><div class="flatpaper-tabs__nav" role="tablist"><button type="button" role="tab" id="tabs-20-tab-0" aria-controls="tabs-20-panel-0" aria-selected="true" class="flatpaper-tabs__nav-item is-active" data-index="0">Compare Working Directory</button><button type="button" role="tab" id="tabs-20-tab-1" aria-controls="tabs-20-panel-1" aria-selected="false" class="flatpaper-tabs__nav-item" data-index="1">Compare Staging Area</button></div><div class="flatpaper-tabs__panels"><section role="tabpanel" id="tabs-20-panel-0" aria-labelledby="tabs-20-tab-0" class="flatpaper-tabs__panel is-active" data-index="0"><p>What changed in my current world compared to the last save?</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff</span><br></pre></td></tr></table></figure></section><section role="tabpanel" id="tabs-20-panel-1" aria-labelledby="tabs-20-tab-1" class="flatpaper-tabs__panel" data-index="1" hidden><p>What are the contents that I&#39;ve added to the staging area, ready to be written to the next savepoint?</p>
+<div class="flatpaper-tabs"><div class="flatpaper-tabs__nav" role="tablist"><button type="button" role="tab" id="tabs-22-tab-0" aria-controls="tabs-22-panel-0" aria-selected="true" class="flatpaper-tabs__nav-item is-active" data-index="0">Compare Working Directory</button><button type="button" role="tab" id="tabs-22-tab-1" aria-controls="tabs-22-panel-1" aria-selected="false" class="flatpaper-tabs__nav-item" data-index="1">Compare Staging Area</button></div><div class="flatpaper-tabs__panels"><section role="tabpanel" id="tabs-22-panel-0" aria-labelledby="tabs-22-tab-0" class="flatpaper-tabs__panel is-active" data-index="0"><p>What changed in my current world compared to the last save?</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff</span><br></pre></td></tr></table></figure></section><section role="tabpanel" id="tabs-22-panel-1" aria-labelledby="tabs-22-tab-1" class="flatpaper-tabs__panel" data-index="1" hidden><p>What are the contents that I&#39;ve added to the staging area, ready to be written to the next savepoint?</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff --staged</span><br></pre></td></tr></table></figure></section></div></div>
 
 <h2 id="5-Branch-and-Merge-Multiverses"><a href="#5-Branch-and-Merge-Multiverses" class="headerlink" title="5. Branch and Merge: Multiverses"></a>5. Branch and Merge: Multiverses</h2><p>One of <strong>Git</strong>&#39;s most powerful features is branching.</p>
@@ -656,10 +656,10 @@ Latest posts</h2>
 <div class="flatpaper-note flatpaper-note--info"><span class="flatpaper-note__icon" aria-hidden="true"></span><div class="flatpaper-note__body"><p><strong>Golden Rule of Collaboration</strong>: Before starting your daily work or committing code, it is strongly recommended to first run <code>git pull</code> to synchronize the latest state from the server. This can significantly reduce the probability of merge conflicts.</p></div></div>
 
 <h2 id="7-Undo-and-Temporary-Pocket-Stash"><a href="#7-Undo-and-Temporary-Pocket-Stash" class="headerlink" title="7. Undo and Temporary Pocket (Stash)"></a>7. Undo and Temporary Pocket (Stash)</h2><h3 id="1-Safe-Undo-and-Rollback"><a href="#1-Safe-Undo-and-Rollback" class="headerlink" title="1. Safe Undo and Rollback"></a>1. Safe Undo and Rollback</h3><p>If you break your code or commit the wrong content, you can safely &quot;load a save&quot; through the following commands:</p>
-<div class="flatpaper-tabs"><div class="flatpaper-tabs__nav" role="tablist"><button type="button" role="tab" id="tabs-21-tab-0" aria-controls="tabs-21-panel-0" aria-selected="true" class="flatpaper-tabs__nav-item is-active" data-index="0">Discard Working Directory Changes</button><button type="button" role="tab" id="tabs-21-tab-1" aria-controls="tabs-21-panel-1" aria-selected="false" class="flatpaper-tabs__nav-item" data-index="1">Unstage</button><button type="button" role="tab" id="tabs-21-tab-2" aria-controls="tabs-21-panel-2" aria-selected="false" class="flatpaper-tabs__nav-item" data-index="2">Revert Commit</button><button type="button" role="tab" id="tabs-21-tab-3" aria-controls="tabs-21-panel-3" aria-selected="false" class="flatpaper-tabs__nav-item" data-index="3">Hard Reset</button></div><div class="flatpaper-tabs__panels"><section role="tabpanel" id="tabs-21-panel-0" aria-labelledby="tabs-21-tab-0" class="flatpaper-tabs__panel is-active" data-index="0"><p>Discard current un-added changes, returning to the state of the last official savepoint:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git restore README.md</span><br></pre></td></tr></table></figure></section><section role="tabpanel" id="tabs-21-panel-1" aria-labelledby="tabs-21-tab-1" class="flatpaper-tabs__panel" data-index="1" hidden><p>Regret running git add; take the file out of the staging area (does not delete actual modifications):</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git restore --staged README.md</span><br></pre></td></tr></table></figure></section><section role="tabpanel" id="tabs-21-panel-2" aria-labelledby="tabs-21-tab-2" class="flatpaper-tabs__panel" data-index="2" hidden><p>Create a new &quot;reverse commit&quot; to undo the effects of a specified commit. This is the safest practice in collaboration!</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git revert a1b2c3d</span><br></pre></td></tr></table></figure></section><section role="tabpanel" id="tabs-21-panel-3" aria-labelledby="tabs-21-tab-3" class="flatpaper-tabs__panel" data-index="3" hidden><p>Dangerous! Forcibly move the timeline back to an old savepoint, discarding all subsequent commits:</p>
+<div class="flatpaper-tabs"><div class="flatpaper-tabs__nav" role="tablist"><button type="button" role="tab" id="tabs-23-tab-0" aria-controls="tabs-23-panel-0" aria-selected="true" class="flatpaper-tabs__nav-item is-active" data-index="0">Discard Working Directory Changes</button><button type="button" role="tab" id="tabs-23-tab-1" aria-controls="tabs-23-panel-1" aria-selected="false" class="flatpaper-tabs__nav-item" data-index="1">Unstage</button><button type="button" role="tab" id="tabs-23-tab-2" aria-controls="tabs-23-panel-2" aria-selected="false" class="flatpaper-tabs__nav-item" data-index="2">Revert Commit</button><button type="button" role="tab" id="tabs-23-tab-3" aria-controls="tabs-23-panel-3" aria-selected="false" class="flatpaper-tabs__nav-item" data-index="3">Hard Reset</button></div><div class="flatpaper-tabs__panels"><section role="tabpanel" id="tabs-23-panel-0" aria-labelledby="tabs-23-tab-0" class="flatpaper-tabs__panel is-active" data-index="0"><p>Discard current un-added changes, returning to the state of the last official savepoint:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git restore README.md</span><br></pre></td></tr></table></figure></section><section role="tabpanel" id="tabs-23-panel-1" aria-labelledby="tabs-23-tab-1" class="flatpaper-tabs__panel" data-index="1" hidden><p>Regret running git add; take the file out of the staging area (does not delete actual modifications):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git restore --staged README.md</span><br></pre></td></tr></table></figure></section><section role="tabpanel" id="tabs-23-panel-2" aria-labelledby="tabs-23-tab-2" class="flatpaper-tabs__panel" data-index="2" hidden><p>Create a new &quot;reverse commit&quot; to undo the effects of a specified commit. This is the safest practice in collaboration!</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git revert a1b2c3d</span><br></pre></td></tr></table></figure></section><section role="tabpanel" id="tabs-23-panel-3" aria-labelledby="tabs-23-tab-3" class="flatpaper-tabs__panel" data-index="3" hidden><p>Dangerous! Forcibly move the timeline back to an old savepoint, discarding all subsequent commits:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard a1b2c3d</span><br></pre></td></tr></table></figure></section></div></div>
 
 <h3 id="2-Stash-The-Temporary-Pocket-Save"><a href="#2-Stash-The-Temporary-Pocket-Save" class="headerlink" title="2. Stash: The Temporary Pocket Save"></a>2. Stash: The Temporary Pocket Save</h3><p>Sometimes you are half-way through developing a feature but need to switch branches temporarily to fix a Bug, yet the code isn&#39;t ready for a commit. You can use the temporary pocket:</p>
@@ -760,10 +760,26 @@ Related posts</h2>
           </span>
         </a>
       
-        <a class="related-card" href="/en/post/debian-13-install-docker.html">
+        <a class="related-card" href="/en/post/docker-compose-init-containers.html">
           <span class="related-card__thumb">
             
 <div class="paper-thumb paper-thumb-1 paper-thumb--cover">
+  
+    <img class="paper-thumb__img" src="https://img.nep.me/ooo/cover-docker-init.webp" alt="Docker Compose Adds Init Containers: Say Goodbye to One-Off Initialization Services" loading="lazy" referrerpolicy="no-referrer">
+  
+</div>
+
+          </span>
+          <span class="related-card__body">
+            <strong class="related-card__title">Docker Compose Adds Init Containers: Say Goodbye to One-Off Initialization Services</strong>
+            <em class="related-card__date">2026-07-04</em>
+          </span>
+        </a>
+      
+        <a class="related-card" href="/en/post/debian-13-install-docker.html">
+          <span class="related-card__thumb">
+            
+<div class="paper-thumb paper-thumb-2 paper-thumb--cover">
   
     <img class="paper-thumb__img" src="https://img.nep.me/ooo/cover-docker-2026.webp" alt="2026 Debian 13 Tutorial: Installing Docker and Docker Compose" loading="lazy" referrerpolicy="no-referrer">
   
@@ -779,7 +795,7 @@ Related posts</h2>
         <a class="related-card" href="/en/post/docker-run-fizzy-kanban.html">
           <span class="related-card__thumb">
             
-<div class="paper-thumb paper-thumb-2 paper-thumb--cover">
+<div class="paper-thumb paper-thumb-0 paper-thumb--cover">
   
     <img class="paper-thumb__img" src="https://img.nep.me/ooo/fizzy-board.webp" alt="Deploying Fizzy with Docker: A Lightweight, Beautiful, Self-Hostable Kanban Tool" loading="lazy" referrerpolicy="no-referrer">
   
@@ -789,22 +805,6 @@ Related posts</h2>
           <span class="related-card__body">
             <strong class="related-card__title">Deploying Fizzy with Docker: A Lightweight, Beautiful, Self-Hostable Kanban Tool</strong>
             <em class="related-card__date">2026-06-23</em>
-          </span>
-        </a>
-      
-        <a class="related-card" href="/en/post/nginx-vs-caddy.html">
-          <span class="related-card__thumb">
-            
-<div class="paper-thumb paper-thumb-0 paper-thumb--cover">
-  
-    <img class="paper-thumb__img" src="/en/images/cover/port.webp" alt="" loading="lazy" referrerpolicy="no-referrer">
-  
-</div>
-
-          </span>
-          <span class="related-card__body">
-            <strong class="related-card__title">Nginx vs Caddy: A Comparison Guide for DevOps Practitioners</strong>
-            <em class="related-card__date">2026-06-12</em>
           </span>
         </a>
       
