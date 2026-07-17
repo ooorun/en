@@ -1,4 +1,0 @@
-User-Agent: *
-Allow: /
-
-Sitemap: https://ooo.run/en/games/sitemap.xml
